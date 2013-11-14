@@ -1,0 +1,26 @@
+regex per line item
+===================
+
+FANSUB		enclosed	^\[[^\[]*\]			first (unique)
+HASH		direct		\b[\dABCDEF]{8}\b		last
+FULL FORMAT	enclosed	\[  [^\]]*  \d+p  [^\[]*  \]	last
+JUST RESOLUTION	direct		\b\d+p\b			last
+CHAPTER		direct		\b\d{1,4}\b			last
+
+ANIME		manual-extraction
+		>>>
+		1. take string
+		2. delete fansub if was found (it's at the beginning)
+		3. (get final position) look for first chapter coincidence if found (from left, which means the last coincidence)
+					maybe it's possible to use the returned string position on get-chapter regex
+		4. (get final position) look for first "[" enclosure, use end of string otherwise
+		5. clean up key words like opening and ending
+		6. delete edge trash like spaces and symbols
+
+
+** (last) means last coincidence.
+
+
+???
+ANIME		must-fix	(?<=\]) [^\[\d]+
+		undo inverse-enclosed -> trim -> edge symbols -> trim
