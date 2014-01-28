@@ -31,30 +31,31 @@
             this.tNew = new System.Windows.Forms.TextBox();
             this.bNew = new System.Windows.Forms.Button();
             this.panelNew = new System.Windows.Forms.Panel();
-            this.listViewAnime = new System.Windows.Forms.ListView();
-            this.MainPanel = new System.Windows.Forms.Panel();
             this.panelNewButton = new System.Windows.Forms.Panel();
+            this.listViewAnime = new System.Windows.Forms.ListView();
             this.cName = new System.Windows.Forms.ColumnHeader();
             this.cSource = new System.Windows.Forms.ColumnHeader();
+            this.MainPanel = new System.Windows.Forms.Panel();
             this.panelNew.SuspendLayout();
-            this.MainPanel.SuspendLayout();
             this.panelNewButton.SuspendLayout();
+            this.MainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // tNew
             // 
-            this.tNew.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tNew.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tNew.Location = new System.Drawing.Point(0, 0);
-            this.tNew.Multiline = true;
             this.tNew.Name = "tNew";
             this.tNew.Size = new System.Drawing.Size(372, 20);
             this.tNew.TabIndex = 0;
+            this.tNew.TextChanged += new System.EventHandler(this.tNew_TextChanged);
+            this.tNew.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tNew_KeyDown);
             // 
             // bNew
             // 
             this.bNew.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bNew.Enabled = false;
             this.bNew.Location = new System.Drawing.Point(11, 0);
             this.bNew.Name = "bNew";
             this.bNew.Size = new System.Drawing.Size(51, 20);
@@ -73,30 +74,6 @@
             this.panelNew.Size = new System.Drawing.Size(434, 20);
             this.panelNew.TabIndex = 2;
             // 
-            // listViewAnime
-            // 
-            this.listViewAnime.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.cName,
-            this.cSource});
-            this.listViewAnime.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listViewAnime.FullRowSelect = true;
-            this.listViewAnime.Location = new System.Drawing.Point(0, 11);
-            this.listViewAnime.Name = "listViewAnime";
-            this.listViewAnime.Size = new System.Drawing.Size(434, 228);
-            this.listViewAnime.TabIndex = 3;
-            this.listViewAnime.UseCompatibleStateImageBehavior = false;
-            this.listViewAnime.View = System.Windows.Forms.View.Details;
-            // 
-            // MainPanel
-            // 
-            this.MainPanel.Controls.Add(this.listViewAnime);
-            this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainPanel.Location = new System.Drawing.Point(10, 30);
-            this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Padding = new System.Windows.Forms.Padding(0, 11, 0, 0);
-            this.MainPanel.Size = new System.Drawing.Size(434, 239);
-            this.MainPanel.TabIndex = 4;
-            // 
             // panelNewButton
             // 
             this.panelNewButton.Controls.Add(this.bNew);
@@ -107,6 +84,20 @@
             this.panelNewButton.Size = new System.Drawing.Size(62, 20);
             this.panelNewButton.TabIndex = 5;
             // 
+            // listViewAnime
+            // 
+            this.listViewAnime.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.cName,
+            this.cSource});
+            this.listViewAnime.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listViewAnime.FullRowSelect = true;
+            this.listViewAnime.Location = new System.Drawing.Point(0, 11);
+            this.listViewAnime.Name = "listViewAnime";
+            this.listViewAnime.Size = new System.Drawing.Size(434, 228);
+            this.listViewAnime.TabIndex = 2;
+            this.listViewAnime.UseCompatibleStateImageBehavior = false;
+            this.listViewAnime.View = System.Windows.Forms.View.Details;
+            // 
             // cName
             // 
             this.cName.Text = "Name";
@@ -116,6 +107,16 @@
             // 
             this.cSource.Text = "Folder";
             this.cSource.Width = 144;
+            // 
+            // MainPanel
+            // 
+            this.MainPanel.Controls.Add(this.listViewAnime);
+            this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainPanel.Location = new System.Drawing.Point(10, 30);
+            this.MainPanel.Name = "MainPanel";
+            this.MainPanel.Padding = new System.Windows.Forms.Padding(0, 11, 0, 0);
+            this.MainPanel.Size = new System.Drawing.Size(434, 239);
+            this.MainPanel.TabIndex = 4;
             // 
             // AnimeForm
             // 
@@ -131,8 +132,8 @@
             this.Text = "Anime";
             this.panelNew.ResumeLayout(false);
             this.panelNew.PerformLayout();
-            this.MainPanel.ResumeLayout(false);
             this.panelNewButton.ResumeLayout(false);
+            this.MainPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
