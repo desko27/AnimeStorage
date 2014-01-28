@@ -16,28 +16,20 @@ namespace AnimeStorage
             InitializeComponent();
         }
 
-        // ==================================================
-        # region menu bar events
-        // ==================================================
-
-        private void mLog_CheckedChanged(object sender, EventArgs e)
+        private void MainForm_Shown(object sender, EventArgs e)
         {
-            if (mLog.Checked) {
-                mLog.BackColor = Color.DarkBlue;
-                mLog.ForeColor = SystemColors.Window;
-            } else {
-                mLog.BackColor = SystemColors.Control;
-                mLog.ForeColor = SystemColors.ControlText;
-            }
+            // dev. form
+            var f = new AnimeForm();
+            f.Show();
+            // ---
         }
 
-        private void mRules_Click(object sender, EventArgs e)
+        private void mainMenuItemAnime_Click(object sender, EventArgs e)
         {
-            var f = new RulesForm();
+            var f = new AnimeForm();
             f.StartPosition = FormStartPosition.CenterParent;
             f.ShowDialog();
         }
 
-        # endregion
     }
 }

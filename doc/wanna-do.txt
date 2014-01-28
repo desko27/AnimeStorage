@@ -1,1 +1,1 @@
-* Try to apply patches when found downloaded.
+* Try to apply patches when downloaded ones are found.
