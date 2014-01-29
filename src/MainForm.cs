@@ -16,15 +16,7 @@ namespace AnimeStorage
             InitializeComponent();
         }
 
-        private void MainForm_Shown(object sender, EventArgs e)
-        {
-            // dev. form
-            var f = new AnimeForm();
-            f.Show();
-            // ---
-        }
-
-        private void mainMenuItemAnime_Click(object sender, EventArgs e)
+        private void toolStripButtonAnime_Click(object sender, EventArgs e)
         {
             var f = new AnimeForm();
             f.StartPosition = FormStartPosition.CenterParent;

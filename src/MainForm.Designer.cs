@@ -28,48 +28,72 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.MainMenu = new System.Windows.Forms.MenuStrip();
-            this.mainMenuItemAnime = new System.Windows.Forms.ToolStripMenuItem();
-            this.MainMenu.SuspendLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            this.toolStripTop = new System.Windows.Forms.ToolStrip();
+            this.toolStripButtonAnime = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonSettings = new System.Windows.Forms.ToolStripButton();
+            this.toolStripTop.SuspendLayout();
             this.SuspendLayout();
             // 
-            // MainMenu
+            // toolStripTop
             // 
-            this.MainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mainMenuItemAnime});
-            this.MainMenu.Location = new System.Drawing.Point(0, 0);
-            this.MainMenu.Name = "MainMenu";
-            this.MainMenu.Size = new System.Drawing.Size(222, 24);
-            this.MainMenu.TabIndex = 0;
-            this.MainMenu.Text = "menuStrip1";
+            this.toolStripTop.AutoSize = false;
+            this.toolStripTop.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStripTop.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("toolStripTop.BackgroundImage")));
+            this.toolStripTop.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonAnime,
+            this.toolStripButtonSettings});
+            this.toolStripTop.Location = new System.Drawing.Point(0, 0);
+            this.toolStripTop.Name = "toolStripTop";
+            this.toolStripTop.Padding = new System.Windows.Forms.Padding(15, 0, 1, 0);
+            this.toolStripTop.Size = new System.Drawing.Size(497, 40);
+            this.toolStripTop.TabIndex = 5;
+            this.toolStripTop.Text = "toolStrip1";
             // 
-            // mainMenuItemAnime
+            // toolStripButtonAnime
             // 
-            this.mainMenuItemAnime.Name = "mainMenuItemAnime";
-            this.mainMenuItemAnime.Size = new System.Drawing.Size(54, 20);
-            this.mainMenuItemAnime.Text = "&Anime";
-            this.mainMenuItemAnime.Click += new System.EventHandler(this.mainMenuItemAnime_Click);
+            this.toolStripButtonAnime.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripButtonAnime.ForeColor = System.Drawing.Color.White;
+            this.toolStripButtonAnime.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonAnime.Image")));
+            this.toolStripButtonAnime.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonAnime.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonAnime.Name = "toolStripButtonAnime";
+            this.toolStripButtonAnime.Size = new System.Drawing.Size(96, 37);
+            this.toolStripButtonAnime.Text = "Anime";
+            this.toolStripButtonAnime.Click += new System.EventHandler(this.toolStripButtonAnime_Click);
+            // 
+            // toolStripButtonSettings
+            // 
+            this.toolStripButtonSettings.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripButtonSettings.ForeColor = System.Drawing.Color.White;
+            this.toolStripButtonSettings.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSettings.Image")));
+            this.toolStripButtonSettings.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonSettings.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonSettings.Name = "toolStripButtonSettings";
+            this.toolStripButtonSettings.Size = new System.Drawing.Size(108, 37);
+            this.toolStripButtonSettings.Text = "Settings";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(222, 137);
-            this.Controls.Add(this.MainMenu);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(497, 265);
+            this.Controls.Add(this.toolStripTop);
             this.Name = "MainForm";
             this.Text = "Anime Storage";
-            this.Shown += new System.EventHandler(this.MainForm_Shown);
-            this.MainMenu.ResumeLayout(false);
-            this.MainMenu.PerformLayout();
+            this.toolStripTop.ResumeLayout(false);
+            this.toolStripTop.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip MainMenu;
-        private System.Windows.Forms.ToolStripMenuItem mainMenuItemAnime;
+        private System.Windows.Forms.ToolStrip toolStripTop;
+        private System.Windows.Forms.ToolStripButton toolStripButtonAnime;
+        private System.Windows.Forms.ToolStripButton toolStripButtonSettings;
+
 
     }
 }

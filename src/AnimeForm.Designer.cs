@@ -125,7 +125,6 @@
             this.ClientSize = new System.Drawing.Size(454, 279);
             this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.panelNew);
-            this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AnimeForm";
             this.Padding = new System.Windows.Forms.Padding(10);

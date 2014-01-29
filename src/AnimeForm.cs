@@ -16,24 +16,36 @@ namespace AnimeStorage
             InitializeComponent();
         }
 
-        private void bNew_Click(object sender, EventArgs e)
-        {
+        // ---------------------------------------------------------------------------
+        // ** Action Functions :: ADD NEW ANIME
+        // ---------------------------------------------------------------------------
+        private bool canAdd(string str) { return str != ""; }
+        private void doAdd() {
+
             // retrieve item from textbox
             var item = new ListViewItem();
-            item.Text = tNew.Text;
 
-            // ask for the source folder
-            // ...
+            // open edit anime dialog
+            var f = new AnimeEditForm(tNew.Text);
+            f.StartPosition = FormStartPosition.CenterParent;
+            f.ShowDialog();
 
             // add item and emtpy textbox
-            listViewAnime.Items.Add(item);
-            listViewAnime.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-            tNew.Text = "";
-        }
-        
-        bool canAdd(string str)
-        { return str != ""; }
+            if (f.DialogResult == DialogResult.OK) {
 
+                item.Text = f.data;
+                listViewAnime.Items.Add(item);
+                listViewAnime.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                tNew.Text = "";
+
+            }
+
+        }
+
+        // ---------------------------------------------------------------------------
+        // ** Interface Listeners :: ADD NEW ANIME
+        // ---------------------------------------------------------------------------
+        private void bNew_Click(object sender, EventArgs e) { doAdd(); }
         private void tNew_TextChanged(object sender, EventArgs e)
         {
             // check conditions to enable button
@@ -42,7 +54,6 @@ namespace AnimeStorage
             else
                 bNew.Enabled = false;
         }
-
         private void tNew_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter && canAdd(tNew.Text))
