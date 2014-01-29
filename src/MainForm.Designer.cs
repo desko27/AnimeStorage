@@ -32,6 +32,7 @@
             this.toolStripTop = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonAnime = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonSettings = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonDownloads = new System.Windows.Forms.ToolStripButton();
             this.toolStripTop.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,6 +43,7 @@
             this.toolStripTop.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("toolStripTop.BackgroundImage")));
             this.toolStripTop.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonAnime,
+            this.toolStripButtonDownloads,
             this.toolStripButtonSettings});
             this.toolStripTop.Location = new System.Drawing.Point(0, 0);
             this.toolStripTop.Name = "toolStripTop";
@@ -73,6 +75,17 @@
             this.toolStripButtonSettings.Size = new System.Drawing.Size(108, 37);
             this.toolStripButtonSettings.Text = "Settings";
             // 
+            // toolStripButtonDownloads
+            // 
+            this.toolStripButtonDownloads.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripButtonDownloads.ForeColor = System.Drawing.Color.White;
+            this.toolStripButtonDownloads.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonDownloads.Image")));
+            this.toolStripButtonDownloads.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonDownloads.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonDownloads.Name = "toolStripButtonDownloads";
+            this.toolStripButtonDownloads.Size = new System.Drawing.Size(132, 37);
+            this.toolStripButtonDownloads.Text = "Downloads";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -93,6 +106,7 @@
         private System.Windows.Forms.ToolStrip toolStripTop;
         private System.Windows.Forms.ToolStripButton toolStripButtonAnime;
         private System.Windows.Forms.ToolStripButton toolStripButtonSettings;
+        private System.Windows.Forms.ToolStripButton toolStripButtonDownloads;
 
 
     }

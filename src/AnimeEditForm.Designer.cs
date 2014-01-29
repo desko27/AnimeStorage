@@ -96,7 +96,7 @@
             this.gRules.Location = new System.Drawing.Point(10, 0);
             this.gRules.Name = "gRules";
             this.gRules.Padding = new System.Windows.Forms.Padding(9);
-            this.gRules.Size = new System.Drawing.Size(734, 379);
+            this.gRules.Size = new System.Drawing.Size(734, 252);
             this.gRules.TabIndex = 2;
             this.gRules.TabStop = false;
             this.gRules.Text = "Custom rules";
@@ -110,7 +110,7 @@
             this.listViewAnime.FullRowSelect = true;
             this.listViewAnime.Location = new System.Drawing.Point(9, 22);
             this.listViewAnime.Name = "listViewAnime";
-            this.listViewAnime.Size = new System.Drawing.Size(716, 348);
+            this.listViewAnime.Size = new System.Drawing.Size(716, 221);
             this.listViewAnime.TabIndex = 3;
             this.listViewAnime.UseCompatibleStateImageBehavior = false;
             this.listViewAnime.View = System.Windows.Forms.View.Details;
@@ -132,7 +132,7 @@
             this.panelRules.Location = new System.Drawing.Point(0, 140);
             this.panelRules.Name = "panelRules";
             this.panelRules.Padding = new System.Windows.Forms.Padding(10, 0, 10, 10);
-            this.panelRules.Size = new System.Drawing.Size(754, 389);
+            this.panelRules.Size = new System.Drawing.Size(754, 262);
             this.panelRules.TabIndex = 0;
             // 
             // toolStripTop
@@ -334,7 +334,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(754, 529);
+            this.ClientSize = new System.Drawing.Size(754, 402);
             this.Controls.Add(this.panelRules);
             this.Controls.Add(this.panelTop);
             this.Controls.Add(this.toolStripTop);
