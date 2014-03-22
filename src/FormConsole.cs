@@ -12,21 +12,29 @@ namespace AnimeStorage
 {
     public partial class FormConsole : KryptonForm
     {
+
         public FormConsole()
         {
             InitializeComponent();
         }
 
-        private void FormConsole_Activated(object sender, EventArgs e)
-        {
-            tPrompt.Focus();
-        }
+        // ==================================================
+            # region automatic events
+        // ==================================================
 
-        private void FormConsole_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            this.Hide();
-            e.Cancel = true;
-        }
+        // set focus to the prompt
+        private void FormConsole_Activated(object sender, EventArgs e) { tPrompt.Focus(); }
+
+            #endregion
+
+        // ==================================================
+            # region interface events -> layout control
+        // ==================================================
+
+        // avoid the form to be destroyed when closing it through the window `x` button
+        private void FormConsole_FormClosing(object sender, FormClosingEventArgs e) { this.Hide(); e.Cancel = true; }
+            
+            #endregion
 
     }
 }

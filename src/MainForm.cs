@@ -13,19 +13,30 @@ namespace AnimeStorage
 {
     public partial class MainForm : KryptonForm
     {
+
+        // ** always-active console form
         FormConsole fConsole = new FormConsole();
+        // ---
 
         public MainForm()
         {
             InitializeComponent();
         }
 
-        private void menuConsole_Click(object sender, EventArgs e)
-        {
-            if (!fConsole.Visible) fConsole.Show();
-            else fConsole.Focus();
-        }
+        // ==================================================
+            # region interface events -> top menu
+        // ==================================================
 
+        private void menuConsole_Click(object sender, EventArgs e)
+        { if (!fConsole.Visible) fConsole.Show(); else fConsole.Focus(); }
+
+            #endregion
+
+        // ==================================================
+            # region interface events -> layout control
+        // ==================================================
+
+        // add the ability to move the window through the top panel
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HTCAPTION = 0x2;
         [DllImport("User32.dll")]
@@ -41,15 +52,12 @@ namespace AnimeStorage
             }
         }
 
-        private void splitContainerMain_DoubleClick(object sender, EventArgs e)
-        {
-            splitContainerMain.SplitterDistance = splitContainerMain.Width / 2;
-        }
+        // double-click separators to return the dual-panel layout to its default `50% each one`
+        private void splitContainerMain_DoubleClick(object sender, EventArgs e) { splitContainerMain.SplitterDistance = splitContainerMain.Width / 2; }
+        private void splitContainerRight_DoubleClick(object sender, EventArgs e) { splitContainerRight.SplitterDistance = splitContainerRight.Height / 2; }
 
-        private void splitContainerRight_DoubleClick(object sender, EventArgs e)
-        {
-            splitContainerRight.SplitterDistance = splitContainerRight.Height / 2;
-        }
+            #endregion
+
     }
 
 }
