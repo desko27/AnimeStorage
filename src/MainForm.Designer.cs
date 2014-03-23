@@ -211,6 +211,7 @@
             this.olvAnime.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.cName,
             this.cRating});
+            this.olvAnime.Cursor = System.Windows.Forms.Cursors.Default;
             this.olvAnime.Dock = System.Windows.Forms.DockStyle.Fill;
             this.olvAnime.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.olvAnime.ForeColor = System.Drawing.Color.White;
@@ -240,6 +241,7 @@
             this.cRating.AspectName = "Rating";
             this.cRating.CellPadding = null;
             this.cRating.Text = "Rating";
+            this.cRating.Width = 98;
             // 
             // splitContainerRight
             // 

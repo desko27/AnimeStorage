@@ -31,7 +31,7 @@ namespace AnimeStorage
             // always-active console form
             console = new FormConsole(this);
 
-            // anime olv decorations
+            // anime olv hotitemstyle for rows
             RowBorderDecoration rbd = new RowBorderDecoration();
             rbd.BorderPen = new Pen(Color.FromArgb(255, Color.White), 1);
             rbd.FillBrush = Brushes.Transparent;
@@ -39,18 +39,21 @@ namespace AnimeStorage
             rbd.CornerRounding = 0;
             olvAnime.HotItemStyle = new HotItemStyle();
             olvAnime.HotItemStyle.Decoration = rbd;
+
+            // anime olv rating drawing
+            cRating.Renderer = new MultiImageRenderer(ResourcesInterface.rating, 5, 0, 5);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            anime.Add(new AnimeClass("Hunter x Hunter", 5));
+            anime.Add(new AnimeClass("Hunter x Hunter", 4));
             anime.Add(new AnimeClass("Code Geass", 5));
-            anime.Add(new AnimeClass("One Piece", 5));
-            anime.Add(new AnimeClass("Naruto Shippuden", 5));
-            anime.Add(new AnimeClass("Densetsu no Yuusha no Densetsu", 5));
+            anime.Add(new AnimeClass("One Piece", 3));
+            anime.Add(new AnimeClass("Naruto Shippuden", 1));
+            anime.Add(new AnimeClass("Densetsu no Yuusha no Densetsu", 3));
             olvAnime.SetObjects(anime);
-            olvAnime.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-            //olvAnime.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.ColumnContent);
+            //olvAnime.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            olvAnime.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.ColumnContent);
             //olvAnime.SetNativeBackgroundWatermark();
         }
 
