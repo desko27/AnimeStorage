@@ -8,24 +8,37 @@ using System.Text;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using System.Runtime.InteropServices;
+using BrightIdeasSoftware;
 
 namespace AnimeStorage
 {
     public partial class MainForm : KryptonForm
     {
 
-        // ** always-active console form
-        public FormConsole console;
-        // ---
+        // ==================================================
+            # region init stuff
+        // ==================================================
 
-        // ** lists
+        // global objects
+        public FormConsole console;
         public List<AnimeClass> anime = new List<AnimeClass>();
         // ---
 
         public MainForm()
         {
             InitializeComponent();
+
+            // always-active console form
             console = new FormConsole(this);
+
+            // anime olv decorations
+            RowBorderDecoration rbd = new RowBorderDecoration();
+            rbd.BorderPen = new Pen(Color.FromArgb(255, Color.White), 1);
+            rbd.FillBrush = Brushes.Transparent;
+            rbd.BoundsPadding = new Size(1, 1);
+            rbd.CornerRounding = 0;
+            olvAnime.HotItemStyle = new HotItemStyle();
+            olvAnime.HotItemStyle.Decoration = rbd;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -40,6 +53,8 @@ namespace AnimeStorage
             //olvAnime.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.ColumnContent);
             //olvAnime.SetNativeBackgroundWatermark();
         }
+
+            #endregion
 
         // ==================================================
             # region interface events -> top menu
@@ -76,13 +91,19 @@ namespace AnimeStorage
 
             #endregion
 
+        // ==================================================
+            # region interface events -> anime list
+        // ==================================================
+
         private void bAddAnime_Click(object sender, EventArgs e)
         {
             anime.Add(new AnimeClass("Hey!", 5));
             olvAnime.BuildList();
         }
 
-        
+            #endregion
+
+
     }
 
 }

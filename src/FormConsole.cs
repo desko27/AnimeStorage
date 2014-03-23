@@ -12,6 +12,11 @@ namespace AnimeStorage
 {
     public partial class FormConsole : KryptonForm
     {
+
+        // ==================================================
+            # region init stuff
+        // ==================================================
+
         private MainForm mainForm;
         private List<string> history = new List<string>();
         private int history_index = 0;
@@ -21,6 +26,8 @@ namespace AnimeStorage
             InitializeComponent();
             this.mainForm = mainForm;
         }
+
+            #endregion
 
         // ==================================================
             # region console functions
@@ -75,6 +82,8 @@ namespace AnimeStorage
         }
         private void HistoryAdd()
         {
+            if (tPrompt.Text == "") return;
+
             string command = tPrompt.Text;
             tPrompt.Text = "";
             this.ReadCommand(command);

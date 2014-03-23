@@ -206,14 +206,16 @@
             this.olvAnime.AllColumns.Add(this.cName);
             this.olvAnime.AllColumns.Add(this.cRating);
             this.olvAnime.AlternateRowBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.olvAnime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.olvAnime.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.olvAnime.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.cName,
             this.cRating});
             this.olvAnime.Dock = System.Windows.Forms.DockStyle.Fill;
             this.olvAnime.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.olvAnime.ForeColor = System.Drawing.Color.White;
             this.olvAnime.FullRowSelect = true;
-            this.olvAnime.HighlightBackgroundColor = System.Drawing.Color.SeaGreen;
+            this.olvAnime.HighlightBackgroundColor = System.Drawing.Color.Black;
             this.olvAnime.HighlightForegroundColor = System.Drawing.Color.White;
             this.olvAnime.Location = new System.Drawing.Point(0, 0);
             this.olvAnime.MultiSelect = false;
@@ -222,8 +224,8 @@
             this.olvAnime.ShowGroups = false;
             this.olvAnime.Size = new System.Drawing.Size(393, 365);
             this.olvAnime.TabIndex = 0;
-            this.olvAnime.UseAlternatingBackColors = true;
             this.olvAnime.UseCompatibleStateImageBehavior = false;
+            this.olvAnime.UseHotItem = true;
             this.olvAnime.View = System.Windows.Forms.View.Details;
             // 
             // cName
