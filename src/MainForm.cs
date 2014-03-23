@@ -15,12 +15,30 @@ namespace AnimeStorage
     {
 
         // ** always-active console form
-        FormConsole fConsole = new FormConsole();
+        public FormConsole console;
+        // ---
+
+        // ** lists
+        public List<AnimeClass> anime = new List<AnimeClass>();
         // ---
 
         public MainForm()
         {
             InitializeComponent();
+            console = new FormConsole(this);
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            anime.Add(new AnimeClass("Hunter x Hunter", 5));
+            anime.Add(new AnimeClass("Code Geass", 5));
+            anime.Add(new AnimeClass("One Piece", 5));
+            anime.Add(new AnimeClass("Naruto Shippuden", 5));
+            anime.Add(new AnimeClass("Densetsu no Yuusha no Densetsu", 5));
+            olvAnime.SetObjects(anime);
+            olvAnime.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            //olvAnime.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.ColumnContent);
+            //olvAnime.SetNativeBackgroundWatermark();
         }
 
         // ==================================================
@@ -28,7 +46,7 @@ namespace AnimeStorage
         // ==================================================
 
         private void menuConsole_Click(object sender, EventArgs e)
-        { if (!fConsole.Visible) fConsole.Show(); else fConsole.Focus(); }
+        { if (!console.Visible) console.Show(); else console.Focus(); }
 
             #endregion
 
@@ -58,6 +76,13 @@ namespace AnimeStorage
 
             #endregion
 
+        private void bAddAnime_Click(object sender, EventArgs e)
+        {
+            anime.Add(new AnimeClass("Hey!", 5));
+            olvAnime.BuildList();
+        }
+
+        
     }
 
 }

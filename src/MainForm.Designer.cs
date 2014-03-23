@@ -40,6 +40,10 @@
             this.menuConsole = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.splitContainerMain = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
             this.headerGroupAnime = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
+            this.bAddAnime = new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup();
+            this.olvAnime = new BrightIdeasSoftware.ObjectListView();
+            this.cName = new BrightIdeasSoftware.OLVColumn();
+            this.cRating = new BrightIdeasSoftware.OLVColumn();
             this.splitContainerRight = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
             this.headerGroupEpisodes = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
             this.headerGroupProperties = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
@@ -54,7 +58,9 @@
             this.splitContainerMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.headerGroupAnime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.headerGroupAnime.Panel)).BeginInit();
+            this.headerGroupAnime.Panel.SuspendLayout();
             this.headerGroupAnime.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.olvAnime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerRight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerRight.Panel1)).BeginInit();
             this.splitContainerRight.Panel1.SuspendLayout();
@@ -173,15 +179,65 @@
             // 
             // headerGroupAnime
             // 
+            this.headerGroupAnime.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup[] {
+            this.bAddAnime});
             this.headerGroupAnime.Dock = System.Windows.Forms.DockStyle.Fill;
             this.headerGroupAnime.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlToolTip;
             this.headerGroupAnime.Location = new System.Drawing.Point(0, 0);
             this.headerGroupAnime.Name = "headerGroupAnime";
+            // 
+            // headerGroupAnime.Panel
+            // 
+            this.headerGroupAnime.Panel.Controls.Add(this.olvAnime);
             this.headerGroupAnime.Size = new System.Drawing.Size(395, 418);
             this.headerGroupAnime.TabIndex = 0;
             this.headerGroupAnime.ValuesPrimary.Heading = "Anime";
             this.headerGroupAnime.ValuesPrimary.Image = ((System.Drawing.Image)(resources.GetObject("headerGroupAnime.ValuesPrimary.Image")));
             this.headerGroupAnime.ValuesSecondary.Heading = "Your full anime list";
+            // 
+            // bAddAnime
+            // 
+            this.bAddAnime.Text = "Add";
+            this.bAddAnime.UniqueName = "D3D69CAC1E66434DEE91BFB33DC46119";
+            this.bAddAnime.Click += new System.EventHandler(this.bAddAnime_Click);
+            // 
+            // olvAnime
+            // 
+            this.olvAnime.AllColumns.Add(this.cName);
+            this.olvAnime.AllColumns.Add(this.cRating);
+            this.olvAnime.AlternateRowBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.olvAnime.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.olvAnime.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.cName,
+            this.cRating});
+            this.olvAnime.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.olvAnime.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.olvAnime.FullRowSelect = true;
+            this.olvAnime.HighlightBackgroundColor = System.Drawing.Color.SeaGreen;
+            this.olvAnime.HighlightForegroundColor = System.Drawing.Color.White;
+            this.olvAnime.Location = new System.Drawing.Point(0, 0);
+            this.olvAnime.MultiSelect = false;
+            this.olvAnime.Name = "olvAnime";
+            this.olvAnime.OwnerDraw = true;
+            this.olvAnime.ShowGroups = false;
+            this.olvAnime.Size = new System.Drawing.Size(393, 365);
+            this.olvAnime.TabIndex = 0;
+            this.olvAnime.UseAlternatingBackColors = true;
+            this.olvAnime.UseCompatibleStateImageBehavior = false;
+            this.olvAnime.View = System.Windows.Forms.View.Details;
+            // 
+            // cName
+            // 
+            this.cName.AspectName = "Name";
+            this.cName.CellPadding = null;
+            this.cName.Text = "Name";
+            this.cName.Width = 200;
+            // 
+            // cRating
+            // 
+            this.cRating.AspectName = "Rating";
+            this.cRating.CellPadding = null;
+            this.cRating.Text = "Rating";
             // 
             // splitContainerRight
             // 
@@ -238,6 +294,7 @@
             this.MinimumSize = new System.Drawing.Size(630, 400);
             this.Name = "MainForm";
             this.Text = "Anime Storage";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelMenu)).EndInit();
             this.panelMenu.ResumeLayout(false);
             this.flowLayoutMenu.ResumeLayout(false);
@@ -248,8 +305,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).EndInit();
             this.splitContainerMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.headerGroupAnime.Panel)).EndInit();
+            this.headerGroupAnime.Panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.headerGroupAnime)).EndInit();
             this.headerGroupAnime.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.olvAnime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerRight.Panel1)).EndInit();
             this.splitContainerRight.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerRight.Panel2)).EndInit();
@@ -281,5 +340,9 @@
         private ComponentFactory.Krypton.Toolkit.KryptonDropButton menuLastOnes;
         private ComponentFactory.Krypton.Toolkit.KryptonDropButton menuStoreNow;
         private ComponentFactory.Krypton.Toolkit.KryptonButton menuConsole;
+        private BrightIdeasSoftware.OLVColumn cName;
+        private BrightIdeasSoftware.OLVColumn cRating;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup bAddAnime;
+        public BrightIdeasSoftware.ObjectListView olvAnime;
     }
 }

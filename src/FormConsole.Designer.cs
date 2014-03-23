@@ -49,7 +49,7 @@
             this.tConsole.StateCommon.Content.Color1 = System.Drawing.Color.White;
             this.tConsole.StateCommon.Content.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tConsole.TabIndex = 1;
-            this.tConsole.Text = "Anime Storage console started.";
+            this.tConsole.Text = "Anime Storage console started.\n";
             this.tConsole.WordWrap = false;
             // 
             // tPrompt
@@ -61,6 +61,7 @@
             this.tPrompt.Size = new System.Drawing.Size(477, 19);
             this.tPrompt.StateCommon.Content.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tPrompt.TabIndex = 0;
+            this.tPrompt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tPrompt_KeyDown);
             // 
             // kryptonPanel1
             // 
