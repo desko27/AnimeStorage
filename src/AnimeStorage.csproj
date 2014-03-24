@@ -50,11 +50,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ComponentFactory.Krypton.Toolkit, Version=4.4.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\ComponentFactory.Krypton.Toolkit.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ObjectListView, Version=2.7.0.30672, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\CSharpLibs\ObjectListView.dll</HintPath>
+      <HintPath>lib\ObjectListView.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
