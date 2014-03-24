@@ -182,7 +182,6 @@
             this.headerGroupAnime.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup[] {
             this.bAddAnime});
             this.headerGroupAnime.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.headerGroupAnime.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlToolTip;
             this.headerGroupAnime.Location = new System.Drawing.Point(0, 0);
             this.headerGroupAnime.Name = "headerGroupAnime";
             // 
