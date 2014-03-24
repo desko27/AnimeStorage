@@ -12,7 +12,7 @@ Who is this app for?
  * Do you hate navigating through all those Windows folders to reach the episodes you want to see?
  * Would you love having all your Anime related data like personal rating, genres, or fansub versions, in one single place?
 
-If you answered yes to one of those questions, then this app is for you.
+If you answered yes to at least one of those questions, then this app is for you.
 
 What does the app do?
 ---------------------
