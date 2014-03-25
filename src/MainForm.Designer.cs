@@ -47,6 +47,9 @@
             this.splitContainerRight = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
             this.headerGroupEpisodes = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
             this.headerGroupProperties = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
+            this.bAnimeMax = new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup();
+            this.bEpisodesMax = new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup();
+            this.bPropertiesMax = new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup();
             ((System.ComponentModel.ISupportInitialize)(this.panelMenu)).BeginInit();
             this.panelMenu.SuspendLayout();
             this.flowLayoutMenu.SuspendLayout();
@@ -180,7 +183,8 @@
             // headerGroupAnime
             // 
             this.headerGroupAnime.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup[] {
-            this.bAddAnime});
+            this.bAddAnime,
+            this.bAnimeMax});
             this.headerGroupAnime.Dock = System.Windows.Forms.DockStyle.Fill;
             this.headerGroupAnime.Location = new System.Drawing.Point(0, 0);
             this.headerGroupAnime.Name = "headerGroupAnime";
@@ -196,7 +200,7 @@
             // 
             // bAddAnime
             // 
-            this.bAddAnime.Text = "Add";
+            this.bAddAnime.Text = "New";
             this.bAddAnime.UniqueName = "D3D69CAC1E66434DEE91BFB33DC46119";
             this.bAddAnime.Click += new System.EventHandler(this.bAddAnime_Click);
             // 
@@ -264,6 +268,8 @@
             // 
             // headerGroupEpisodes
             // 
+            this.headerGroupEpisodes.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup[] {
+            this.bEpisodesMax});
             this.headerGroupEpisodes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.headerGroupEpisodes.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlToolTip;
             this.headerGroupEpisodes.Location = new System.Drawing.Point(0, 0);
@@ -276,6 +282,8 @@
             // 
             // headerGroupProperties
             // 
+            this.headerGroupProperties.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup[] {
+            this.bPropertiesMax});
             this.headerGroupProperties.Dock = System.Windows.Forms.DockStyle.Fill;
             this.headerGroupProperties.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlToolTip;
             this.headerGroupProperties.Location = new System.Drawing.Point(0, 0);
@@ -285,6 +293,27 @@
             this.headerGroupProperties.ValuesPrimary.Heading = "Properties";
             this.headerGroupProperties.ValuesPrimary.Image = ((System.Drawing.Image)(resources.GetObject("headerGroupProperties.ValuesPrimary.Image")));
             this.headerGroupProperties.ValuesSecondary.Heading = "Properties of the selected item";
+            // 
+            // bAnimeMax
+            // 
+            this.bAnimeMax.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Form;
+            this.bAnimeMax.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.WorkspaceMaximize;
+            this.bAnimeMax.UniqueName = "36FA6EF60A914BE3B9A78D4DCE84585F";
+            this.bAnimeMax.Click += new System.EventHandler(this.bAnimeMax_Click);
+            // 
+            // bEpisodesMax
+            // 
+            this.bEpisodesMax.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Form;
+            this.bEpisodesMax.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.WorkspaceMaximize;
+            this.bEpisodesMax.UniqueName = "F4C61E81B4F34EE037AB013F47E60B3E";
+            this.bEpisodesMax.Click += new System.EventHandler(this.bEpisodesMax_Click);
+            // 
+            // bPropertiesMax
+            // 
+            this.bPropertiesMax.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Form;
+            this.bPropertiesMax.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.WorkspaceMaximize;
+            this.bPropertiesMax.UniqueName = "A84CDAB46D694E11429BB47096DAB39A";
+            this.bPropertiesMax.Click += new System.EventHandler(this.bPropertiesMax_Click);
             // 
             // MainForm
             // 
@@ -347,5 +376,8 @@
         private BrightIdeasSoftware.OLVColumn cRating;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup bAddAnime;
         public BrightIdeasSoftware.ObjectListView olvAnime;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup bAnimeMax;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup bEpisodesMax;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup bPropertiesMax;
     }
 }

@@ -106,6 +106,41 @@ namespace AnimeStorage
 
             #endregion
 
+        private void bAnimeMax_Click(object sender, EventArgs e)
+        {
+            if (bAnimeMax.Type == PaletteButtonSpecStyle.WorkspaceMaximize) {
+                splitContainerMain.Panel2Collapsed = true; splitContainerMain.Panel2.Hide();
+                bAnimeMax.Type = PaletteButtonSpecStyle.WorkspaceRestore;
+            } else {
+                splitContainerMain.Panel2Collapsed = false; splitContainerMain.Panel2.Show();
+                bAnimeMax.Type = PaletteButtonSpecStyle.WorkspaceMaximize;
+            }
+        }
+        private void bEpisodesMax_Click(object sender, EventArgs e)
+        {
+            if (bEpisodesMax.Type == PaletteButtonSpecStyle.WorkspaceMaximize) {
+                splitContainerMain.Panel1Collapsed = true; splitContainerMain.Panel1.Hide();
+                splitContainerRight.Panel2Collapsed = true; splitContainerRight.Panel2.Hide();
+                bEpisodesMax.Type = PaletteButtonSpecStyle.WorkspaceRestore;
+            } else {
+                splitContainerMain.Panel1Collapsed = false; splitContainerMain.Panel1.Show();
+                splitContainerRight.Panel2Collapsed = false; splitContainerRight.Panel2.Show();
+                bEpisodesMax.Type = PaletteButtonSpecStyle.WorkspaceMaximize;
+            }
+        }
+        private void bPropertiesMax_Click(object sender, EventArgs e)
+        {
+            if (bPropertiesMax.Type == PaletteButtonSpecStyle.WorkspaceMaximize) {
+                splitContainerMain.Panel1Collapsed = true; splitContainerMain.Panel1.Hide();
+                splitContainerRight.Panel1Collapsed = true; splitContainerRight.Panel1.Hide();
+                bPropertiesMax.Type = PaletteButtonSpecStyle.WorkspaceRestore;
+            } else {
+                splitContainerMain.Panel1Collapsed = false; splitContainerMain.Panel1.Show();
+                splitContainerRight.Panel1Collapsed = false; splitContainerRight.Panel1.Show();
+                bPropertiesMax.Type = PaletteButtonSpecStyle.WorkspaceMaximize;
+            }
+        }
+
 
     }
 
