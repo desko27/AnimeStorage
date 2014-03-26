@@ -8,13 +8,14 @@ namespace AnimeStorage
 
     public class AnimeClass
     {
-        public string Name;
+        public String Name, Japanese;
         public byte Rating = 0;
         public List<AnimeItem> Items;
-        
-        public AnimeClass(string Name, byte Rating)
+
+        public AnimeClass(String Name, String Japanese, byte Rating)
         {
             this.Name = Name;
+            this.Japanese = Japanese;
             this.Rating = Rating;
         }
         

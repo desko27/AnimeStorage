@@ -31,30 +31,38 @@ namespace AnimeStorage
             // always-active console form
             console = new FormConsole(this);
 
-            // anime olv hotitemstyle for rows
+            // anime tlv -> linepen
+            TreeListView.TreeRenderer renderer = new TreeListView.TreeRenderer();
+            renderer.LinePen = new Pen(Color.Gray, 1);
+            renderer.LinePen.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            renderer.IsShowLines = true;
+            tlvAnime.TreeColumnRenderer = renderer;
+
+            // anime tlv -> hotitemstyle for rows
             RowBorderDecoration rbd = new RowBorderDecoration();
             rbd.BorderPen = new Pen(Color.FromArgb(255, Color.White), 1);
             rbd.FillBrush = Brushes.Transparent;
             rbd.BoundsPadding = new Size(1, 1);
             rbd.CornerRounding = 0;
-            olvAnime.HotItemStyle = new HotItemStyle();
-            olvAnime.HotItemStyle.Decoration = rbd;
+            tlvAnime.HotItemStyle = new HotItemStyle();
+            tlvAnime.HotItemStyle.Decoration = rbd;
 
-            // anime olv rating drawing
-            cRating.Renderer = new MultiImageRenderer(ResourcesInterface.rating, 5, 0, 5);
+            // anime tlv -> rating drawing
+            cRating.Renderer = new MultiImageRenderer(ResourcesInterface.rating, 5, 0, 6);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            anime.Add(new AnimeClass("Hunter x Hunter", 4));
-            anime.Add(new AnimeClass("Code Geass", 5));
-            anime.Add(new AnimeClass("One Piece", 3));
-            anime.Add(new AnimeClass("Naruto Shippuden", 1));
-            anime.Add(new AnimeClass("Densetsu no Yuusha no Densetsu", 3));
-            olvAnime.SetObjects(anime);
-            //olvAnime.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-            olvAnime.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.ColumnContent);
-            //olvAnime.SetNativeBackgroundWatermark();
+            anime.Add(new AnimeClass("Hunter x Hunter", "ハンターハンター", 4));
+            anime.Add(new AnimeClass("Code Geass", "コードギアス", 5));
+            anime.Add(new AnimeClass("One Piece", "ワンピース", 3));
+            anime.Add(new AnimeClass("Naruto Shippuden", "ナルト 疾風伝", 1));
+            anime.Add(new AnimeClass("Densetsu no Yuusha no Densetsu", "伝説の勇者の伝説", 2));
+            tlvAnime.SetObjects(anime);
+            //tlvAnime.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            tlvAnime.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.ColumnContent);
+            tlvAnime.AutoResizeColumn(2, ColumnHeaderAutoResizeStyle.ColumnContent);
+            //tlvAnime.SetNativeBackgroundWatermark();
         }
 
             #endregion
@@ -210,8 +218,8 @@ namespace AnimeStorage
 
         private void bAddAnime_Click(object sender, EventArgs e)
         {
-            anime.Add(new AnimeClass("Hey!", 5));
-            olvAnime.BuildList();
+            anime.Add(new AnimeClass("Hey!", "おい！", 1));
+            tlvAnime.UpdateObjects(anime);
         }
 
             #endregion
