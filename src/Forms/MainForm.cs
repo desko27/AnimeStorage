@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using System.Runtime.InteropServices;
 using BrightIdeasSoftware;
+using System.Reflection;
 
 namespace AnimeStorage
 {
@@ -60,11 +61,32 @@ namespace AnimeStorage
             #endregion
 
         // ==================================================
-            # region interface events -> top menu
+            # region interface events -> top menu items
         // ==================================================
 
-        private void menuConsole_Click(object sender, EventArgs e)
-        { if (!console.Visible) console.Show(); else console.Focus(); }
+        private void menuItem_Click(object sender, EventArgs e)
+        {
+
+            // retrieve name of the control
+            string name;
+            if (sender.GetType().ToString() == "ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem")
+                name = ((KryptonContextMenuItem)sender).Tag.ToString();
+            else
+                name = ((Control)sender).Name;
+
+            // decide actions
+            switch (name)
+            {
+
+                case "menuSettings":
+                    break;
+
+                case "menuConsole":
+                    if (!console.Visible) console.Show(); else console.Focus();
+                    break;
+
+            }
+        }
 
             #endregion
 
@@ -127,7 +149,7 @@ namespace AnimeStorage
         }
         // ---
 
-        // make top menu buttons collapsable
+        // make top menu buttons collapsible
         // --------------------------------------------------
         private void MainForm_Resize(object sender, EventArgs e)
         {
@@ -162,6 +184,7 @@ namespace AnimeStorage
                     if (!found) {
                         KryptonContextMenuItem item = new KryptonContextMenuItem(c.Text, img, null);
                         item.Tag = c.Name;
+                        item.Click += menuItem_Click;
                         if (kcm != null) item.Items.AddRange(kcm.Items.ToArray());
                         menuItems.Items.Insert(0, item);
                     }
@@ -193,7 +216,7 @@ namespace AnimeStorage
         }
 
             #endregion
-
+        
     }
 
 }

@@ -35,8 +35,25 @@
             this.flowLayoutMenu = new System.Windows.Forms.FlowLayoutPanel();
             this.menuStoreNow = new ComponentFactory.Krypton.Toolkit.KryptonDropButton();
             this.menuDownloads = new ComponentFactory.Krypton.Toolkit.KryptonDropButton();
+            this.cmMenuDownloads = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
+            this.kryptonContextMenuHeading1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading();
+            this.kryptonContextMenuItems5 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.kryptonContextMenuItem2 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonContextMenuItem4 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonContextMenuHeading2 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading();
+            this.kryptonContextMenuItems6 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.kryptonContextMenuItem3 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
             this.menuSettings = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.menuLastOnes = new ComponentFactory.Krypton.Toolkit.KryptonDropButton();
+            this.cmMenuLastOnes = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
+            this.kryptonContextMenuHeading3 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading();
+            this.kryptonContextMenuItems7 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.kryptonContextMenuItem5 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonContextMenuItem6 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonContextMenuItem7 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonContextMenuSeparator2 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator();
+            this.kryptonContextMenuItems8 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.kryptonContextMenuItem8 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
             this.menuConsole = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.bOverflowedMenuItems = new ComponentFactory.Krypton.Toolkit.KryptonDropButton();
             this.cmOverflowedMenuItems = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
@@ -56,27 +73,10 @@
             this.kryptonContextMenuItems1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
             this.kryptonContextMenuItem1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
             this.kryptonContextMenuSeparator1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator();
-            this.cmMenuDownloads = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
             this.kryptonContextMenuItems3 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
             this.kryptonContextMenuLinkLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuLinkLabel();
             this.kryptonContextMenuItems4 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
-            this.kryptonContextMenuHeading1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading();
-            this.kryptonContextMenuItems5 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
-            this.kryptonContextMenuHeading2 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading();
-            this.kryptonContextMenuItems6 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
-            this.kryptonContextMenuItem2 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
-            this.kryptonContextMenuItem3 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
-            this.kryptonContextMenuItem4 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
-            this.cmMenuLastOnes = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
-            this.kryptonContextMenuItems7 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
-            this.kryptonContextMenuItem5 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
-            this.kryptonContextMenuItem6 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
-            this.kryptonContextMenuItem7 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
             this.kryptonContextMenuItems9 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
-            this.kryptonContextMenuItem8 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
-            this.kryptonContextMenuItems8 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
-            this.kryptonContextMenuSeparator2 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator();
-            this.kryptonContextMenuHeading3 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading();
             ((System.ComponentModel.ISupportInitialize)(this.panelMenu)).BeginInit();
             this.panelMenu.SuspendLayout();
             this.flowLayoutMenu.SuspendLayout();
@@ -141,6 +141,7 @@
             this.menuStoreNow.TabIndex = 3;
             this.menuStoreNow.Values.Image = ((System.Drawing.Image)(resources.GetObject("menuStoreNow.Values.Image")));
             this.menuStoreNow.Values.Text = "Store now!";
+            this.menuStoreNow.Click += new System.EventHandler(this.menuItem_Click);
             // 
             // menuDownloads
             // 
@@ -154,6 +155,48 @@
             this.menuDownloads.TabIndex = 1;
             this.menuDownloads.Values.Image = ((System.Drawing.Image)(resources.GetObject("menuDownloads.Values.Image")));
             this.menuDownloads.Values.Text = "Downloads";
+            this.menuDownloads.Click += new System.EventHandler(this.menuItem_Click);
+            // 
+            // cmMenuDownloads
+            // 
+            this.cmMenuDownloads.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kryptonContextMenuHeading1,
+            this.kryptonContextMenuItems5,
+            this.kryptonContextMenuHeading2,
+            this.kryptonContextMenuItems6});
+            // 
+            // kryptonContextMenuHeading1
+            // 
+            this.kryptonContextMenuHeading1.ExtraText = "";
+            this.kryptonContextMenuHeading1.Text = "Folders";
+            // 
+            // kryptonContextMenuItems5
+            // 
+            this.kryptonContextMenuItems5.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kryptonContextMenuItem2,
+            this.kryptonContextMenuItem4});
+            // 
+            // kryptonContextMenuItem2
+            // 
+            this.kryptonContextMenuItem2.Text = "C:\\Downloads\\Google Chrome";
+            // 
+            // kryptonContextMenuItem4
+            // 
+            this.kryptonContextMenuItem4.Text = "D:\\Torrents";
+            // 
+            // kryptonContextMenuHeading2
+            // 
+            this.kryptonContextMenuHeading2.ExtraText = "";
+            this.kryptonContextMenuHeading2.Text = "Actions";
+            // 
+            // kryptonContextMenuItems6
+            // 
+            this.kryptonContextMenuItems6.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kryptonContextMenuItem3});
+            // 
+            // kryptonContextMenuItem3
+            // 
+            this.kryptonContextMenuItem3.Text = "Add folder";
             // 
             // menuSettings
             // 
@@ -165,6 +208,7 @@
             this.menuSettings.TabIndex = 0;
             this.menuSettings.Values.Image = ((System.Drawing.Image)(resources.GetObject("menuSettings.Values.Image")));
             this.menuSettings.Values.Text = "Settings";
+            this.menuSettings.Click += new System.EventHandler(this.menuItem_Click);
             // 
             // menuLastOnes
             // 
@@ -178,6 +222,48 @@
             this.menuLastOnes.TabIndex = 2;
             this.menuLastOnes.Values.Image = ((System.Drawing.Image)(resources.GetObject("menuLastOnes.Values.Image")));
             this.menuLastOnes.Values.Text = "Last ones";
+            this.menuLastOnes.Click += new System.EventHandler(this.menuItem_Click);
+            // 
+            // cmMenuLastOnes
+            // 
+            this.cmMenuLastOnes.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kryptonContextMenuHeading3,
+            this.kryptonContextMenuItems7,
+            this.kryptonContextMenuSeparator2,
+            this.kryptonContextMenuItems8});
+            // 
+            // kryptonContextMenuHeading3
+            // 
+            this.kryptonContextMenuHeading3.ExtraText = "";
+            this.kryptonContextMenuHeading3.Text = "Log";
+            // 
+            // kryptonContextMenuItems7
+            // 
+            this.kryptonContextMenuItems7.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kryptonContextMenuItem5,
+            this.kryptonContextMenuItem6,
+            this.kryptonContextMenuItem7});
+            // 
+            // kryptonContextMenuItem5
+            // 
+            this.kryptonContextMenuItem5.Text = "Item 07.mkv";
+            // 
+            // kryptonContextMenuItem6
+            // 
+            this.kryptonContextMenuItem6.Text = "Item 06.mkv";
+            // 
+            // kryptonContextMenuItem7
+            // 
+            this.kryptonContextMenuItem7.Text = "Item 05.mkv";
+            // 
+            // kryptonContextMenuItems8
+            // 
+            this.kryptonContextMenuItems8.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kryptonContextMenuItem8});
+            // 
+            // kryptonContextMenuItem8
+            // 
+            this.kryptonContextMenuItem8.Text = "Full log";
             // 
             // menuConsole
             // 
@@ -189,7 +275,7 @@
             this.menuConsole.TabIndex = 4;
             this.menuConsole.Values.Image = ((System.Drawing.Image)(resources.GetObject("menuConsole.Values.Image")));
             this.menuConsole.Values.Text = "Console";
-            this.menuConsole.Click += new System.EventHandler(this.menuConsole_Click);
+            this.menuConsole.Click += new System.EventHandler(this.menuItem_Click);
             // 
             // bOverflowedMenuItems
             // 
@@ -366,91 +452,9 @@
             // 
             this.kryptonContextMenuItem1.Text = "Menu Item";
             // 
-            // cmMenuDownloads
-            // 
-            this.cmMenuDownloads.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
-            this.kryptonContextMenuHeading1,
-            this.kryptonContextMenuItems5,
-            this.kryptonContextMenuHeading2,
-            this.kryptonContextMenuItems6});
-            // 
             // kryptonContextMenuLinkLabel1
             // 
             this.kryptonContextMenuLinkLabel1.ExtraText = "";
-            // 
-            // kryptonContextMenuHeading1
-            // 
-            this.kryptonContextMenuHeading1.ExtraText = "";
-            this.kryptonContextMenuHeading1.Text = "Folders";
-            // 
-            // kryptonContextMenuItems5
-            // 
-            this.kryptonContextMenuItems5.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
-            this.kryptonContextMenuItem2,
-            this.kryptonContextMenuItem4});
-            // 
-            // kryptonContextMenuHeading2
-            // 
-            this.kryptonContextMenuHeading2.ExtraText = "";
-            this.kryptonContextMenuHeading2.Text = "Actions";
-            // 
-            // kryptonContextMenuItems6
-            // 
-            this.kryptonContextMenuItems6.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
-            this.kryptonContextMenuItem3});
-            // 
-            // kryptonContextMenuItem2
-            // 
-            this.kryptonContextMenuItem2.Text = "C:\\Downloads\\Google Chrome";
-            // 
-            // kryptonContextMenuItem3
-            // 
-            this.kryptonContextMenuItem3.Text = "Add folder";
-            // 
-            // kryptonContextMenuItem4
-            // 
-            this.kryptonContextMenuItem4.Text = "D:\\Torrents";
-            // 
-            // cmMenuLastOnes
-            // 
-            this.cmMenuLastOnes.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
-            this.kryptonContextMenuHeading3,
-            this.kryptonContextMenuItems7,
-            this.kryptonContextMenuSeparator2,
-            this.kryptonContextMenuItems8});
-            // 
-            // kryptonContextMenuItems7
-            // 
-            this.kryptonContextMenuItems7.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
-            this.kryptonContextMenuItem5,
-            this.kryptonContextMenuItem6,
-            this.kryptonContextMenuItem7});
-            // 
-            // kryptonContextMenuItem5
-            // 
-            this.kryptonContextMenuItem5.Text = "Item 07.mkv";
-            // 
-            // kryptonContextMenuItem6
-            // 
-            this.kryptonContextMenuItem6.Text = "Item 06.mkv";
-            // 
-            // kryptonContextMenuItem7
-            // 
-            this.kryptonContextMenuItem7.Text = "Item 05.mkv";
-            // 
-            // kryptonContextMenuItem8
-            // 
-            this.kryptonContextMenuItem8.Text = "Full log";
-            // 
-            // kryptonContextMenuItems8
-            // 
-            this.kryptonContextMenuItems8.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
-            this.kryptonContextMenuItem8});
-            // 
-            // kryptonContextMenuHeading3
-            // 
-            this.kryptonContextMenuHeading3.ExtraText = "";
-            this.kryptonContextMenuHeading3.Text = "Log";
             // 
             // MainForm
             // 
