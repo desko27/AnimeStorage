@@ -58,6 +58,13 @@ namespace AnimeStorage
                     }
                     break;
 
+                case "addmenu":
+
+                    var menuItems = (KryptonContextMenuItems)mainForm.cmMenuDownloads.Items[1];
+                    KryptonContextMenuItem item = new KryptonContextMenuItem("test", null, null);
+                    menuItems.Items.Insert(0, item);
+                    break;
+
                 case "exit":
                 case "close":
                     mainForm.Close();

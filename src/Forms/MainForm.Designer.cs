@@ -39,7 +39,8 @@
             this.menuLastOnes = new ComponentFactory.Krypton.Toolkit.KryptonDropButton();
             this.menuConsole = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.bOverflowedMenuItems = new ComponentFactory.Krypton.Toolkit.KryptonDropButton();
-            this.cmOverflowedMenuItems1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmOverflowedMenuItems = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
+            this.kryptonContextMenuItems2 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
             this.splitContainerMain = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
             this.headerGroupAnime = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
             this.bAddAnime = new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup();
@@ -52,11 +53,30 @@
             this.bEpisodesMax = new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup();
             this.headerGroupProperties = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
             this.bPropertiesMax = new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup();
-            this.cmOverflowedMenuItems = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
             this.kryptonContextMenuItems1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
             this.kryptonContextMenuItem1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
             this.kryptonContextMenuSeparator1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator();
-            this.kryptonContextMenuItems2 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.cmMenuDownloads = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
+            this.kryptonContextMenuItems3 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.kryptonContextMenuLinkLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuLinkLabel();
+            this.kryptonContextMenuItems4 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.kryptonContextMenuHeading1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading();
+            this.kryptonContextMenuItems5 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.kryptonContextMenuHeading2 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading();
+            this.kryptonContextMenuItems6 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.kryptonContextMenuItem2 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonContextMenuItem3 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonContextMenuItem4 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.cmMenuLastOnes = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
+            this.kryptonContextMenuItems7 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.kryptonContextMenuItem5 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonContextMenuItem6 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonContextMenuItem7 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonContextMenuItems9 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.kryptonContextMenuItem8 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonContextMenuItems8 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.kryptonContextMenuSeparator2 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator();
+            this.kryptonContextMenuHeading3 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading();
             ((System.ComponentModel.ISupportInitialize)(this.panelMenu)).BeginInit();
             this.panelMenu.SuspendLayout();
             this.flowLayoutMenu.SuspendLayout();
@@ -125,6 +145,7 @@
             // menuDownloads
             // 
             this.menuDownloads.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.BreadCrumb;
+            this.menuDownloads.KryptonContextMenu = this.cmMenuDownloads;
             this.menuDownloads.Location = new System.Drawing.Point(135, 0);
             this.menuDownloads.Margin = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.menuDownloads.Name = "menuDownloads";
@@ -148,6 +169,7 @@
             // menuLastOnes
             // 
             this.menuLastOnes.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.BreadCrumb;
+            this.menuLastOnes.KryptonContextMenu = this.cmMenuLastOnes;
             this.menuLastOnes.Location = new System.Drawing.Point(379, 0);
             this.menuLastOnes.Margin = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.menuLastOnes.Name = "menuLastOnes";
@@ -172,8 +194,7 @@
             // bOverflowedMenuItems
             // 
             this.bOverflowedMenuItems.Dock = System.Windows.Forms.DockStyle.Right;
-            this.bOverflowedMenuItems.DropDownOrientation = ComponentFactory.Krypton.Toolkit.VisualOrientation.Left;
-            this.bOverflowedMenuItems.DropDownPosition = ComponentFactory.Krypton.Toolkit.VisualOrientation.Left;
+            this.bOverflowedMenuItems.DropDownOrientation = ComponentFactory.Krypton.Toolkit.VisualOrientation.Right;
             this.bOverflowedMenuItems.KryptonContextMenu = this.cmOverflowedMenuItems;
             this.bOverflowedMenuItems.Location = new System.Drawing.Point(772, 0);
             this.bOverflowedMenuItems.Name = "bOverflowedMenuItems";
@@ -182,11 +203,10 @@
             this.bOverflowedMenuItems.TabIndex = 5;
             this.bOverflowedMenuItems.Values.Text = "";
             // 
-            // cmOverflowedMenuItems1
+            // cmOverflowedMenuItems
             // 
-            this.cmOverflowedMenuItems1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.cmOverflowedMenuItems1.Name = "cmOverflowedMenuItems1";
-            this.cmOverflowedMenuItems1.Size = new System.Drawing.Size(61, 4);
+            this.cmOverflowedMenuItems.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kryptonContextMenuItems2});
             // 
             // splitContainerMain
             // 
@@ -342,14 +362,95 @@
             this.bPropertiesMax.UniqueName = "A84CDAB46D694E11429BB47096DAB39A";
             this.bPropertiesMax.Click += new System.EventHandler(this.bPropertiesMax_Click);
             // 
-            // cmOverflowedMenuItems
-            // 
-            this.cmOverflowedMenuItems.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
-            this.kryptonContextMenuItems2});
-            // 
             // kryptonContextMenuItem1
             // 
             this.kryptonContextMenuItem1.Text = "Menu Item";
+            // 
+            // cmMenuDownloads
+            // 
+            this.cmMenuDownloads.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kryptonContextMenuHeading1,
+            this.kryptonContextMenuItems5,
+            this.kryptonContextMenuHeading2,
+            this.kryptonContextMenuItems6});
+            // 
+            // kryptonContextMenuLinkLabel1
+            // 
+            this.kryptonContextMenuLinkLabel1.ExtraText = "";
+            // 
+            // kryptonContextMenuHeading1
+            // 
+            this.kryptonContextMenuHeading1.ExtraText = "";
+            this.kryptonContextMenuHeading1.Text = "Folders";
+            // 
+            // kryptonContextMenuItems5
+            // 
+            this.kryptonContextMenuItems5.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kryptonContextMenuItem2,
+            this.kryptonContextMenuItem4});
+            // 
+            // kryptonContextMenuHeading2
+            // 
+            this.kryptonContextMenuHeading2.ExtraText = "";
+            this.kryptonContextMenuHeading2.Text = "Actions";
+            // 
+            // kryptonContextMenuItems6
+            // 
+            this.kryptonContextMenuItems6.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kryptonContextMenuItem3});
+            // 
+            // kryptonContextMenuItem2
+            // 
+            this.kryptonContextMenuItem2.Text = "C:\\Downloads\\Google Chrome";
+            // 
+            // kryptonContextMenuItem3
+            // 
+            this.kryptonContextMenuItem3.Text = "Add folder";
+            // 
+            // kryptonContextMenuItem4
+            // 
+            this.kryptonContextMenuItem4.Text = "D:\\Torrents";
+            // 
+            // cmMenuLastOnes
+            // 
+            this.cmMenuLastOnes.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kryptonContextMenuHeading3,
+            this.kryptonContextMenuItems7,
+            this.kryptonContextMenuSeparator2,
+            this.kryptonContextMenuItems8});
+            // 
+            // kryptonContextMenuItems7
+            // 
+            this.kryptonContextMenuItems7.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kryptonContextMenuItem5,
+            this.kryptonContextMenuItem6,
+            this.kryptonContextMenuItem7});
+            // 
+            // kryptonContextMenuItem5
+            // 
+            this.kryptonContextMenuItem5.Text = "Item 07.mkv";
+            // 
+            // kryptonContextMenuItem6
+            // 
+            this.kryptonContextMenuItem6.Text = "Item 06.mkv";
+            // 
+            // kryptonContextMenuItem7
+            // 
+            this.kryptonContextMenuItem7.Text = "Item 05.mkv";
+            // 
+            // kryptonContextMenuItem8
+            // 
+            this.kryptonContextMenuItem8.Text = "Full log";
+            // 
+            // kryptonContextMenuItems8
+            // 
+            this.kryptonContextMenuItems8.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kryptonContextMenuItem8});
+            // 
+            // kryptonContextMenuHeading3
+            // 
+            this.kryptonContextMenuHeading3.ExtraText = "";
+            this.kryptonContextMenuHeading3.Text = "Log";
             // 
             // MainForm
             // 
@@ -359,7 +460,7 @@
             this.Controls.Add(this.splitContainerMain);
             this.Controls.Add(this.panelMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(315, 200);
+            this.MinimumSize = new System.Drawing.Size(100, 100);
             this.Name = "MainForm";
             this.Text = "Anime Storage";
             this.Load += new System.EventHandler(this.MainForm_Load);
@@ -417,11 +518,31 @@
         private ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup bEpisodesMax;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup bPropertiesMax;
         private ComponentFactory.Krypton.Toolkit.KryptonDropButton bOverflowedMenuItems;
-        private System.Windows.Forms.ContextMenuStrip cmOverflowedMenuItems1;
         private ComponentFactory.Krypton.Toolkit.KryptonContextMenu cmOverflowedMenuItems;
         private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems kryptonContextMenuItems1;
         private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem1;
         private ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator kryptonContextMenuSeparator1;
         private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems kryptonContextMenuItems2;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems kryptonContextMenuItems3;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuLinkLabel kryptonContextMenuLinkLabel1;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems kryptonContextMenuItems4;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading kryptonContextMenuHeading1;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems kryptonContextMenuItems5;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading kryptonContextMenuHeading2;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems kryptonContextMenuItems6;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem2;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem4;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem3;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenu cmMenuLastOnes;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems kryptonContextMenuItems7;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem5;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem6;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem7;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems kryptonContextMenuItems9;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading kryptonContextMenuHeading3;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator kryptonContextMenuSeparator2;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems kryptonContextMenuItems8;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem8;
+        public ComponentFactory.Krypton.Toolkit.KryptonContextMenu cmMenuDownloads;
     }
 }

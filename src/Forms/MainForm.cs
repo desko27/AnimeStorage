@@ -131,31 +131,46 @@ namespace AnimeStorage
         // --------------------------------------------------
         private void MainForm_Resize(object sender, EventArgs e)
         {
+            // get all root items of `overflowed context menu`
             var menuItems = (KryptonContextMenuItems) cmOverflowedMenuItems.Items[0];
 
             // reverse loop to keep the original order of buttons
             for (int i = flowLayoutMenu.Controls.Count - 1; i >= 0; i--) {
+
+                // ** retrieve icon image, and context menu in case of dropbutton
+                Image img;
+                KryptonContextMenu kcm = null;
+
+                if (flowLayoutMenu.Controls[i].GetType().ToString() == "ComponentFactory.Krypton.Toolkit.KryptonDropButton") {
+                    var tmp = (KryptonDropButton)flowLayoutMenu.Controls[i];
+                    img = tmp.Values.Image;
+                    kcm = tmp.KryptonContextMenu;
+                }
+                else
+                    img = ((KryptonButton)flowLayoutMenu.Controls[i]).Values.Image;
+                // ---
 
                 var c = (Control) flowLayoutMenu.Controls[i];
                 if (c.Top > 10) {
 
                     // look for this non-visible/wrapped control in context menu
                     bool found = false;
-                    foreach (KryptonContextMenuItem tsmi in menuItems.Items)
-                        if (tsmi.Tag.ToString() == c.Name) { found = true; break; }
+                    foreach (KryptonContextMenuItem item in menuItems.Items)
+                        if (item.Tag.ToString() == c.Name) { found = true; break; }
 
-                    // add it to the context menu if does not exist in it
+                    // >> add it to the context menu if does not exist in it
                     if (!found) {
-                        KryptonContextMenuItem tsmi = new KryptonContextMenuItem(c.Text, null /*c.Values.Image*/, null);
-                        tsmi.Tag = c.Name;
-                        menuItems.Items.Insert(0, tsmi);
+                        KryptonContextMenuItem item = new KryptonContextMenuItem(c.Text, img, null);
+                        item.Tag = c.Name;
+                        if (kcm != null) item.Items.AddRange(kcm.Items.ToArray());
+                        menuItems.Items.Insert(0, item);
                     }
 
                 } else {
 
                     // delete visible/non-wrapped controls in context menu
-                    foreach (KryptonContextMenuItem tsmi in menuItems.Items)
-                        if (tsmi.Tag.ToString() == c.Name) { menuItems.Items.Remove(tsmi); break; }
+                    foreach (KryptonContextMenuItem item in menuItems.Items)
+                        if (item.Tag.ToString() == c.Name) { menuItems.Items.Remove(item); break; }
 
                 }
             }
