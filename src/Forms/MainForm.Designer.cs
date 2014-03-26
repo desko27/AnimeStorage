@@ -38,18 +38,25 @@
             this.menuSettings = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.menuLastOnes = new ComponentFactory.Krypton.Toolkit.KryptonDropButton();
             this.menuConsole = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.bOverflowedMenuItems = new ComponentFactory.Krypton.Toolkit.KryptonDropButton();
+            this.cmOverflowedMenuItems1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.splitContainerMain = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
             this.headerGroupAnime = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
             this.bAddAnime = new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup();
+            this.bAnimeMax = new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup();
             this.olvAnime = new BrightIdeasSoftware.ObjectListView();
             this.cName = new BrightIdeasSoftware.OLVColumn();
             this.cRating = new BrightIdeasSoftware.OLVColumn();
             this.splitContainerRight = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
             this.headerGroupEpisodes = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
-            this.headerGroupProperties = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
-            this.bAnimeMax = new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup();
             this.bEpisodesMax = new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup();
+            this.headerGroupProperties = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
             this.bPropertiesMax = new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup();
+            this.cmOverflowedMenuItems = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
+            this.kryptonContextMenuItems1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.kryptonContextMenuItem1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.kryptonContextMenuSeparator1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator();
+            this.kryptonContextMenuItems2 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
             ((System.ComponentModel.ISupportInitialize)(this.panelMenu)).BeginInit();
             this.panelMenu.SuspendLayout();
             this.flowLayoutMenu.SuspendLayout();
@@ -81,6 +88,7 @@
             // panelMenu
             // 
             this.panelMenu.Controls.Add(this.flowLayoutMenu);
+            this.panelMenu.Controls.Add(this.bOverflowedMenuItems);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
@@ -99,7 +107,7 @@
             this.flowLayoutMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutMenu.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutMenu.Name = "flowLayoutMenu";
-            this.flowLayoutMenu.Size = new System.Drawing.Size(791, 47);
+            this.flowLayoutMenu.Size = new System.Drawing.Size(772, 47);
             this.flowLayoutMenu.TabIndex = 1;
             this.flowLayoutMenu.MouseDown += new System.Windows.Forms.MouseEventHandler(this.flowLayoutMenu_MouseDown);
             // 
@@ -161,6 +169,25 @@
             this.menuConsole.Values.Text = "Console";
             this.menuConsole.Click += new System.EventHandler(this.menuConsole_Click);
             // 
+            // bOverflowedMenuItems
+            // 
+            this.bOverflowedMenuItems.Dock = System.Windows.Forms.DockStyle.Right;
+            this.bOverflowedMenuItems.DropDownOrientation = ComponentFactory.Krypton.Toolkit.VisualOrientation.Left;
+            this.bOverflowedMenuItems.DropDownPosition = ComponentFactory.Krypton.Toolkit.VisualOrientation.Left;
+            this.bOverflowedMenuItems.KryptonContextMenu = this.cmOverflowedMenuItems;
+            this.bOverflowedMenuItems.Location = new System.Drawing.Point(772, 0);
+            this.bOverflowedMenuItems.Name = "bOverflowedMenuItems";
+            this.bOverflowedMenuItems.Size = new System.Drawing.Size(19, 47);
+            this.bOverflowedMenuItems.Splitter = false;
+            this.bOverflowedMenuItems.TabIndex = 5;
+            this.bOverflowedMenuItems.Values.Text = "";
+            // 
+            // cmOverflowedMenuItems1
+            // 
+            this.cmOverflowedMenuItems1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.cmOverflowedMenuItems1.Name = "cmOverflowedMenuItems1";
+            this.cmOverflowedMenuItems1.Size = new System.Drawing.Size(61, 4);
+            // 
             // splitContainerMain
             // 
             this.splitContainerMain.Cursor = System.Windows.Forms.Cursors.Default;
@@ -203,6 +230,13 @@
             this.bAddAnime.Text = "New";
             this.bAddAnime.UniqueName = "D3D69CAC1E66434DEE91BFB33DC46119";
             this.bAddAnime.Click += new System.EventHandler(this.bAddAnime_Click);
+            // 
+            // bAnimeMax
+            // 
+            this.bAnimeMax.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Form;
+            this.bAnimeMax.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.WorkspaceMaximize;
+            this.bAnimeMax.UniqueName = "36FA6EF60A914BE3B9A78D4DCE84585F";
+            this.bAnimeMax.Click += new System.EventHandler(this.bAnimeMax_Click);
             // 
             // olvAnime
             // 
@@ -280,6 +314,13 @@
             this.headerGroupEpisodes.ValuesPrimary.Image = ((System.Drawing.Image)(resources.GetObject("headerGroupEpisodes.ValuesPrimary.Image")));
             this.headerGroupEpisodes.ValuesSecondary.Heading = "Episodes of the selected anime";
             // 
+            // bEpisodesMax
+            // 
+            this.bEpisodesMax.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Form;
+            this.bEpisodesMax.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.WorkspaceMaximize;
+            this.bEpisodesMax.UniqueName = "F4C61E81B4F34EE037AB013F47E60B3E";
+            this.bEpisodesMax.Click += new System.EventHandler(this.bEpisodesMax_Click);
+            // 
             // headerGroupProperties
             // 
             this.headerGroupProperties.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup[] {
@@ -294,26 +335,21 @@
             this.headerGroupProperties.ValuesPrimary.Image = ((System.Drawing.Image)(resources.GetObject("headerGroupProperties.ValuesPrimary.Image")));
             this.headerGroupProperties.ValuesSecondary.Heading = "Properties of the selected item";
             // 
-            // bAnimeMax
-            // 
-            this.bAnimeMax.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Form;
-            this.bAnimeMax.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.WorkspaceMaximize;
-            this.bAnimeMax.UniqueName = "36FA6EF60A914BE3B9A78D4DCE84585F";
-            this.bAnimeMax.Click += new System.EventHandler(this.bAnimeMax_Click);
-            // 
-            // bEpisodesMax
-            // 
-            this.bEpisodesMax.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Form;
-            this.bEpisodesMax.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.WorkspaceMaximize;
-            this.bEpisodesMax.UniqueName = "F4C61E81B4F34EE037AB013F47E60B3E";
-            this.bEpisodesMax.Click += new System.EventHandler(this.bEpisodesMax_Click);
-            // 
             // bPropertiesMax
             // 
             this.bPropertiesMax.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Form;
             this.bPropertiesMax.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.WorkspaceMaximize;
             this.bPropertiesMax.UniqueName = "A84CDAB46D694E11429BB47096DAB39A";
             this.bPropertiesMax.Click += new System.EventHandler(this.bPropertiesMax_Click);
+            // 
+            // cmOverflowedMenuItems
+            // 
+            this.cmOverflowedMenuItems.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
+            this.kryptonContextMenuItems2});
+            // 
+            // kryptonContextMenuItem1
+            // 
+            this.kryptonContextMenuItem1.Text = "Menu Item";
             // 
             // MainForm
             // 
@@ -323,10 +359,11 @@
             this.Controls.Add(this.splitContainerMain);
             this.Controls.Add(this.panelMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(630, 400);
+            this.MinimumSize = new System.Drawing.Size(315, 200);
             this.Name = "MainForm";
             this.Text = "Anime Storage";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.Resize += new System.EventHandler(this.MainForm_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.panelMenu)).EndInit();
             this.panelMenu.ResumeLayout(false);
             this.flowLayoutMenu.ResumeLayout(false);
@@ -379,5 +416,12 @@
         private ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup bAnimeMax;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup bEpisodesMax;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup bPropertiesMax;
+        private ComponentFactory.Krypton.Toolkit.KryptonDropButton bOverflowedMenuItems;
+        private System.Windows.Forms.ContextMenuStrip cmOverflowedMenuItems1;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenu cmOverflowedMenuItems;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems kryptonContextMenuItems1;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem1;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator kryptonContextMenuSeparator1;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems kryptonContextMenuItems2;
     }
 }

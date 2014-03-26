@@ -92,6 +92,79 @@ namespace AnimeStorage
         private void splitContainerMain_DoubleClick(object sender, EventArgs e) { splitContainerMain.SplitterDistance = splitContainerMain.Width / 2; }
         private void splitContainerRight_DoubleClick(object sender, EventArgs e) { splitContainerRight.SplitterDistance = splitContainerRight.Height / 2; }
 
+        // maximize & restore main form panels
+        // --------------------------------------------------
+        private void bAnimeMax_Click(object sender, EventArgs e) {
+            if (bAnimeMax.Type == PaletteButtonSpecStyle.WorkspaceMaximize) {
+                splitContainerMain.Panel2Collapsed = true; splitContainerMain.Panel2.Hide();
+                bAnimeMax.Type = PaletteButtonSpecStyle.WorkspaceRestore;
+            } else {
+                splitContainerMain.Panel2Collapsed = false; splitContainerMain.Panel2.Show();
+                bAnimeMax.Type = PaletteButtonSpecStyle.WorkspaceMaximize;
+            }
+        }
+        private void bEpisodesMax_Click(object sender, EventArgs e) {
+            if (bEpisodesMax.Type == PaletteButtonSpecStyle.WorkspaceMaximize) {
+                splitContainerMain.Panel1Collapsed = true; splitContainerMain.Panel1.Hide();
+                splitContainerRight.Panel2Collapsed = true; splitContainerRight.Panel2.Hide();
+                bEpisodesMax.Type = PaletteButtonSpecStyle.WorkspaceRestore;
+            } else {
+                splitContainerMain.Panel1Collapsed = false; splitContainerMain.Panel1.Show();
+                splitContainerRight.Panel2Collapsed = false; splitContainerRight.Panel2.Show();
+                bEpisodesMax.Type = PaletteButtonSpecStyle.WorkspaceMaximize;
+            }
+        }
+        private void bPropertiesMax_Click(object sender, EventArgs e) {
+            if (bPropertiesMax.Type == PaletteButtonSpecStyle.WorkspaceMaximize) {
+                splitContainerMain.Panel1Collapsed = true; splitContainerMain.Panel1.Hide();
+                splitContainerRight.Panel1Collapsed = true; splitContainerRight.Panel1.Hide();
+                bPropertiesMax.Type = PaletteButtonSpecStyle.WorkspaceRestore;
+            } else {
+                splitContainerMain.Panel1Collapsed = false; splitContainerMain.Panel1.Show();
+                splitContainerRight.Panel1Collapsed = false; splitContainerRight.Panel1.Show();
+                bPropertiesMax.Type = PaletteButtonSpecStyle.WorkspaceMaximize;
+            }
+        }
+        // ---
+
+        // make top menu buttons collapsable
+        // --------------------------------------------------
+        private void MainForm_Resize(object sender, EventArgs e)
+        {
+            var menuItems = (KryptonContextMenuItems) cmOverflowedMenuItems.Items[0];
+
+            // reverse loop to keep the original order of buttons
+            for (int i = flowLayoutMenu.Controls.Count - 1; i >= 0; i--) {
+
+                var c = (Control) flowLayoutMenu.Controls[i];
+                if (c.Top > 10) {
+
+                    // look for this non-visible/wrapped control in context menu
+                    bool found = false;
+                    foreach (KryptonContextMenuItem tsmi in menuItems.Items)
+                        if (tsmi.Tag.ToString() == c.Name) { found = true; break; }
+
+                    // add it to the context menu if does not exist in it
+                    if (!found) {
+                        KryptonContextMenuItem tsmi = new KryptonContextMenuItem(c.Text, null /*c.Values.Image*/, null);
+                        tsmi.Tag = c.Name;
+                        menuItems.Items.Insert(0, tsmi);
+                    }
+
+                } else {
+
+                    // delete visible/non-wrapped controls in context menu
+                    foreach (KryptonContextMenuItem tsmi in menuItems.Items)
+                        if (tsmi.Tag.ToString() == c.Name) { menuItems.Items.Remove(tsmi); break; }
+
+                }
+            }
+            
+            // show/hide button for overflowed items
+            if (menuItems.Items.Count > 0) bOverflowedMenuItems.Show(); else bOverflowedMenuItems.Hide();
+        }
+        // ---
+
             #endregion
 
         // ==================================================
@@ -105,42 +178,6 @@ namespace AnimeStorage
         }
 
             #endregion
-
-        private void bAnimeMax_Click(object sender, EventArgs e)
-        {
-            if (bAnimeMax.Type == PaletteButtonSpecStyle.WorkspaceMaximize) {
-                splitContainerMain.Panel2Collapsed = true; splitContainerMain.Panel2.Hide();
-                bAnimeMax.Type = PaletteButtonSpecStyle.WorkspaceRestore;
-            } else {
-                splitContainerMain.Panel2Collapsed = false; splitContainerMain.Panel2.Show();
-                bAnimeMax.Type = PaletteButtonSpecStyle.WorkspaceMaximize;
-            }
-        }
-        private void bEpisodesMax_Click(object sender, EventArgs e)
-        {
-            if (bEpisodesMax.Type == PaletteButtonSpecStyle.WorkspaceMaximize) {
-                splitContainerMain.Panel1Collapsed = true; splitContainerMain.Panel1.Hide();
-                splitContainerRight.Panel2Collapsed = true; splitContainerRight.Panel2.Hide();
-                bEpisodesMax.Type = PaletteButtonSpecStyle.WorkspaceRestore;
-            } else {
-                splitContainerMain.Panel1Collapsed = false; splitContainerMain.Panel1.Show();
-                splitContainerRight.Panel2Collapsed = false; splitContainerRight.Panel2.Show();
-                bEpisodesMax.Type = PaletteButtonSpecStyle.WorkspaceMaximize;
-            }
-        }
-        private void bPropertiesMax_Click(object sender, EventArgs e)
-        {
-            if (bPropertiesMax.Type == PaletteButtonSpecStyle.WorkspaceMaximize) {
-                splitContainerMain.Panel1Collapsed = true; splitContainerMain.Panel1.Hide();
-                splitContainerRight.Panel1Collapsed = true; splitContainerRight.Panel1.Hide();
-                bPropertiesMax.Type = PaletteButtonSpecStyle.WorkspaceRestore;
-            } else {
-                splitContainerMain.Panel1Collapsed = false; splitContainerMain.Panel1.Show();
-                splitContainerRight.Panel1Collapsed = false; splitContainerRight.Panel1.Show();
-                bPropertiesMax.Type = PaletteButtonSpecStyle.WorkspaceMaximize;
-            }
-        }
-
 
     }
 

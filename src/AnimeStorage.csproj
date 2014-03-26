@@ -76,24 +76,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormConsole.cs">
+    <Compile Include="Forms\FormConsole.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormConsole.Designer.cs">
+    <Compile Include="Forms\FormConsole.Designer.cs">
       <DependentUpon>FormConsole.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
+    <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormConsole.resx">
+    <EmbeddedResource Include="Forms\FormConsole.resx">
       <DependentUpon>FormConsole.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -124,7 +124,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ResourcesInterface.resx</DependentUpon>
     </Compile>
-    <Compile Include="StorageWorkflow.cs" />
+    <Compile Include="Classes\Anime.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AnimeStorage.ico" />
