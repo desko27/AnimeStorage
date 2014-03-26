@@ -9,7 +9,6 @@ using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using System.Runtime.InteropServices;
 using BrightIdeasSoftware;
-using System.Reflection;
 
 namespace AnimeStorage
 {
