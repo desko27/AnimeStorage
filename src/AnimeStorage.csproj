@@ -128,6 +128,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AnimeStorage.ico" />
+    <None Include="Resources\rating1.png" />
     <None Include="Resources\rating.png" />
   </ItemGroup>
   <ItemGroup>

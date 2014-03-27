@@ -35,7 +35,7 @@ namespace AnimeStorage
             TreeListView.TreeRenderer renderer = new TreeListView.TreeRenderer();
             renderer.LinePen = new Pen(Color.Gray, 1);
             renderer.LinePen.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-            renderer.IsShowLines = true;
+            renderer.IsShowLines = false;
             tlvAnime.TreeColumnRenderer = renderer;
 
             // anime tlv -> hotitemstyle for rows
@@ -53,15 +53,14 @@ namespace AnimeStorage
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            anime.Add(new AnimeClass("Hunter x Hunter", "ハンターハンター", 4));
-            anime.Add(new AnimeClass("Code Geass", "コードギアス", 5));
-            anime.Add(new AnimeClass("One Piece", "ワンピース", 3));
-            anime.Add(new AnimeClass("Naruto Shippuden", "ナルト 疾風伝", 1));
-            anime.Add(new AnimeClass("Densetsu no Yuusha no Densetsu", "伝説の勇者の伝説", 2));
+            anime.Add(new AnimeClass("Hunter x Hunter", 2011, 4, "ハンターハンター"));
+            anime.Add(new AnimeClass("Code Geass", 2006, 5, "コードギアス"));
+            anime.Add(new AnimeClass("One Piece", 1999, 3, "ワンピース"));
+            anime.Add(new AnimeClass("Naruto Shippuden", 2007, 1, "ナルト 疾風伝"));
+            anime.Add(new AnimeClass("Densetsu no Yuusha no Densetsu", 2010, 2, "伝説の勇者の伝説"));
             tlvAnime.SetObjects(anime);
-            //tlvAnime.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-            tlvAnime.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.ColumnContent);
-            tlvAnime.AutoResizeColumn(2, ColumnHeaderAutoResizeStyle.ColumnContent);
+            tlvAnime.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            cRating.Width = 90;
             //tlvAnime.SetNativeBackgroundWatermark();
         }
 
@@ -218,7 +217,7 @@ namespace AnimeStorage
 
         private void bAddAnime_Click(object sender, EventArgs e)
         {
-            anime.Add(new AnimeClass("Hey!", "おい！", 1));
+            anime.Add(new AnimeClass("Hey!", 2014, 1, "おい！"));
             tlvAnime.UpdateObjects(anime);
         }
 
