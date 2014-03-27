@@ -12,6 +12,7 @@ namespace AnimeStorage
         public String Name, Japanese;
         public byte Rating = 0;
         public int Year = -1;
+        public Image AnimeIcon;
         public List<AnimeItem> Items = new List<AnimeItem>();
 
         public AnimeClass(String Name, int Year, byte Rating, String Japanese)
@@ -28,7 +29,7 @@ namespace AnimeStorage
     {
         public AnimeClass Parent;
         public String Lang, Fansub, Path;
-        //public Image LangIcon = ResourcesInterface.rating;
+        public Image LangIcon;// = ResourcesInterface.rating;
 
         public AnimeItem(AnimeClass Parent, String Lang, String Fansub, String Path)
         {
@@ -42,6 +43,7 @@ namespace AnimeStorage
         public String Year { get { return ""/*Lang*/; } }
         public byte Rating { get { return 0; } }
         public String Japanese { get { return Path; } }
+        public Image AnimeIcon { get { return LangIcon; } }
     }
 
 }

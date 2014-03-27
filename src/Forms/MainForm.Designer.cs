@@ -384,7 +384,7 @@
             this.cName.AspectName = "Name";
             this.cName.CellPadding = null;
             this.cName.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.cName.ImageAspectName = "LangIcon";
+            this.cName.ImageAspectName = "AnimeIcon";
             this.cName.Text = "Name";
             this.cName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.cName.Width = 141;
