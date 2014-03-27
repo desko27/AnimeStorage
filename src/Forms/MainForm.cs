@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using System.Runtime.InteropServices;
 using BrightIdeasSoftware;
+using System.Collections;
 
 namespace AnimeStorage
 {
@@ -31,14 +32,20 @@ namespace AnimeStorage
             // always-active console form
             console = new FormConsole(this);
 
-            // anime tlv -> linepen
+            // anime list configs
+            // --------------------------------------------------
+            // treelistview expand getters
+            tlvAnime.CanExpandGetter = delegate(object x) { return x is AnimeClass ? (((AnimeClass)x).Items.Count > 0) : false; };
+            tlvAnime.ChildrenGetter = delegate(object x) { return new ArrayList(((AnimeClass)x).Items); };
+
+            // linepen
             TreeListView.TreeRenderer renderer = new TreeListView.TreeRenderer();
             renderer.LinePen = new Pen(Color.Gray, 1);
             renderer.LinePen.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid;
             renderer.IsShowLines = false;
             tlvAnime.TreeColumnRenderer = renderer;
 
-            // anime tlv -> hotitemstyle for rows
+            // hotitemstyle for rows
             RowBorderDecoration rbd = new RowBorderDecoration();
             rbd.BorderPen = new Pen(Color.FromArgb(255, Color.White), 1);
             rbd.FillBrush = Brushes.Transparent;
@@ -47,13 +54,15 @@ namespace AnimeStorage
             tlvAnime.HotItemStyle = new HotItemStyle();
             tlvAnime.HotItemStyle.Decoration = rbd;
 
-            // anime tlv -> rating drawing
+            // rating drawing
             cRating.Renderer = new MultiImageRenderer(ResourcesInterface.rating, 5, 0, 6);
-        }
 
-        private void MainForm_Load(object sender, EventArgs e)
-        {
+            // background image
+            //tlvAnime.SetNativeBackgroundWatermark();
+
+            // test values
             anime.Add(new AnimeClass("Hunter x Hunter", 2011, 4, "ハンターハンター"));
+            anime[0].Items.Add(new AnimeItem(anime[0], "ES", "Backbeard", "D:\\Anime\\Hunter x Hunter (Backbeard)"));
             anime.Add(new AnimeClass("Code Geass", 2006, 5, "コードギアス"));
             anime.Add(new AnimeClass("One Piece", 1999, 3, "ワンピース"));
             anime.Add(new AnimeClass("Naruto Shippuden", 2007, 1, "ナルト 疾風伝"));
@@ -61,7 +70,7 @@ namespace AnimeStorage
             tlvAnime.SetObjects(anime);
             tlvAnime.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             cRating.Width = 90;
-            //tlvAnime.SetNativeBackgroundWatermark();
+            // ---
         }
 
             #endregion
@@ -75,7 +84,7 @@ namespace AnimeStorage
 
             // retrieve name of the control
             string name;
-            if (sender.GetType().ToString() == "ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem")
+            if (sender is KryptonContextMenuItem)
                 name = ((KryptonContextMenuItem)sender).Tag.ToString();
             else
                 name = ((Control)sender).Name;
@@ -169,7 +178,7 @@ namespace AnimeStorage
                 Image img;
                 KryptonContextMenu kcm = null;
 
-                if (flowLayoutMenu.Controls[i].GetType().ToString() == "ComponentFactory.Krypton.Toolkit.KryptonDropButton") {
+                if (flowLayoutMenu.Controls[i] is KryptonDropButton) {
                     var tmp = (KryptonDropButton)flowLayoutMenu.Controls[i];
                     img = tmp.Values.Image;
                     kcm = tmp.KryptonContextMenu;

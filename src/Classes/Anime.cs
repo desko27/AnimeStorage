@@ -11,7 +11,7 @@ namespace AnimeStorage
         public String Name, Japanese;
         public byte Rating = 0;
         public int Year = -1;
-        public List<AnimeItem> Items;
+        public List<AnimeItem> Items = new List<AnimeItem>();
 
         public AnimeClass(String Name, int Year, byte Rating, String Japanese)
         {
@@ -25,7 +25,21 @@ namespace AnimeStorage
 
     public class AnimeItem
     {
-        public string Path, Fansub;
+        public AnimeClass Parent;
+        public String Lang, Fansub, Path;
+
+        public AnimeItem(AnimeClass Parent, String Lang, String Fansub, String Path)
+        {
+            this.Parent = Parent;
+            this.Lang = Lang;
+            this.Fansub = Fansub;
+            this.Path = Path;
+        }
+
+        public String Name { get { return Fansub; } }
+        public String Year { get { return Lang; } }
+        public byte Rating { get { return 0; } }
+        public String Japanese { get { return Path; } }
     }
 
 }
