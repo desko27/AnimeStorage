@@ -64,6 +64,7 @@
             this.bAnimeMax = new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup();
             this.tlvAnime = new BrightIdeasSoftware.TreeListView();
             this.cName = new BrightIdeasSoftware.OLVColumn();
+            this.cYear = new BrightIdeasSoftware.OLVColumn();
             this.cRating = new BrightIdeasSoftware.OLVColumn();
             this.cJapanese = new BrightIdeasSoftware.OLVColumn();
             this.splitContainerRight = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
@@ -78,7 +79,6 @@
             this.kryptonContextMenuLinkLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuLinkLabel();
             this.kryptonContextMenuItems4 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
             this.kryptonContextMenuItems9 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
-            this.cYear = new BrightIdeasSoftware.OLVColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelMenu)).BeginInit();
             this.panelMenu.SuspendLayout();
             this.flowLayoutMenu.SuspendLayout();
@@ -383,9 +383,17 @@
             // 
             this.cName.AspectName = "Name";
             this.cName.CellPadding = null;
+            this.cName.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.cName.ImageAspectName = "LangIcon";
             this.cName.Text = "Name";
             this.cName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.cName.Width = 141;
+            // 
+            // cYear
+            // 
+            this.cYear.AspectName = "Year";
+            this.cYear.CellPadding = null;
+            this.cYear.Text = "Year";
             // 
             // cRating
             // 
@@ -470,12 +478,6 @@
             // kryptonContextMenuLinkLabel1
             // 
             this.kryptonContextMenuLinkLabel1.ExtraText = "";
-            // 
-            // cYear
-            // 
-            this.cYear.AspectName = "Year";
-            this.cYear.CellPadding = null;
-            this.cYear.Text = "Year";
             // 
             // MainForm
             // 

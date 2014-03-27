@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Drawing;
 
 namespace AnimeStorage
 {
@@ -27,6 +28,7 @@ namespace AnimeStorage
     {
         public AnimeClass Parent;
         public String Lang, Fansub, Path;
+        //public Image LangIcon = ResourcesInterface.rating;
 
         public AnimeItem(AnimeClass Parent, String Lang, String Fansub, String Path)
         {
@@ -37,7 +39,7 @@ namespace AnimeStorage
         }
 
         public String Name { get { return Fansub; } }
-        public String Year { get { return Lang; } }
+        public String Year { get { return ""/*Lang*/; } }
         public byte Rating { get { return 0; } }
         public String Japanese { get { return Path; } }
     }

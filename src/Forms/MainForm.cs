@@ -62,7 +62,7 @@ namespace AnimeStorage
 
             // test values
             anime.Add(new AnimeClass("Hunter x Hunter", 2011, 4, "ハンターハンター"));
-            anime[0].Items.Add(new AnimeItem(anime[0], "ES", "Backbeard", "D:\\Anime\\Hunter x Hunter (Backbeard)"));
+            anime[0].Items.Add(new AnimeItem(anime[0], "Epañol", "Backbeard", "D:\\Anime\\Hunter x Hunter (Backbeard)"));
             anime.Add(new AnimeClass("Code Geass", 2006, 5, "コードギアス"));
             anime.Add(new AnimeClass("One Piece", 1999, 3, "ワンピース"));
             anime.Add(new AnimeClass("Naruto Shippuden", 2007, 1, "ナルト 疾風伝"));
