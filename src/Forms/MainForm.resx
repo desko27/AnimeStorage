@@ -554,6 +554,21 @@
   <metadata name="cmOverflowedMenuItems.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>168, 19</value>
   </metadata>
+  <data name="bAddAnime.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsAAAA7AAWrWiQkAAAAHdElNRQfYBRwPGgEs4N7FAAAAB3RFWHRBdXRob3IAqa7M
+        SAAAAAx0RVh0RGVzY3JpcHRpb24AEwkhIwAAAAp0RVh0Q29weXJpZ2h0AKwPzDoAAAAOdEVYdENyZWF0
+        aW9uIHRpbWUANfcPCQAAAAl0RVh0U29mdHdhcmUAXXD/OgAAAAt0RVh0RGlzY2xhaW1lcgC3wLSPAAAA
+        CHRFWHRXYXJuaW5nAMAb5ocAAAAHdEVYdFNvdXJjZQD1/4PrAAAACHRFWHRDb21tZW50APbMlr8AAAAG
+        dEVYdFRpdGxlAKju0icAAAEPSURBVDhPhZAxS4JRGIUvgiAIgiAIgiAIgiDId10aWhoaWhpaGhxaQhoa
+        HBwagoaGhoagwMGhoSEICoKgIQgcBKH6Ae7+gn7B1/PR+0qdxcMznPeec5Yb0v/q3nUFC1w66Nx2Ft+f
+        KzgtcOmgPWkPvnqHHxkYTgtcOmiNW/QO5hkYTgtcOmjeNOn1ZxkYTgtcoXHVEOjtTyNgJIJQv6w/La//
+        Qm/vPQJGIsqhdlEj2H2La6FGOVTPq7id17gWapRD5ayCE7ZfIsgjUA7l07JAsPUcASMR6LeWTkr0Nh8T
+        wHBa4NJBcVSkt/GQAIbTApcOCsMCvd59AhhOC1w6yB/n6a3gtMClg9xRTrDgV2n6A0Dp33AXvRAfAAAA
+        AElFTkSuQmCC
+</value>
+  </data>
   <data name="headerGroupAnime.ValuesPrimary.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH

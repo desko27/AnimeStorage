@@ -53,7 +53,7 @@ namespace AnimeStorage
                             break;
 
                         case "tlv":
-                            this.WriteLine(String.Format("`anime` list size -> anime({0}) tlv({1})", mainForm.anime.Count, mainForm.tlvAnime.Items.Count));
+                            this.WriteLine(String.Format("`anime` list size -> anime({0}) tlv({1})", mainForm.animeList.Count, mainForm.tlvAnime.Items.Count));
                             break;
                     }
                     break;

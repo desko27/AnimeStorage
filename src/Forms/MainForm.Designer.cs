@@ -60,6 +60,7 @@
             this.kryptonContextMenuItems2 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
             this.splitContainerMain = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
             this.headerGroupAnime = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
+            this.bAddTest = new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup();
             this.bAddAnime = new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup();
             this.bAnimeMax = new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup();
             this.tlvAnime = new BrightIdeasSoftware.TreeListView();
@@ -67,6 +68,7 @@
             this.cYear = new BrightIdeasSoftware.OLVColumn();
             this.cRating = new BrightIdeasSoftware.OLVColumn();
             this.cJapanese = new BrightIdeasSoftware.OLVColumn();
+            this.pAnimeNorth = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.splitContainerRight = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
             this.headerGroupEpisodes = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
             this.bEpisodesMax = new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup();
@@ -93,6 +95,7 @@
             this.headerGroupAnime.Panel.SuspendLayout();
             this.headerGroupAnime.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tlvAnime)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pAnimeNorth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerRight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerRight.Panel1)).BeginInit();
             this.splitContainerRight.Panel1.SuspendLayout();
@@ -318,6 +321,7 @@
             // headerGroupAnime
             // 
             this.headerGroupAnime.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup[] {
+            this.bAddTest,
             this.bAddAnime,
             this.bAnimeMax});
             this.headerGroupAnime.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -327,16 +331,25 @@
             // headerGroupAnime.Panel
             // 
             this.headerGroupAnime.Panel.Controls.Add(this.tlvAnime);
+            this.headerGroupAnime.Panel.Controls.Add(this.pAnimeNorth);
             this.headerGroupAnime.Size = new System.Drawing.Size(395, 418);
             this.headerGroupAnime.TabIndex = 0;
             this.headerGroupAnime.ValuesPrimary.Heading = "Anime";
             this.headerGroupAnime.ValuesPrimary.Image = ((System.Drawing.Image)(resources.GetObject("headerGroupAnime.ValuesPrimary.Image")));
             this.headerGroupAnime.ValuesSecondary.Heading = "Your full anime list";
             // 
+            // bAddTest
+            // 
+            this.bAddTest.Text = "Test";
+            this.bAddTest.UniqueName = "D3D69CAC1E66434DEE91BFB33DC46119";
+            this.bAddTest.Click += new System.EventHandler(this.bAddTest_Click);
+            // 
             // bAddAnime
             // 
-            this.bAddAnime.Text = "New";
-            this.bAddAnime.UniqueName = "D3D69CAC1E66434DEE91BFB33DC46119";
+            this.bAddAnime.Checked = ComponentFactory.Krypton.Toolkit.ButtonCheckState.Unchecked;
+            this.bAddAnime.Image = ((System.Drawing.Image)(resources.GetObject("bAddAnime.Image")));
+            this.bAddAnime.ImageTransparentColor = System.Drawing.Color.White;
+            this.bAddAnime.UniqueName = "9FBB2FEB71964C65C1AAB6AC5193EE1F";
             this.bAddAnime.Click += new System.EventHandler(this.bAddAnime_Click);
             // 
             // bAnimeMax
@@ -366,13 +379,13 @@
             this.tlvAnime.FullRowSelect = true;
             this.tlvAnime.HighlightBackgroundColor = System.Drawing.Color.Black;
             this.tlvAnime.HighlightForegroundColor = System.Drawing.Color.White;
-            this.tlvAnime.Location = new System.Drawing.Point(0, 0);
+            this.tlvAnime.Location = new System.Drawing.Point(0, 25);
             this.tlvAnime.MultiSelect = false;
             this.tlvAnime.Name = "tlvAnime";
             this.tlvAnime.OwnerDraw = true;
             this.tlvAnime.RowHeight = 32;
             this.tlvAnime.ShowGroups = false;
-            this.tlvAnime.Size = new System.Drawing.Size(393, 365);
+            this.tlvAnime.Size = new System.Drawing.Size(393, 340);
             this.tlvAnime.TabIndex = 0;
             this.tlvAnime.UseCompatibleStateImageBehavior = false;
             this.tlvAnime.UseHotItem = true;
@@ -391,7 +404,7 @@
             // 
             // cYear
             // 
-            this.cYear.AspectName = "Year";
+            this.cYear.AspectName = "YearAspect";
             this.cYear.CellPadding = null;
             this.cYear.Text = "Year";
             // 
@@ -408,6 +421,15 @@
             this.cJapanese.CellPadding = null;
             this.cJapanese.Text = "Japanese";
             this.cJapanese.Width = 100;
+            // 
+            // pAnimeNorth
+            // 
+            this.pAnimeNorth.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pAnimeNorth.Location = new System.Drawing.Point(0, 0);
+            this.pAnimeNorth.Name = "pAnimeNorth";
+            this.pAnimeNorth.Size = new System.Drawing.Size(393, 25);
+            this.pAnimeNorth.TabIndex = 1;
+            this.pAnimeNorth.Visible = false;
             // 
             // splitContainerRight
             // 
@@ -505,6 +527,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.headerGroupAnime)).EndInit();
             this.headerGroupAnime.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tlvAnime)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pAnimeNorth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerRight.Panel1)).EndInit();
             this.splitContainerRight.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerRight.Panel2)).EndInit();
@@ -536,7 +559,7 @@
         private ComponentFactory.Krypton.Toolkit.KryptonDropButton menuLastOnes;
         private ComponentFactory.Krypton.Toolkit.KryptonDropButton menuStoreNow;
         private ComponentFactory.Krypton.Toolkit.KryptonButton menuConsole;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup bAddAnime;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup bAddTest;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup bAnimeMax;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup bEpisodesMax;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup bPropertiesMax;
@@ -572,5 +595,7 @@
         public BrightIdeasSoftware.TreeListView tlvAnime;
         private BrightIdeasSoftware.OLVColumn cJapanese;
         private BrightIdeasSoftware.OLVColumn cYear;
+        private ComponentFactory.Krypton.Toolkit.KryptonPanel pAnimeNorth;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup bAddAnime;
     }
 }

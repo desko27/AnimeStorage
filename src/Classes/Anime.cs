@@ -22,6 +22,8 @@ namespace AnimeStorage
             this.Rating = Rating;
             this.Japanese = Japanese;
         }
+
+        public String YearAspect { get { return Year == -1 ? "" : Year.ToString(); } }
         
     }
 
@@ -40,10 +42,27 @@ namespace AnimeStorage
         }
 
         public String Name { get { return Fansub; } }
-        public String Year { get { return ""/*Lang*/; } }
+        public String YearAspect { get { return ""/*Lang*/; } }
         public byte Rating { get { return 0; } }
         public String Japanese { get { return ""/*Path*/; } }
         public Image AnimeIcon { get { return LangIcon; } }
+    }
+
+    /// <summary>
+    /// Directly taken from 'anime-titles.xml' file.
+    /// </summary>
+    public class AnimeTitle
+    {
+        public int Id;
+        public String Name, EnglishName, JapaneseName;
+
+        public AnimeTitle(int Id, String Name, String EnglishName, String JapaneseName)
+        {
+            this.Id = Id;
+            this.Name = Name;
+            this.EnglishName = EnglishName;
+            this.JapaneseName = JapaneseName;
+        }
     }
 
 }

@@ -10,6 +10,8 @@ using ComponentFactory.Krypton.Toolkit;
 using System.Runtime.InteropServices;
 using BrightIdeasSoftware;
 using System.Collections;
+using System.Xml.Linq;
+using System.Diagnostics;
 
 namespace AnimeStorage
 {
@@ -22,7 +24,9 @@ namespace AnimeStorage
 
         // global objects
         public FormConsole console;
-        public List<AnimeClass> anime = new List<AnimeClass>();
+        public List<AnimeClass> animeList = new List<AnimeClass>();
+        public List<AnimeTitle> animeTitles = new List<AnimeTitle>();
+        public AutoCompleteStringCollection animeTitlesAutocomplete = new AutoCompleteStringCollection();
         // ---
 
         public MainForm()
@@ -61,16 +65,73 @@ namespace AnimeStorage
             //tlvAnime.SetNativeBackgroundWatermark();
 
             // test values
-            anime.Add(new AnimeClass("Hunter x Hunter", 2011, 8.22, "ハンターハンター"));
-            anime[0].Items.Add(new AnimeItem(anime[0], "Epañol", "Backbeard", "D:\\Anime\\Hunter x Hunter (Backbeard)"));
-            anime.Add(new AnimeClass("Code Geass", 2006, 9.56, "コードギアス"));
-            anime.Add(new AnimeClass("One Piece", 1999, 8.47, "ワンピース"));
-            anime.Add(new AnimeClass("Naruto Shippuden", 2007, 5.71, "ナルト 疾風伝"));
-            anime.Add(new AnimeClass("Densetsu no Yuusha no Densetsu", 2010, 4.3, "伝説の勇者の伝説"));
-            tlvAnime.SetObjects(anime);
+            animeList.Add(new AnimeClass("Hunter x Hunter", 2011, 8.22, "ハンターハンター"));
+            animeList[0].Items.Add(new AnimeItem(animeList[0], "Epañol", "Backbeard", "D:\\Anime\\Hunter x Hunter (Backbeard)"));
+            animeList.Add(new AnimeClass("Code Geass", 2006, 9.56, "コードギアス"));
+            animeList.Add(new AnimeClass("One Piece", 1999, 8.47, "ワンピース"));
+            animeList.Add(new AnimeClass("Naruto Shippuden", 2007, 5.71, "ナルト 疾風伝"));
+            animeList.Add(new AnimeClass("Densetsu no Yuusha no Densetsu", 2010, 4.3, "伝説の勇者の伝説"));
+            tlvAnime.SetObjects(animeList);
             tlvAnime.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             cRating.Width = 90;
             // ---
+
+            // load anime titles into memory from xml file
+            // --------------------------------------------------
+            XDocument doc = XDocument.Load("Files\\anime-titles.xml");
+            var xmlAnime = (from p in doc.Descendants().Elements()
+                                     where p.Name.LocalName == "anime"
+                                     select p);
+
+            foreach (var item in xmlAnime)
+            {
+                int id = Convert.ToInt32(item.FirstAttribute.Value);
+                String name = "", ename = "", jname = "";
+                foreach (var title in item.Elements())
+                {
+                    foreach (var attr in title.Attributes())
+                    {
+                        if ((title.FirstAttribute.Value == "official" || title.FirstAttribute.Value == "main") && attr.Name == XNamespace.Xml + "lang" && attr.Value == "x-jat")
+                            name = title.Value;
+                        if (attr.Name == XNamespace.Xml + "lang" && attr.Value == "ja")
+                            jname = title.Value;
+                        if (title.FirstAttribute.Value == "official" && attr.Name == XNamespace.Xml + "lang" && attr.Value == "en")
+                            ename = title.Value;
+                    }
+                }
+                
+                // titles (+japanese) list
+                animeTitles.Add(new AnimeTitle(id, name, ename, jname));
+                
+                // autocomplete object (only x-jat)
+                if (name != "") animeTitlesAutocomplete.Add(name);
+                if (ename != "" && ename != name) animeTitlesAutocomplete.Add(ename);
+
+                // debug loading
+                Debug.WriteLine(String.Format("{0} - {1} : {2} : {3}", id, name, ename, jname));
+            }
+            // ---
+        }
+
+            #endregion
+
+        // ==================================================
+            #region common functions
+        // ==================================================
+
+        // add new anime item to the main list
+        public void addAnime(AnimeClass anime) { addAnime(anime, false); }
+        public void addAnime(AnimeClass anime, bool interfaceActions) {
+            animeList.Add(anime);
+            tlvAnime.UpdateObjects(animeList);
+            if (interfaceActions) closeAnimeNorth();
+        }
+
+        // delete all controls on workspace panel and hide it
+        public void closeAnimeNorth() {
+            bAddAnime.Checked = ButtonCheckState.Unchecked;
+            pAnimeNorth.Controls.Clear();
+            pAnimeNorth.Hide();
         }
 
             #endregion
@@ -224,10 +285,25 @@ namespace AnimeStorage
             # region interface events -> anime list
         // ==================================================
 
+        private void bAddTest_Click(object sender, EventArgs e)
+        { addAnime(new AnimeClass("Hey!", 2014, new Random().NextDouble()*10, "おい！")); }
+
         private void bAddAnime_Click(object sender, EventArgs e)
         {
-            anime.Add(new AnimeClass("Hey!", 2014, new Random().NextDouble()*10, "おい！"));
-            tlvAnime.UpdateObjects(anime);
+            if (bAddAnime.Checked == ButtonCheckState.Checked)
+            {
+                // create `form` panel
+                Panels.PNewAnime pNewAnime = new Panels.PNewAnime(this);
+                pNewAnime.Dock = DockStyle.Fill;
+                pNewAnime.TopLevel = false;
+                pNewAnime.Show();
+
+                // add to the workspace panel and show it
+                pAnimeNorth.Height = pNewAnime.Height;
+                pAnimeNorth.Controls.Add(pNewAnime);
+                pAnimeNorth.Show();
+            }
+            else { closeAnimeNorth(); }
         }
 
             #endregion
