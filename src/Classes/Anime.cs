@@ -10,12 +10,12 @@ namespace AnimeStorage
     public class AnimeClass
     {
         public String Name, Japanese;
-        public byte Rating = 0;
-        public int Year = -1;
+        public double Rating = 0;
+        public int AniDBId, Year;
         public Image AnimeIcon;
         public List<AnimeItem> Items = new List<AnimeItem>();
 
-        public AnimeClass(String Name, int Year, byte Rating, String Japanese)
+        public AnimeClass(String Name, int Year, double Rating, String Japanese)
         {
             this.Name = Name;
             this.Year = Year;
@@ -42,7 +42,7 @@ namespace AnimeStorage
         public String Name { get { return Fansub; } }
         public String Year { get { return ""/*Lang*/; } }
         public byte Rating { get { return 0; } }
-        public String Japanese { get { return Path; } }
+        public String Japanese { get { return ""/*Path*/; } }
         public Image AnimeIcon { get { return LangIcon; } }
     }
 

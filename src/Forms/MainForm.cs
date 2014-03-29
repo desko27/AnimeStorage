@@ -55,18 +55,18 @@ namespace AnimeStorage
             tlvAnime.HotItemStyle.Decoration = rbd;
 
             // rating drawing
-            cRating.Renderer = new MultiImageRenderer(ResourcesInterface.rating, 5, 0, 6);
+            cRating.Renderer = new MultiImageRenderer(ResourcesInterface.rating, 5, 0, 11);
 
             // background image
             //tlvAnime.SetNativeBackgroundWatermark();
 
             // test values
-            anime.Add(new AnimeClass("Hunter x Hunter", 2011, 4, "ハンターハンター"));
+            anime.Add(new AnimeClass("Hunter x Hunter", 2011, 8.22, "ハンターハンター"));
             anime[0].Items.Add(new AnimeItem(anime[0], "Epañol", "Backbeard", "D:\\Anime\\Hunter x Hunter (Backbeard)"));
-            anime.Add(new AnimeClass("Code Geass", 2006, 5, "コードギアス"));
-            anime.Add(new AnimeClass("One Piece", 1999, 3, "ワンピース"));
-            anime.Add(new AnimeClass("Naruto Shippuden", 2007, 1, "ナルト 疾風伝"));
-            anime.Add(new AnimeClass("Densetsu no Yuusha no Densetsu", 2010, 2, "伝説の勇者の伝説"));
+            anime.Add(new AnimeClass("Code Geass", 2006, 9.56, "コードギアス"));
+            anime.Add(new AnimeClass("One Piece", 1999, 8.47, "ワンピース"));
+            anime.Add(new AnimeClass("Naruto Shippuden", 2007, 5.71, "ナルト 疾風伝"));
+            anime.Add(new AnimeClass("Densetsu no Yuusha no Densetsu", 2010, 4.3, "伝説の勇者の伝説"));
             tlvAnime.SetObjects(anime);
             tlvAnime.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             cRating.Width = 90;
@@ -226,7 +226,7 @@ namespace AnimeStorage
 
         private void bAddAnime_Click(object sender, EventArgs e)
         {
-            anime.Add(new AnimeClass("Hey!", 2014, 1, "おい！"));
+            anime.Add(new AnimeClass("Hey!", 2014, new Random().NextDouble()*10, "おい！"));
             tlvAnime.UpdateObjects(anime);
         }
 
