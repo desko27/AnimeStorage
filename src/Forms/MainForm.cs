@@ -103,7 +103,7 @@ namespace AnimeStorage
                 // titles (+japanese) list
                 animeTitles.Add(new AnimeTitle(id, name, ename, jname));
                 
-                // autocomplete object (only x-jat)
+                // autocomplete object (en & x-jat)
                 if (name != "") animeTitlesAutocomplete.Add(name);
                 if (ename != "" && ename != name) animeTitlesAutocomplete.Add(ename);
 
@@ -111,27 +111,6 @@ namespace AnimeStorage
                 Debug.WriteLine(String.Format("{0} - {1} : {2} : {3}", id, name, ename, jname));
             }
             // ---
-        }
-
-            #endregion
-
-        // ==================================================
-            #region common functions
-        // ==================================================
-
-        // add new anime item to the main list
-        public void addAnime(AnimeClass anime) { addAnime(anime, false); }
-        public void addAnime(AnimeClass anime, bool interfaceActions) {
-            animeList.Add(anime);
-            tlvAnime.UpdateObjects(animeList);
-            if (interfaceActions) closeAnimeNorth();
-        }
-
-        // delete all controls on workspace panel and hide it
-        public void closeAnimeNorth() {
-            bAddAnime.Checked = ButtonCheckState.Unchecked;
-            pAnimeNorth.Controls.Clear();
-            pAnimeNorth.Hide();
         }
 
             #endregion
@@ -290,8 +269,12 @@ namespace AnimeStorage
 
         private void bAddAnime_Click(object sender, EventArgs e)
         {
-            if (bAddAnime.Checked == ButtonCheckState.Checked)
+            bool isChecked = bAddAnime.Checked == ButtonCheckState.Checked;
+            closeAnimeNorth();
+            if (isChecked)
             {
+                bAddAnime.Checked = ButtonCheckState.Checked;
+
                 // create `form` panel
                 Panels.PNewAnime pNewAnime = new Panels.PNewAnime(this);
                 pNewAnime.Dock = DockStyle.Fill;
@@ -303,8 +286,56 @@ namespace AnimeStorage
                 pAnimeNorth.Controls.Add(pNewAnime);
                 pAnimeNorth.Show();
             }
-            else { closeAnimeNorth(); }
         }
+
+        private void bSearchAnime_Click(object sender, EventArgs e)
+        {
+            bool isChecked = bSearchAnime.Checked == ButtonCheckState.Checked;
+            closeAnimeNorth();
+            if (isChecked)
+            {
+                bSearchAnime.Checked = ButtonCheckState.Checked;
+
+                // create `form` panel
+                Panels.PSearchAnime pNewAnime = new Panels.PSearchAnime(this);
+                pNewAnime.Dock = DockStyle.Fill;
+                pNewAnime.TopLevel = false;
+                pNewAnime.Show();
+
+                // add to the workspace panel and show it
+                pAnimeNorth.Height = pNewAnime.Height;
+                pAnimeNorth.Controls.Add(pNewAnime);
+                pAnimeNorth.Show();
+            }
+            else
+                filterContents("");
+        }
+
+            #endregion
+
+        // ==================================================
+            #region `add panel` & `search panel` functions
+        // ==================================================
+
+        // add new anime item to the main list
+        public void addAnime(AnimeClass anime) { addAnime(anime, false); }
+        public void addAnime(AnimeClass anime, bool interfaceActions) {
+            animeList.Add(anime);
+            tlvAnime.UpdateObjects(animeList);
+            if (interfaceActions) closeAnimeNorth();
+        }
+
+        // delete all controls on add panel and hide it
+        public void closeAnimeNorth() {
+            bAddAnime.Checked = ButtonCheckState.Unchecked;
+            bSearchAnime.Checked = ButtonCheckState.Unchecked;
+            pAnimeNorth.Controls.Clear();
+            pAnimeNorth.Hide();
+        }
+
+        // search function -> contents filter for anime list
+        public void filterContents(string text)
+        { tlvAnime.ModelFilter = TextMatchFilter.Contains(tlvAnime, text); }
 
             #endregion
         

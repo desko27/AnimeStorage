@@ -61,7 +61,6 @@
             this.splitContainerMain = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
             this.headerGroupAnime = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
             this.bAddTest = new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup();
-            this.bAddAnime = new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup();
             this.bAnimeMax = new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup();
             this.tlvAnime = new BrightIdeasSoftware.TreeListView();
             this.cName = new BrightIdeasSoftware.OLVColumn();
@@ -81,6 +80,8 @@
             this.kryptonContextMenuLinkLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuLinkLabel();
             this.kryptonContextMenuItems4 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
             this.kryptonContextMenuItems9 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.bAddAnime = new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup();
+            this.bSearchAnime = new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup();
             ((System.ComponentModel.ISupportInitialize)(this.panelMenu)).BeginInit();
             this.panelMenu.SuspendLayout();
             this.flowLayoutMenu.SuspendLayout();
@@ -322,6 +323,7 @@
             // 
             this.headerGroupAnime.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup[] {
             this.bAddTest,
+            this.bSearchAnime,
             this.bAddAnime,
             this.bAnimeMax});
             this.headerGroupAnime.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -343,14 +345,6 @@
             this.bAddTest.Text = "Test";
             this.bAddTest.UniqueName = "D3D69CAC1E66434DEE91BFB33DC46119";
             this.bAddTest.Click += new System.EventHandler(this.bAddTest_Click);
-            // 
-            // bAddAnime
-            // 
-            this.bAddAnime.Checked = ComponentFactory.Krypton.Toolkit.ButtonCheckState.Unchecked;
-            this.bAddAnime.Image = ((System.Drawing.Image)(resources.GetObject("bAddAnime.Image")));
-            this.bAddAnime.ImageTransparentColor = System.Drawing.Color.White;
-            this.bAddAnime.UniqueName = "9FBB2FEB71964C65C1AAB6AC5193EE1F";
-            this.bAddAnime.Click += new System.EventHandler(this.bAddAnime_Click);
             // 
             // bAnimeMax
             // 
@@ -388,6 +382,7 @@
             this.tlvAnime.Size = new System.Drawing.Size(393, 340);
             this.tlvAnime.TabIndex = 0;
             this.tlvAnime.UseCompatibleStateImageBehavior = false;
+            this.tlvAnime.UseFiltering = true;
             this.tlvAnime.UseHotItem = true;
             this.tlvAnime.View = System.Windows.Forms.View.Details;
             this.tlvAnime.VirtualMode = true;
@@ -501,6 +496,21 @@
             // 
             this.kryptonContextMenuLinkLabel1.ExtraText = "";
             // 
+            // bAddAnime
+            // 
+            this.bAddAnime.Checked = ComponentFactory.Krypton.Toolkit.ButtonCheckState.Unchecked;
+            this.bAddAnime.Image = ((System.Drawing.Image)(resources.GetObject("bAddAnime.Image")));
+            this.bAddAnime.ImageTransparentColor = System.Drawing.Color.White;
+            this.bAddAnime.UniqueName = "9FBB2FEB71964C65C1AAB6AC5193EE1F";
+            this.bAddAnime.Click += new System.EventHandler(this.bAddAnime_Click);
+            // 
+            // bSearchAnime
+            // 
+            this.bSearchAnime.Checked = ComponentFactory.Krypton.Toolkit.ButtonCheckState.Unchecked;
+            this.bSearchAnime.Image = ((System.Drawing.Image)(resources.GetObject("bSearchAnime.Image")));
+            this.bSearchAnime.UniqueName = "38BB6C9257334CD40BBE19079FE09871";
+            this.bSearchAnime.Click += new System.EventHandler(this.bSearchAnime_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -597,5 +607,6 @@
         private BrightIdeasSoftware.OLVColumn cYear;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel pAnimeNorth;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup bAddAnime;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup bSearchAnime;
     }
 }
