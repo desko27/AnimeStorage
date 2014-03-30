@@ -31,9 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PSearchAnime));
             this.rowSearch = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.tSearch = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.kBorder = new ComponentFactory.Krypton.Toolkit.KryptonBorderEdge();
             this.pCancel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.bCancel = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kBorder = new ComponentFactory.Krypton.Toolkit.KryptonBorderEdge();
             ((System.ComponentModel.ISupportInitialize)(this.rowSearch)).BeginInit();
             this.rowSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pCancel)).BeginInit();
@@ -62,14 +62,6 @@
             this.tSearch.TabIndex = 2;
             this.tSearch.TextChanged += new System.EventHandler(this.tSearch_TextChanged);
             // 
-            // kBorder
-            // 
-            this.kBorder.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.kBorder.Location = new System.Drawing.Point(0, 37);
-            this.kBorder.Name = "kBorder";
-            this.kBorder.Size = new System.Drawing.Size(408, 1);
-            this.kBorder.Text = "kryptonBorderEdge1";
-            // 
             // pCancel
             // 
             this.pCancel.Controls.Add(this.bCancel);
@@ -89,9 +81,17 @@
             this.bCancel.Size = new System.Drawing.Size(27, 23);
             this.bCancel.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bCancel.TabIndex = 0;
-            this.bCancel.Values.Image = ((System.Drawing.Image)(resources.GetObject("bManageFansubs.Values.Image")));
+            this.bCancel.Values.Image = ((System.Drawing.Image)(resources.GetObject("bCancel.Values.Image")));
             this.bCancel.Values.Text = "";
             this.bCancel.Click += new System.EventHandler(this.bCancel_Click);
+            // 
+            // kBorder
+            // 
+            this.kBorder.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.kBorder.Location = new System.Drawing.Point(0, 37);
+            this.kBorder.Name = "kBorder";
+            this.kBorder.Size = new System.Drawing.Size(408, 1);
+            this.kBorder.Text = "kryptonBorderEdge1";
             // 
             // PSearchAnime
             // 

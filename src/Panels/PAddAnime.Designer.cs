@@ -1,6 +1,6 @@
 ﻿namespace AnimeStorage.Panels
 {
-    partial class PNewAnime
+    partial class PAddAnime
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PNewAnime));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PAddAnime));
             this.rowName = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.tName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.flPanelFinal = new System.Windows.Forms.FlowLayoutPanel();

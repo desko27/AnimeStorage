@@ -6,10 +6,11 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using ComponentFactory.Krypton.Toolkit;
 
 namespace AnimeStorage.Panels
 {
-    public partial class PNewAnime : Form
+    public partial class PAddAnime : Form
     {
 
         // ==================================================
@@ -17,10 +18,12 @@ namespace AnimeStorage.Panels
         // ==================================================
 
         private MainForm mainForm;
-        public PNewAnime(MainForm mainForm)
+        private ButtonSpecHeaderGroup senderButton;
+        public PAddAnime(MainForm mainForm, ButtonSpecHeaderGroup senderButton)
         {
             InitializeComponent();
             this.mainForm = mainForm;
+            this.senderButton = senderButton;
 
             // autocompletion anime titles
             tName.AutoCompleteCustomSource = mainForm.animeTitlesAutocomplete;
@@ -37,13 +40,28 @@ namespace AnimeStorage.Panels
 
         private void bAccept_Click(object sender, EventArgs e)
         {
+            // prepare item
             AnimeClass anime = new AnimeClass(tName.Text, -1, -1, "");
             anime.Items.Add(new AnimeItem(anime, "", cbFansub.SelectedItem.ToString(), ""));
-            mainForm.addAnime(anime, true);
+
+            // add it to the main list
+            mainForm.addAnime(anime);
+
+            // close north panel
+            bCancel_Click(sender, e);
         }
 
         private void bCancel_Click(object sender, EventArgs e)
-        { mainForm.closeAnimeNorth(); }
+        {
+            // do nothing if this `form panel` wasn't created by a checked button
+            if (senderButton == null) return;
+            
+            // uncheck button
+            senderButton.Checked = ButtonCheckState.Unchecked;
+
+            // close north panel
+            mainForm.closeAnimeNorth();
+        }
 
         private void chkCreateFolder_CheckedChanged(object sender, EventArgs e)
         {

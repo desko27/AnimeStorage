@@ -29,12 +29,20 @@ namespace AnimeStorage
         public AutoCompleteStringCollection animeTitlesAutocomplete = new AutoCompleteStringCollection();
         // ---
 
+        // interface groups
+        private List<ButtonSpecHeaderGroup> animeHeaderButtons = new List<ButtonSpecHeaderGroup>();
+        // ---
+
         public MainForm()
         {
             InitializeComponent();
 
             // always-active console form
             console = new FormConsole(this);
+
+            // interface groups - add elements
+            animeHeaderButtons.Add(bAddAnime);
+            animeHeaderButtons.Add(bSearchAnime);
 
             // anime list configs
             // --------------------------------------------------
@@ -265,73 +273,67 @@ namespace AnimeStorage
         // ==================================================
 
         public void AddTest() { addAnime(new AnimeClass("Hey!", 2014, new Random().NextDouble()*10, "おい！")); }
-        private void bAddAnime_Click(object sender, EventArgs e)
+        private void animeHeaderButton_Click(object sender, EventArgs e)
         {
-            bool isChecked = bAddAnime.Checked == ButtonCheckState.Checked;
-            closeAnimeNorth();
-            if (isChecked)
-            {
-                bAddAnime.Checked = ButtonCheckState.Checked;
+            var button = (ButtonSpecHeaderGroup)sender;
+            if (button.Checked == ButtonCheckState.Checked) {
 
-                // create `form` panel
-                Panels.PNewAnime pNewAnime = new Panels.PNewAnime(this);
-                pNewAnime.Dock = DockStyle.Fill;
-                pNewAnime.TopLevel = false;
-                pNewAnime.Show();
+                // if north panel is already displayed, delete its contents
+                // in order to show the contents of this one
+                if (pAnimeNorth.Visible) closeAnimeNorth(false);
 
-                // add to the workspace panel and show it
-                pAnimeNorth.Height = pNewAnime.Height;
-                pAnimeNorth.Controls.Add(pNewAnime);
-                pAnimeNorth.Show();
+                // uncheck other check buttons but this one
+                foreach (var other in animeHeaderButtons)
+                    if (button != other && other.Checked != ButtonCheckState.NotCheckButton)
+                        other.Checked = ButtonCheckState.Unchecked;
+
+                // add corresponding `form panel`
+                Form appendingForm = null;
+                switch (button.Tag.ToString()) {
+                    case "Add": appendingForm = new Panels.PAddAnime(this, button); break;
+                    case "Search": appendingForm = new Panels.PSearchAnime(this, button); break;
+                }
+
+                if (appendingForm != null)
+                {
+                    // configure form to fit the panel
+                    appendingForm.Dock = DockStyle.Fill;
+                    appendingForm.TopLevel = false;
+                    appendingForm.Show();
+                    pAnimeNorth.Height = appendingForm.Height;
+
+                    // add it to the panel
+                    pAnimeNorth.Controls.Add(appendingForm);
+                }
+                
+                // show it if still not visible
+                if (!pAnimeNorth.Visible) pAnimeNorth.Show();
+
+            } else {
+
+                // unchecked button means to be closing north panel
+                if (pAnimeNorth.Visible) closeAnimeNorth();
+
             }
         }
 
-        private void bSearchAnime_Click(object sender, EventArgs e)
-        {
-            bool isChecked = bSearchAnime.Checked == ButtonCheckState.Checked;
-            closeAnimeNorth();
-            if (isChecked)
-            {
-                bSearchAnime.Checked = ButtonCheckState.Checked;
-
-                // create `form` panel
-                Panels.PSearchAnime pNewAnime = new Panels.PSearchAnime(this);
-                pNewAnime.Dock = DockStyle.Fill;
-                pNewAnime.TopLevel = false;
-                pNewAnime.Show();
-
-                // add to the workspace panel and show it
-                pAnimeNorth.Height = pNewAnime.Height;
-                pAnimeNorth.Controls.Add(pNewAnime);
-                pAnimeNorth.Show();
-            }
-            else
-                filterContents("");
+        // method for correctly closing anime north panel
+        public void closeAnimeNorth() { closeAnimeNorth(true); }
+        public void closeAnimeNorth(bool hide) {
+            foreach (Form panelForm in pAnimeNorth.Controls) panelForm.Dispose();
+            pAnimeNorth.Controls.Clear();
+            if (hide) pAnimeNorth.Hide();
         }
 
-            #endregion
-
-        // ==================================================
-            #region `add panel` & `search panel` functions
-        // ==================================================
-
-        // add new anime item to the main list
-        public void addAnime(AnimeClass anime) { addAnime(anime, false); }
-        public void addAnime(AnimeClass anime, bool interfaceActions) {
+        // add new anime item to both, the anime list and visual tlv anime list
+        // :: must be able to be called from [PAddAime] & co.
+        public void addAnime(AnimeClass anime) {
             animeList.Add(anime);
             tlvAnime.UpdateObjects(animeList);
-            if (interfaceActions) closeAnimeNorth();
-        }
-
-        // delete all controls on add panel and hide it
-        public void closeAnimeNorth() {
-            bAddAnime.Checked = ButtonCheckState.Unchecked;
-            bSearchAnime.Checked = ButtonCheckState.Unchecked;
-            pAnimeNorth.Controls.Clear();
-            pAnimeNorth.Hide();
         }
 
         // search function -> contents filter for anime list
+        // :: must be able to be called from [PAddAime] & co.
         public void filterContents(string text)
         { tlvAnime.ModelFilter = TextMatchFilter.Contains(tlvAnime, text); }
 

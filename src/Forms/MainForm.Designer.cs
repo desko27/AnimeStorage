@@ -342,16 +342,18 @@
             // 
             this.bSearchAnime.Checked = ComponentFactory.Krypton.Toolkit.ButtonCheckState.Unchecked;
             this.bSearchAnime.Image = ((System.Drawing.Image)(resources.GetObject("bSearchAnime.Image")));
+            this.bSearchAnime.Tag = "Search";
             this.bSearchAnime.UniqueName = "38BB6C9257334CD40BBE19079FE09871";
-            this.bSearchAnime.Click += new System.EventHandler(this.bSearchAnime_Click);
+            this.bSearchAnime.Click += new System.EventHandler(this.animeHeaderButton_Click);
             // 
             // bAddAnime
             // 
             this.bAddAnime.Checked = ComponentFactory.Krypton.Toolkit.ButtonCheckState.Unchecked;
             this.bAddAnime.Image = ((System.Drawing.Image)(resources.GetObject("bAddAnime.Image")));
             this.bAddAnime.ImageTransparentColor = System.Drawing.Color.White;
+            this.bAddAnime.Tag = "Add";
             this.bAddAnime.UniqueName = "9FBB2FEB71964C65C1AAB6AC5193EE1F";
-            this.bAddAnime.Click += new System.EventHandler(this.bAddAnime_Click);
+            this.bAddAnime.Click += new System.EventHandler(this.animeHeaderButton_Click);
             // 
             // bAnimeMax
             // 
@@ -596,8 +598,8 @@
         public BrightIdeasSoftware.TreeListView tlvAnime;
         private BrightIdeasSoftware.OLVColumn cJapanese;
         private BrightIdeasSoftware.OLVColumn cYear;
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel pAnimeNorth;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup bAddAnime;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup bSearchAnime;
+        public ComponentFactory.Krypton.Toolkit.KryptonPanel pAnimeNorth;
     }
 }

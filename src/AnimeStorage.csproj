@@ -88,11 +88,11 @@
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Panels\PNewAnime.cs">
+    <Compile Include="Panels\PAddAnime.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Panels\PNewAnime.Designer.cs">
-      <DependentUpon>PNewAnime.cs</DependentUpon>
+    <Compile Include="Panels\PAddAnime.Designer.cs">
+      <DependentUpon>PAddAnime.cs</DependentUpon>
     </Compile>
     <Compile Include="Panels\PSearchAnime.cs">
       <SubType>Form</SubType>
@@ -108,8 +108,8 @@
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Panels\PNewAnime.resx">
-      <DependentUpon>PNewAnime.cs</DependentUpon>
+    <EmbeddedResource Include="Panels\PAddAnime.resx">
+      <DependentUpon>PAddAnime.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\PSearchAnime.resx">
       <DependentUpon>PSearchAnime.cs</DependentUpon>
