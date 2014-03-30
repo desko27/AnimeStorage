@@ -264,9 +264,7 @@ namespace AnimeStorage
             # region interface events -> anime list
         // ==================================================
 
-        private void bAddTest_Click(object sender, EventArgs e)
-        { addAnime(new AnimeClass("Hey!", 2014, new Random().NextDouble()*10, "おい！")); }
-
+        public void AddTest() { addAnime(new AnimeClass("Hey!", 2014, new Random().NextDouble()*10, "おい！")); }
         private void bAddAnime_Click(object sender, EventArgs e)
         {
             bool isChecked = bAddAnime.Checked == ButtonCheckState.Checked;
