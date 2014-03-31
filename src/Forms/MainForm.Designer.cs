@@ -609,7 +609,6 @@
 
         #endregion
 
-        private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonGlobals;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel panelMenu;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutMenu;
         private ComponentFactory.Krypton.Toolkit.KryptonButton menuSettings;
@@ -668,5 +667,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem bLayoutBigListEpisodes;
         private ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator kryptonContextMenuSeparator3;
         private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem9;
+        public ComponentFactory.Krypton.Toolkit.KryptonManager kryptonGlobals;
     }
 }

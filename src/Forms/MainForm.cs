@@ -24,6 +24,7 @@ namespace AnimeStorage
 
         // global objects
         public FormConsole console;
+        public SettingsBox settings;
         public List<AnimeClass> animeList = new List<AnimeClass>();
         public List<AnimeTitle> animeTitles = new List<AnimeTitle>();
         public AutoCompleteStringCollection animeTitlesAutocomplete = new AutoCompleteStringCollection();
@@ -35,6 +36,13 @@ namespace AnimeStorage
 
         public MainForm()
         {
+            // settings object
+            settings = new SettingsBox(this);
+
+            // load language
+            settings.LoadLanguage();
+
+            // default's form components
             InitializeComponent();
 
             // always-active console form
@@ -58,13 +66,7 @@ namespace AnimeStorage
             tlvAnime.TreeColumnRenderer = renderer;
 
             // hotitemstyle for rows
-            RowBorderDecoration rbd = new RowBorderDecoration();
-            rbd.BorderPen = new Pen(Color.FromArgb(255, Color.White), 1);
-            rbd.FillBrush = Brushes.Transparent;
-            rbd.BoundsPadding = new Size(1, 1);
-            rbd.CornerRounding = 0;
-            tlvAnime.HotItemStyle = new HotItemStyle();
-            tlvAnime.HotItemStyle.Decoration = rbd;
+            setHotItemColor(Color.White);
 
             // rating drawing
             cRating.Renderer = new MultiImageRenderer(ResourcesInterface.rating, 5, 0, 11);
@@ -119,6 +121,27 @@ namespace AnimeStorage
                 Debug.WriteLine(String.Format("{0} - {1} : {2} : {3}", id, name, ename, jname));
             }
             // ---
+
+            // finally, load settings
+            settings.StartUp();
+
+        }
+
+            #endregion
+
+        // ==================================================
+            # region treelistview related functions
+        // ==================================================
+
+        public void setHotItemColor(Color color)
+        {
+            RowBorderDecoration rbd = new RowBorderDecoration();
+            rbd.BorderPen = new Pen(Color.FromArgb(255, color), 1);
+            rbd.FillBrush = Brushes.Transparent;
+            rbd.BoundsPadding = new Size(1, 1);
+            rbd.CornerRounding = 0;
+            tlvAnime.HotItemStyle = new HotItemStyle();
+            tlvAnime.HotItemStyle.Decoration = rbd;
         }
 
             #endregion
@@ -142,6 +165,9 @@ namespace AnimeStorage
             {
 
                 case "menuSettings":
+                    KryptonForm fSettings = new Forms.FormSettings(this);
+                    fSettings.StartPosition = FormStartPosition.CenterParent;
+                    fSettings.ShowDialog();
                     break;
 
                 case "menuConsole":
