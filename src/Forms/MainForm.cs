@@ -177,6 +177,20 @@ namespace AnimeStorage
         private void splitContainerMain_DoubleClick(object sender, EventArgs e) { splitContainerMain.SplitterDistance = splitContainerMain.Width / 2; }
         private void splitContainerRight_DoubleClick(object sender, EventArgs e) { splitContainerRight.SplitterDistance = splitContainerRight.Height / 2; }
 
+        // layout control through mainLayout dropdown buttons
+        private void bLayoutNormal_Click(object sender, EventArgs e) {
+            splitContainerMain.SplitterDistance = splitContainerMain.Width / 2;
+            splitContainerRight.SplitterDistance = splitContainerRight.Height / 2;
+        }
+        private void bLayoutBigList_Click(object sender, EventArgs e) {
+            splitContainerMain.SplitterDistance = splitContainerMain.Width - (splitContainerMain.Width / 4);
+            splitContainerRight.SplitterDistance = splitContainerRight.Height / 2;
+        }
+        private void bLayoutBigListEpisodes_Click(object sender, EventArgs e) {
+            splitContainerMain.SplitterDistance = splitContainerMain.Width - (splitContainerMain.Width / 4);
+            splitContainerRight.SplitterDistance = splitContainerRight.Height - (splitContainerRight.Height / 4);
+        }
+
         // maximize & restore main form panels
         // --------------------------------------------------
         private void bAnimeMax_Click(object sender, EventArgs e) {
@@ -338,7 +352,7 @@ namespace AnimeStorage
         { tlvAnime.ModelFilter = TextMatchFilter.Contains(tlvAnime, text); }
 
             #endregion
-        
+
     }
 
 }
