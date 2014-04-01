@@ -40,7 +40,7 @@ namespace AnimeStorage
             settings = new SettingsBox(this);
 
             // load language
-            settings.LoadLanguage();
+            settings.LoadSetting("Language");
 
             // default's form components
             InitializeComponent();

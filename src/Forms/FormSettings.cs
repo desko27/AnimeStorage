@@ -19,18 +19,21 @@ namespace AnimeStorage.Forms
         // ==================================================
         
         MainForm mainForm;
+        SettingsBox settings;
+
         public FormSettings(MainForm mainForm)
         {
             InitializeComponent();
             this.mainForm = mainForm;
+            settings = mainForm.settings;
 
-            // load existing settings
+            // get existing settings
             // --------------------------------------------------
-            cbTheme.Text = Properties.Settings.Default.StyleTheme;
-            cListFore.SelectedColor = Properties.Settings.Default.StyleListForeColor;
-            cListBack.SelectedColor = Properties.Settings.Default.StyleListBackColor;
-            cSelectedFore.SelectedColor = Properties.Settings.Default.StyleListSelectedForeColor;
-            cSelectedBack.SelectedColor = Properties.Settings.Default.StyleListSelectedBackColor;
+            cbTheme.Text = settings.GetSetting("StyleTheme");
+            cListFore.SelectedColor = settings.GetSetting("StyleListForeColor");
+            cListBack.SelectedColor = settings.GetSetting("StyleListBackColor");
+            cSelectedFore.SelectedColor = settings.GetSetting("StyleListSelectedForeColor");
+            cSelectedBack.SelectedColor = settings.GetSetting("StyleListSelectedBackColor");
             // ---
 
             // propagate 'move window' and other common properties
@@ -94,19 +97,19 @@ namespace AnimeStorage.Forms
         // ==================================================
 
         private void cbTheme_SelectedIndexChanged(object sender, EventArgs e)
-        { mainForm.settings.LoadTheme(cbTheme.SelectedItem.ToString()); }
+        { settings.LoadSetting("StyleTheme", cbTheme.SelectedItem.ToString()); }
 
         private void cListFore_SelectedColorChanged(object sender, ColorEventArgs e)
-        { mainForm.settings.LoadListForeColor(cListFore.SelectedColor); }
+        { settings.LoadSetting("StyleListForeColor", cListFore.SelectedColor); }
 
         private void cListBack_SelectedColorChanged(object sender, ColorEventArgs e)
-        { mainForm.settings.LoadListBackColor(cListBack.SelectedColor); }
+        { settings.LoadSetting("StyleListBackColor", cListBack.SelectedColor); }
 
         private void cSelectedFore_SelectedColorChanged(object sender, ColorEventArgs e)
-        { mainForm.settings.LoadListSelectedForeColor(cSelectedFore.SelectedColor); }
+        { settings.LoadSetting("StyleListSelectedForeColor", cSelectedFore.SelectedColor); }
 
         private void cSelectedBack_SelectedColorChanged(object sender, ColorEventArgs e)
-        { mainForm.settings.LoadListSelectedBackColor(cSelectedBack.SelectedColor); }
+        { settings.LoadSetting("StyleListSelectedBackColor", cSelectedBack.SelectedColor); }
 
             #endregion
 

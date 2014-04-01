@@ -6,6 +6,8 @@ using System.Globalization;
 using System.Threading;
 using ComponentFactory.Krypton.Toolkit;
 using System.Drawing;
+using System.Reflection;
+using System.Configuration;
 
 namespace AnimeStorage
 {
@@ -14,38 +16,58 @@ namespace AnimeStorage
 
         MainForm mainForm;
         public SettingsBox(MainForm mainForm) { this.mainForm = mainForm; }
-        public void StartUp() {
+        public void StartUp()
+        {
 
-            // whole app theme
-            LoadTheme();
-
-            // treelistview style settings
-            LoadListForeColor();
-            LoadListBackColor();
-            LoadListSelectedBackColor();
-            LoadListSelectedForeColor();
+            // load all settings but some of them
+            foreach (SettingsProperty setting in Properties.Settings.Default.Properties)
+                if (setting.Name != "Language") LoadSetting(setting.Name);
 
         }
 
-        public void LoadLanguage()
+        public dynamic GetSetting(string setting)
+        { return Properties.Settings.Default[setting];  }
+
+        public void LoadSetting(string setting)
+        {
+
+            // prepare call
+            string method_string = "Load_" + setting;
+            var type = this.GetType();
+
+            // do specific call using reflection
+            if (type.GetMethod(method_string) != null) {
+                MethodInfo method = type.GetMethod(method_string);
+                method.Invoke(this, new object[] { Properties.Settings.Default[setting] });
+            }
+
+        }
+
+        public void LoadSetting(string setting, dynamic value)
+        {
+
+            // set & save value
+            Properties.Settings.Default[setting] = value;
+            Properties.Settings.Default.Save();
+
+            // specific call
+            LoadSetting(setting);
+
+        }
+
+        public void Load_Language(string value)
         {
             string lang = Thread.CurrentThread.CurrentUICulture.ToString();
-            switch (Properties.Settings.Default.Language) {
+            switch (value) {
                 case "Español (ES)": lang = "es-ES"; break;
                 case "Català (CA)": lang = "ca-CA"; break;
             }
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(lang);
         }
 
-        public void LoadTheme(string theme) {
-            Properties.Settings.Default.StyleTheme = theme;
-            Properties.Settings.Default.Save();
-            LoadTheme();
-        }
-        public void LoadTheme()
+        public void Load_StyleTheme(string value)
         {
-            switch (Properties.Settings.Default.StyleTheme)
-            {
+            switch (value) {
                 case "Mild Blue": mainForm.kryptonGlobals.GlobalPaletteMode = PaletteModeManager.Office2010Blue; break;
                 case "Mild Black": mainForm.kryptonGlobals.GlobalPaletteMode = PaletteModeManager.Office2010Black; break;
                 case "Mild Silver": mainForm.kryptonGlobals.GlobalPaletteMode = PaletteModeManager.Office2010Silver; break;
@@ -55,39 +77,13 @@ namespace AnimeStorage
             }
         }
 
-        public void LoadListForeColor(Color color) {
-            Properties.Settings.Default.StyleListForeColor = color;
-            Properties.Settings.Default.Save();
-            LoadListForeColor();
+        public void Load_StyleListForeColor(Color value) { mainForm.tlvAnime.ForeColor = value; }
+        public void Load_StyleListBackColor(Color value) { mainForm.tlvAnime.BackColor = value; }
+        public void Load_StyleListSelectedForeColor(Color value) { mainForm.tlvAnime.HighlightForegroundColor = value; }
+        public void Load_StyleListSelectedBackColor(Color value) {
+            mainForm.tlvAnime.HighlightBackgroundColor = value;
+            mainForm.setHotItemColor(value); // change hot item color too
         }
-        public void LoadListForeColor()
-        { mainForm.tlvAnime.ForeColor = Properties.Settings.Default.StyleListForeColor; }
-
-        public void LoadListBackColor(Color color) {
-            Properties.Settings.Default.StyleListBackColor = color;
-            Properties.Settings.Default.Save();
-            LoadListBackColor();
-        }
-        public void LoadListBackColor()
-        { mainForm.tlvAnime.BackColor = Properties.Settings.Default.StyleListBackColor; }
-
-        public void LoadListSelectedForeColor(Color color) {
-            Properties.Settings.Default.StyleListSelectedForeColor = color;
-            Properties.Settings.Default.Save();
-            LoadListSelectedForeColor();
-        }
-        public void LoadListSelectedForeColor() {
-            mainForm.tlvAnime.HighlightForegroundColor = Properties.Settings.Default.StyleListSelectedForeColor;
-            mainForm.setHotItemColor(Properties.Settings.Default.StyleListSelectedForeColor); // change hot item color too
-        }
-
-        public void LoadListSelectedBackColor(Color color) {
-            Properties.Settings.Default.StyleListSelectedBackColor = color;
-            Properties.Settings.Default.Save();
-            LoadListSelectedBackColor();
-        }
-        public void LoadListSelectedBackColor()
-        { mainForm.tlvAnime.HighlightBackgroundColor = Properties.Settings.Default.StyleListSelectedBackColor; }
 
     }
 }
