@@ -277,6 +277,7 @@
             // 
             // kryptonContextMenuItem8
             // 
+            this.kryptonContextMenuItem8.Image = ((System.Drawing.Image)(resources.GetObject("kryptonContextMenuItem8.Image")));
             this.kryptonContextMenuItem8.Text = "Full log";
             // 
             // menuLayout

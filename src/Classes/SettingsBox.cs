@@ -16,6 +16,9 @@ namespace AnimeStorage
         public SettingsBox(MainForm mainForm) { this.mainForm = mainForm; }
         public void StartUp() {
 
+            // whole app theme
+            LoadTheme();
+
             // treelistview style settings
             LoadListForeColor();
             LoadListBackColor();
@@ -73,18 +76,18 @@ namespace AnimeStorage
             Properties.Settings.Default.Save();
             LoadListSelectedForeColor();
         }
-        public void LoadListSelectedForeColor()
-        { mainForm.tlvAnime.HighlightForegroundColor = Properties.Settings.Default.StyleListSelectedForeColor; }
+        public void LoadListSelectedForeColor() {
+            mainForm.tlvAnime.HighlightForegroundColor = Properties.Settings.Default.StyleListSelectedForeColor;
+            mainForm.setHotItemColor(Properties.Settings.Default.StyleListSelectedForeColor); // change hot item color too
+        }
 
         public void LoadListSelectedBackColor(Color color) {
             Properties.Settings.Default.StyleListSelectedBackColor = color;
             Properties.Settings.Default.Save();
             LoadListSelectedBackColor();
         }
-        public void LoadListSelectedBackColor() {
-            mainForm.tlvAnime.HighlightBackgroundColor = Properties.Settings.Default.StyleListSelectedBackColor;
-            mainForm.setHotItemColor(Properties.Settings.Default.StyleListSelectedBackColor); // change hot item color too
-        }
+        public void LoadListSelectedBackColor()
+        { mainForm.tlvAnime.HighlightBackgroundColor = Properties.Settings.Default.StyleListSelectedBackColor; }
 
     }
 }
