@@ -30,6 +30,10 @@ namespace AnimeStorage
         public AutoCompleteStringCollection animeTitlesAutocomplete = new AutoCompleteStringCollection();
         // ---
 
+        // workers (threads)
+        BackgroundWorker bw = new BackgroundWorker();
+        // ---
+
         // interface groups
         private List<ButtonSpecHeaderGroup> animeHeaderButtons = new List<ButtonSpecHeaderGroup>();
         // ---
@@ -88,43 +92,85 @@ namespace AnimeStorage
 
             // load anime titles into memory from xml file
             // --------------------------------------------------
-            XDocument doc = XDocument.Load("Files\\anime-titles.xml");
-            var xmlAnime = (from p in doc.Descendants().Elements()
-                                     where p.Name.LocalName == "anime"
-                                     select p);
-
-            foreach (var item in xmlAnime)
-            {
-                int id = Convert.ToInt32(item.FirstAttribute.Value);
-                String name = "", ename = "", jname = "";
-                foreach (var title in item.Elements())
-                {
-                    foreach (var attr in title.Attributes())
-                    {
-                        if ((title.FirstAttribute.Value == "official" || title.FirstAttribute.Value == "main") && attr.Name == XNamespace.Xml + "lang" && attr.Value == "x-jat")
-                            name = title.Value;
-                        if (attr.Name == XNamespace.Xml + "lang" && attr.Value == "ja")
-                            jname = title.Value;
-                        if (title.FirstAttribute.Value == "official" && attr.Name == XNamespace.Xml + "lang" && attr.Value == "en")
-                            ename = title.Value;
-                    }
-                }
-                
-                // titles (+japanese) list
-                animeTitles.Add(new AnimeTitle(id, name, ename, jname));
-                
-                // autocomplete object (en & x-jat)
-                if (name != "") animeTitlesAutocomplete.Add(name);
-                if (ename != "" && ename != name) animeTitlesAutocomplete.Add(ename);
-
-                // debug loading
-                Debug.WriteLine(String.Format("{0} - {1} : {2} : {3}", id, name, ename, jname));
-            }
+            bw.WorkerSupportsCancellation = true;
+            bw.WorkerReportsProgress = true;
+            bw.DoWork += new DoWorkEventHandler(bw_DoWork);
+            bw.ProgressChanged += new ProgressChangedEventHandler(bw_ProgressChanged);
+            bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bw_RunWorkerCompleted);
+            bw.RunWorkerAsync();
+            lStatus.Text = "Loading anime titles for autocompletion...";
             // ---
 
             // finally, load settings
             settings.StartUp();
 
+        }
+
+            #endregion
+
+        // ==================================================
+            # region thread -> load anime titles into memory from xml file
+        // ==================================================
+
+        private void bw_DoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker worker = sender as BackgroundWorker;
+
+            XDocument doc = XDocument.Load("Files\\anime-titles.xml");
+            var xmlAnime = (from p in doc.Descendants().Elements()
+                            where p.Name.LocalName == "anime"
+                            select p);
+
+            int i = 0, total = xmlAnime.Count();
+            foreach (var item in xmlAnime)
+            {
+                if ((worker.CancellationPending == true)) {
+                    e.Cancel = true;
+                    break;
+                } else {
+
+                    int id = Convert.ToInt32(item.FirstAttribute.Value);
+                    String name = "", ename = "", jname = "";
+                    foreach (var title in item.Elements())
+                    {
+                        foreach (var attr in title.Attributes())
+                        {
+                            if ((title.FirstAttribute.Value == "official" || title.FirstAttribute.Value == "main") && attr.Name == XNamespace.Xml + "lang" && attr.Value == "x-jat")
+                                name = title.Value;
+                            if (attr.Name == XNamespace.Xml + "lang" && attr.Value == "ja")
+                                jname = title.Value;
+                            if (title.FirstAttribute.Value == "official" && attr.Name == XNamespace.Xml + "lang" && attr.Value == "en")
+                                ename = title.Value;
+                        }
+                    }
+
+                    // titles (+japanese) list
+                    animeTitles.Add(new AnimeTitle(id, name, ename, jname));
+
+                    // autocomplete object (en & x-jat)
+                    if (name != "") animeTitlesAutocomplete.Add(name);
+                    if (ename != "" && ename != name) animeTitlesAutocomplete.Add(ename);
+
+                    // debug loading
+                    Debug.WriteLine(String.Format("{0} - {1} : {2} : {3}", id, name, ename, jname));
+                }
+
+                worker.ReportProgress((++i * 1000) / total);
+            }
+        }
+
+        private void bw_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        { pbStatus.Value = e.ProgressPercentage; }
+
+        private void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if ((e.Cancelled == true))
+            { lStatus.Text = "Canceled!"; }
+
+            else if (!(e.Error == null))
+            { lStatus.Text = ("Error: " + e.Error.Message); }
+
+            else { lStatus.Text = "Ready!"; pbStatus.Value = 0; }
         }
 
             #endregion
@@ -190,7 +236,7 @@ namespace AnimeStorage
         public static extern bool ReleaseCapture();
         [DllImport("User32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-        private void flowLayoutMenu_MouseDown(object sender, MouseEventArgs e)
+        private void moveWindow(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -315,6 +361,7 @@ namespace AnimeStorage
         public void AddTest() { addAnime(new AnimeClass("Hey!", 2014, new Random().NextDouble()*10, "おい！")); }
         private void animeHeaderButton_Click(object sender, EventArgs e)
         {
+
             var button = (ButtonSpecHeaderGroup)sender;
             if (button.Checked == ButtonCheckState.Checked) {
 
@@ -330,7 +377,18 @@ namespace AnimeStorage
                 // add corresponding `form panel`
                 Form appendingForm = null;
                 switch (button.Tag.ToString()) {
-                    case "Add": appendingForm = new Panels.PAddAnime(this, button); break;
+                    
+                    case "Add":
+                        // don't open if xml autocompletion is not ready
+                        if (bw.IsBusy) {
+                            button.Checked = ButtonCheckState.Unchecked;
+                            pAnimeNorth.Hide();
+                            return;
+                        }
+                        else
+                            appendingForm = new Panels.PAddAnime(this, button);
+                        break;
+
                     case "Search": appendingForm = new Panels.PSearchAnime(this, button); break;
                 }
 
@@ -355,6 +413,7 @@ namespace AnimeStorage
                 if (pAnimeNorth.Visible) closeAnimeNorth();
 
             }
+
         }
 
         // method for correctly closing anime north panel

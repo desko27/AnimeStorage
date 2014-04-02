@@ -90,10 +90,10 @@
             this.kryptonContextMenuItems4 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
             this.kryptonContextMenuItems9 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
             this.pStatus = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.pbStatus = new System.Windows.Forms.ProgressBar();
             this.lStatus = new ComponentFactory.Krypton.Toolkit.KryptonWrapLabel();
-            this.kbStatusSeparator = new ComponentFactory.Krypton.Toolkit.KryptonBorderEdge();
             this.pStatusSeparator = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.kbStatusSeparator = new ComponentFactory.Krypton.Toolkit.KryptonBorderEdge();
+            this.pbStatus = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.pMenu)).BeginInit();
             this.pMenu.SuspendLayout();
             this.flowLayoutMenu.SuspendLayout();
@@ -152,7 +152,7 @@
             this.flowLayoutMenu.Name = "flowLayoutMenu";
             this.flowLayoutMenu.Size = new System.Drawing.Size(772, 47);
             this.flowLayoutMenu.TabIndex = 1;
-            this.flowLayoutMenu.MouseDown += new System.Windows.Forms.MouseEventHandler(this.flowLayoutMenu_MouseDown);
+            this.flowLayoutMenu.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moveWindow);
             // 
             // menuStoreNow
             // 
@@ -586,14 +586,6 @@
             this.pStatus.Size = new System.Drawing.Size(791, 26);
             this.pStatus.TabIndex = 2;
             // 
-            // pbStatus
-            // 
-            this.pbStatus.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pbStatus.Location = new System.Drawing.Point(582, 5);
-            this.pbStatus.Name = "pbStatus";
-            this.pbStatus.Size = new System.Drawing.Size(209, 21);
-            this.pbStatus.TabIndex = 0;
-            // 
             // lStatus
             // 
             this.lStatus.AutoSize = false;
@@ -606,15 +598,7 @@
             this.lStatus.Size = new System.Drawing.Size(567, 21);
             this.lStatus.Text = "Status Text";
             this.lStatus.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // kbStatusSeparator
-            // 
-            this.kbStatusSeparator.Dock = System.Windows.Forms.DockStyle.Right;
-            this.kbStatusSeparator.Location = new System.Drawing.Point(7, 0);
-            this.kbStatusSeparator.Name = "kbStatusSeparator";
-            this.kbStatusSeparator.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.kbStatusSeparator.Size = new System.Drawing.Size(1, 21);
-            this.kbStatusSeparator.Text = "kryptonBorderEdge1";
+            this.lStatus.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moveWindow);
             // 
             // pStatusSeparator
             // 
@@ -625,6 +609,24 @@
             this.pStatusSeparator.Padding = new System.Windows.Forms.Padding(0, 0, 7, 0);
             this.pStatusSeparator.Size = new System.Drawing.Size(15, 21);
             this.pStatusSeparator.TabIndex = 3;
+            // 
+            // kbStatusSeparator
+            // 
+            this.kbStatusSeparator.Dock = System.Windows.Forms.DockStyle.Right;
+            this.kbStatusSeparator.Location = new System.Drawing.Point(7, 0);
+            this.kbStatusSeparator.Name = "kbStatusSeparator";
+            this.kbStatusSeparator.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.kbStatusSeparator.Size = new System.Drawing.Size(1, 21);
+            this.kbStatusSeparator.Text = "kryptonBorderEdge1";
+            // 
+            // pbStatus
+            // 
+            this.pbStatus.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pbStatus.Location = new System.Drawing.Point(582, 5);
+            this.pbStatus.Maximum = 1000;
+            this.pbStatus.Name = "pbStatus";
+            this.pbStatus.Size = new System.Drawing.Size(209, 21);
+            this.pbStatus.TabIndex = 0;
             // 
             // MainForm
             // 
