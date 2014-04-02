@@ -289,7 +289,7 @@
             this.kBorder.Size = new System.Drawing.Size(405, 1);
             this.kBorder.Text = "kryptonBorderEdge1";
             // 
-            // PNewAnime
+            // PAddAnime
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -299,7 +299,7 @@
             this.Controls.Add(this.rowFansub);
             this.Controls.Add(this.rowName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "PNewAnime";
+            this.Name = "PAddAnime";
             this.Text = "PNewAnime";
             this.Shown += new System.EventHandler(this.PNewAnime_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.rowName)).EndInit();

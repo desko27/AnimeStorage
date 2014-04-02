@@ -79,9 +79,9 @@ namespace AnimeStorage
 
         public void Load_StyleListForeColor(Color value) { mainForm.tlvAnime.ForeColor = value; }
         public void Load_StyleListBackColor(Color value) { mainForm.tlvAnime.BackColor = value; }
-        public void Load_StyleListSelectedForeColor(Color value) { mainForm.tlvAnime.HighlightForegroundColor = value; }
-        public void Load_StyleListSelectedBackColor(Color value) {
-            mainForm.tlvAnime.HighlightBackgroundColor = value;
+        public void Load_StyleListSelectedBackColor(Color value) { mainForm.tlvAnime.HighlightBackgroundColor = value; }
+        public void Load_StyleListSelectedForeColor(Color value) {
+            mainForm.tlvAnime.HighlightForegroundColor = value;
             mainForm.setHotItemColor(value); // change hot item color too
         }
 

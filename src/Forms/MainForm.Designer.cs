@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.kryptonGlobals = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
-            this.panelMenu = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.pMenu = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.flowLayoutMenu = new System.Windows.Forms.FlowLayoutPanel();
             this.menuStoreNow = new ComponentFactory.Krypton.Toolkit.KryptonDropButton();
             this.menuDownloads = new ComponentFactory.Krypton.Toolkit.KryptonDropButton();
@@ -72,10 +72,10 @@
             this.bAddAnime = new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup();
             this.bAnimeMax = new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup();
             this.tlvAnime = new BrightIdeasSoftware.TreeListView();
-            this.cName = new BrightIdeasSoftware.OLVColumn();
-            this.cYear = new BrightIdeasSoftware.OLVColumn();
-            this.cRating = new BrightIdeasSoftware.OLVColumn();
-            this.cJapanese = new BrightIdeasSoftware.OLVColumn();
+            this.cName = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.cYear = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.cRating = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.cJapanese = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.pAnimeNorth = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.splitContainerRight = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
             this.headerGroupEpisodes = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
@@ -89,8 +89,13 @@
             this.kryptonContextMenuLinkLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuLinkLabel();
             this.kryptonContextMenuItems4 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
             this.kryptonContextMenuItems9 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
-            ((System.ComponentModel.ISupportInitialize)(this.panelMenu)).BeginInit();
-            this.panelMenu.SuspendLayout();
+            this.pStatus = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.pbStatus = new System.Windows.Forms.ProgressBar();
+            this.lStatus = new ComponentFactory.Krypton.Toolkit.KryptonWrapLabel();
+            this.kbStatusSeparator = new ComponentFactory.Krypton.Toolkit.KryptonBorderEdge();
+            this.pStatusSeparator = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            ((System.ComponentModel.ISupportInitialize)(this.pMenu)).BeginInit();
+            this.pMenu.SuspendLayout();
             this.flowLayoutMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain.Panel1)).BeginInit();
@@ -116,18 +121,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.headerGroupProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.headerGroupProperties.Panel)).BeginInit();
             this.headerGroupProperties.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pStatus)).BeginInit();
+            this.pStatus.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pStatusSeparator)).BeginInit();
+            this.pStatusSeparator.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panelMenu
+            // pMenu
             // 
-            this.panelMenu.Controls.Add(this.flowLayoutMenu);
-            this.panelMenu.Controls.Add(this.bOverflowedMenuItems);
-            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelMenu.Location = new System.Drawing.Point(0, 0);
-            this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.panelMenu.Size = new System.Drawing.Size(791, 52);
-            this.panelMenu.TabIndex = 0;
+            this.pMenu.Controls.Add(this.flowLayoutMenu);
+            this.pMenu.Controls.Add(this.bOverflowedMenuItems);
+            this.pMenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pMenu.Location = new System.Drawing.Point(0, 0);
+            this.pMenu.Name = "pMenu";
+            this.pMenu.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.pMenu.Size = new System.Drawing.Size(791, 52);
+            this.pMenu.TabIndex = 0;
             // 
             // flowLayoutMenu
             // 
@@ -373,7 +382,7 @@
             // splitContainerMain.Panel2
             // 
             this.splitContainerMain.Panel2.Controls.Add(this.splitContainerRight);
-            this.splitContainerMain.Size = new System.Drawing.Size(791, 418);
+            this.splitContainerMain.Size = new System.Drawing.Size(791, 392);
             this.splitContainerMain.SplitterDistance = 395;
             this.splitContainerMain.TabIndex = 1;
             this.splitContainerMain.DoubleClick += new System.EventHandler(this.splitContainerMain_DoubleClick);
@@ -392,7 +401,7 @@
             // 
             this.headerGroupAnime.Panel.Controls.Add(this.tlvAnime);
             this.headerGroupAnime.Panel.Controls.Add(this.pAnimeNorth);
-            this.headerGroupAnime.Size = new System.Drawing.Size(395, 418);
+            this.headerGroupAnime.Size = new System.Drawing.Size(395, 392);
             this.headerGroupAnime.TabIndex = 0;
             this.headerGroupAnime.ValuesPrimary.Heading = "Anime";
             this.headerGroupAnime.ValuesPrimary.Image = ((System.Drawing.Image)(resources.GetObject("headerGroupAnime.ValuesPrimary.Image")));
@@ -448,7 +457,7 @@
             this.tlvAnime.OwnerDraw = true;
             this.tlvAnime.RowHeight = 32;
             this.tlvAnime.ShowGroups = false;
-            this.tlvAnime.Size = new System.Drawing.Size(393, 340);
+            this.tlvAnime.Size = new System.Drawing.Size(393, 314);
             this.tlvAnime.TabIndex = 0;
             this.tlvAnime.UseCompatibleStateImageBehavior = false;
             this.tlvAnime.UseFiltering = true;
@@ -510,8 +519,8 @@
             // splitContainerRight.Panel2
             // 
             this.splitContainerRight.Panel2.Controls.Add(this.headerGroupProperties);
-            this.splitContainerRight.Size = new System.Drawing.Size(391, 418);
-            this.splitContainerRight.SplitterDistance = 209;
+            this.splitContainerRight.Size = new System.Drawing.Size(391, 392);
+            this.splitContainerRight.SplitterDistance = 196;
             this.splitContainerRight.TabIndex = 0;
             this.splitContainerRight.DoubleClick += new System.EventHandler(this.splitContainerRight_DoubleClick);
             // 
@@ -523,7 +532,7 @@
             this.headerGroupEpisodes.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlToolTip;
             this.headerGroupEpisodes.Location = new System.Drawing.Point(0, 0);
             this.headerGroupEpisodes.Name = "headerGroupEpisodes";
-            this.headerGroupEpisodes.Size = new System.Drawing.Size(391, 209);
+            this.headerGroupEpisodes.Size = new System.Drawing.Size(391, 196);
             this.headerGroupEpisodes.TabIndex = 0;
             this.headerGroupEpisodes.ValuesPrimary.Heading = "Episodes";
             this.headerGroupEpisodes.ValuesPrimary.Image = ((System.Drawing.Image)(resources.GetObject("headerGroupEpisodes.ValuesPrimary.Image")));
@@ -544,7 +553,7 @@
             this.headerGroupProperties.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlToolTip;
             this.headerGroupProperties.Location = new System.Drawing.Point(0, 0);
             this.headerGroupProperties.Name = "headerGroupProperties";
-            this.headerGroupProperties.Size = new System.Drawing.Size(391, 204);
+            this.headerGroupProperties.Size = new System.Drawing.Size(391, 191);
             this.headerGroupProperties.TabIndex = 0;
             this.headerGroupProperties.ValuesPrimary.Heading = "Properties";
             this.headerGroupProperties.ValuesPrimary.Image = ((System.Drawing.Image)(resources.GetObject("headerGroupProperties.ValuesPrimary.Image")));
@@ -565,20 +574,73 @@
             // 
             this.kryptonContextMenuLinkLabel1.ExtraText = "";
             // 
+            // pStatus
+            // 
+            this.pStatus.Controls.Add(this.lStatus);
+            this.pStatus.Controls.Add(this.pStatusSeparator);
+            this.pStatus.Controls.Add(this.pbStatus);
+            this.pStatus.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pStatus.Location = new System.Drawing.Point(0, 444);
+            this.pStatus.Name = "pStatus";
+            this.pStatus.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.pStatus.Size = new System.Drawing.Size(791, 26);
+            this.pStatus.TabIndex = 2;
+            // 
+            // pbStatus
+            // 
+            this.pbStatus.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pbStatus.Location = new System.Drawing.Point(582, 5);
+            this.pbStatus.Name = "pbStatus";
+            this.pbStatus.Size = new System.Drawing.Size(209, 21);
+            this.pbStatus.TabIndex = 0;
+            // 
+            // lStatus
+            // 
+            this.lStatus.AutoSize = false;
+            this.lStatus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lStatus.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
+            this.lStatus.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
+            this.lStatus.Location = new System.Drawing.Point(0, 5);
+            this.lStatus.Name = "lStatus";
+            this.lStatus.Size = new System.Drawing.Size(567, 21);
+            this.lStatus.Text = "Status Text";
+            this.lStatus.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // kbStatusSeparator
+            // 
+            this.kbStatusSeparator.Dock = System.Windows.Forms.DockStyle.Right;
+            this.kbStatusSeparator.Location = new System.Drawing.Point(7, 0);
+            this.kbStatusSeparator.Name = "kbStatusSeparator";
+            this.kbStatusSeparator.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.kbStatusSeparator.Size = new System.Drawing.Size(1, 21);
+            this.kbStatusSeparator.Text = "kryptonBorderEdge1";
+            // 
+            // pStatusSeparator
+            // 
+            this.pStatusSeparator.Controls.Add(this.kbStatusSeparator);
+            this.pStatusSeparator.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pStatusSeparator.Location = new System.Drawing.Point(567, 5);
+            this.pStatusSeparator.Name = "pStatusSeparator";
+            this.pStatusSeparator.Padding = new System.Windows.Forms.Padding(0, 0, 7, 0);
+            this.pStatusSeparator.Size = new System.Drawing.Size(15, 21);
+            this.pStatusSeparator.TabIndex = 3;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(791, 470);
             this.Controls.Add(this.splitContainerMain);
-            this.Controls.Add(this.panelMenu);
+            this.Controls.Add(this.pStatus);
+            this.Controls.Add(this.pMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(100, 100);
             this.Name = "MainForm";
             this.Text = "Anime Storage";
             this.Resize += new System.EventHandler(this.MainForm_Resize);
-            ((System.ComponentModel.ISupportInitialize)(this.panelMenu)).EndInit();
-            this.panelMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pMenu)).EndInit();
+            this.pMenu.ResumeLayout(false);
             this.flowLayoutMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain.Panel1)).EndInit();
             this.splitContainerMain.Panel1.ResumeLayout(false);
@@ -604,13 +666,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.headerGroupProperties.Panel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.headerGroupProperties)).EndInit();
             this.headerGroupProperties.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pStatus)).EndInit();
+            this.pStatus.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pStatusSeparator)).EndInit();
+            this.pStatusSeparator.ResumeLayout(false);
+            this.pStatusSeparator.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private ComponentFactory.Krypton.Toolkit.KryptonPanel panelMenu;
+        private ComponentFactory.Krypton.Toolkit.KryptonPanel pMenu;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutMenu;
         private ComponentFactory.Krypton.Toolkit.KryptonButton menuSettings;
         private ComponentFactory.Krypton.Toolkit.KryptonSplitContainer splitContainerMain;
@@ -669,5 +736,10 @@
         private ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator kryptonContextMenuSeparator3;
         private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem9;
         public ComponentFactory.Krypton.Toolkit.KryptonManager kryptonGlobals;
+        private ComponentFactory.Krypton.Toolkit.KryptonPanel pStatus;
+        private ComponentFactory.Krypton.Toolkit.KryptonWrapLabel lStatus;
+        private ComponentFactory.Krypton.Toolkit.KryptonPanel pStatusSeparator;
+        private ComponentFactory.Krypton.Toolkit.KryptonBorderEdge kbStatusSeparator;
+        private System.Windows.Forms.ProgressBar pbStatus;
     }
 }
