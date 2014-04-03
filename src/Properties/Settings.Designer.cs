@@ -94,5 +94,53 @@ namespace AnimeStorage.Properties {
                 this["StyleListSelectedBackColor"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("50")]
+        public int LayoutHorizontal {
+            get {
+                return ((int)(this["LayoutHorizontal"]));
+            }
+            set {
+                this["LayoutHorizontal"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("50")]
+        public int LayoutVertical {
+            get {
+                return ((int)(this["LayoutVertical"]));
+            }
+            set {
+                this["LayoutVertical"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("800, 500")]
+        public global::System.Drawing.Size WindowSize {
+            get {
+                return ((global::System.Drawing.Size)(this["WindowSize"]));
+            }
+            set {
+                this["WindowSize"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Normal")]
+        public global::System.Windows.Forms.FormWindowState WindowState {
+            get {
+                return ((global::System.Windows.Forms.FormWindowState)(this["WindowState"]));
+            }
+            set {
+                this["WindowState"] = value;
+            }
+        }
     }
 }

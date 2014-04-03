@@ -14,6 +14,10 @@ namespace AnimeStorage
     public class SettingsBox
     {
 
+        // ==================================================
+            # region init stuff
+        // ==================================================
+
         MainForm mainForm;
         public SettingsBox(MainForm mainForm) { this.mainForm = mainForm; }
         public void StartUp()
@@ -24,6 +28,12 @@ namespace AnimeStorage
                 if (setting.Name != "Language") LoadSetting(setting.Name);
 
         }
+
+            #endregion
+
+        // ==================================================
+            # region setting setter & getter
+        // ==================================================
 
         public dynamic GetSetting(string setting)
         { return Properties.Settings.Default[setting];  }
@@ -43,6 +53,13 @@ namespace AnimeStorage
 
         }
 
+            #endregion
+
+        // ==================================================
+            # region setting load functions
+        // ==================================================
+
+        // generic loading method
         public void LoadSetting(string setting, dynamic value)
         {
 
@@ -55,6 +72,8 @@ namespace AnimeStorage
 
         }
 
+        // specific setting loading methods
+        // --------------------------------------------------
         public void Load_Language(string value)
         {
             string lang = Thread.CurrentThread.CurrentUICulture.ToString();
@@ -84,6 +103,14 @@ namespace AnimeStorage
             mainForm.tlvAnime.HighlightForegroundColor = value;
             mainForm.setHotItemColor(value); // change hot item color too
         }
+
+        public void Load_WindowSize(Size value) { mainForm.Size = value; }
+        public void Load_WindowState(System.Windows.Forms.FormWindowState value) { mainForm.WindowState = value; }
+        public void Load_LayoutHorizontal(int value) { mainForm.splitContainerMain.SplitterDistance = (int)(mainForm.splitContainerMain.Width * ((float)value/100)); }
+        public void Load_LayoutVertical(int value) { mainForm.splitContainerRight.SplitterDistance = (int)(mainForm.splitContainerRight.Height * ((float)value / 100)); }
+        // ---
+
+            #endregion
 
     }
 }

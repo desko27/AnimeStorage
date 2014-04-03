@@ -269,7 +269,7 @@ namespace AnimeStorage
         }
         private void bLayoutBigListEpisodes_Click(object sender, EventArgs e) {
             splitContainerMain.SplitterDistance = splitContainerMain.Width - (splitContainerMain.Width / 4);
-            splitContainerRight.SplitterDistance = splitContainerRight.Height - (splitContainerRight.Height / 4);
+            splitContainerRight.SplitterDistance = splitContainerRight.Height - (splitContainerRight.Height / 3);
         }
 
         // maximize & restore main form panels
@@ -444,6 +444,24 @@ namespace AnimeStorage
         // :: must be able to be called from [PAddAime] & co.
         public void filterContents(string text)
         { tlvAnime.ModelFilter = TextMatchFilter.Contains(tlvAnime, text); }
+
+            #endregion
+
+        // ==================================================
+            # region ending procedures when closing app
+        // ==================================================
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // remember last state for some elements
+            Properties.Settings.Default.LayoutHorizontal = (splitContainerMain.SplitterDistance * 100) / splitContainerMain.Width;
+            Properties.Settings.Default.LayoutVertical = (splitContainerRight.SplitterDistance * 100) / splitContainerRight.Height;
+            Properties.Settings.Default.WindowSize = Size;
+            if (WindowState != FormWindowState.Minimized) Properties.Settings.Default.WindowState = WindowState;
+            
+            // save them
+            Properties.Settings.Default.Save();
+        }
 
             #endregion
 

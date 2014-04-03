@@ -371,15 +371,6 @@
   <metadata name="cmMenuLastOnes.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>520, 19</value>
   </metadata>
-  <data name="kryptonContextMenuItem8.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAACw8AAAsPAZL5A6UAAAAGYktHRAD/AP8A/6C9p5MAAACWSURBVDhPpZLBDoMwDEPL
-        QNou/AOHXXbZ///dFldxa6Ip0USkF1rjRGmhvV/PAUM152Ysxl20DtKHeP1Jq4hmdlYthQUAI+o+Y3jj
-        CwIDTfF5AmmO46FaRTSzs2opLKjYjc3gZxzHUlPG+kPrIM1xPFSriGZ2Vi2FBRH8urp/GLiHQ7TuUdO/
-        9IvEYo7joVrF9QbXorUvGb/dhLYy7wcAAAAASUVORK5CYII=
-</value>
-  </data>
   <data name="menuLastOnes.Values.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
@@ -642,15 +633,6 @@
         +KcAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="kryptonContextMenuItem9.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAADDSURBVDhPvdKxCoFRGIfxL4Mkg1GS2SCjTCaD0Sij5AoMbkByEWYZ5AIMZpnMJoOMMkriecok
-        6nwD//r11an3Ped7z4n+nSKW6CLpQtxUsMYDB2QRnDx6cOcaZsggOBO48xEDxCr2qBfYQFd4ouAMYeHu
-        9Z0iOCmcsMIId5QQnD7ctYUzFghOAnts4eBsVEVw6rCoA6fvG4idMhq4oelCnMwxRg4FFz7F9+3R3vlQ
-        HJi/sMHX2MAremeDNry6NH6RKHoCtGorv3G/QIgAAAAASUVORK5CYII=
-</value>
-  </data>
   <data name="menuLayout.Values.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAAQHpSiph5wAAAvppQ0NQUGhv
@@ -778,6 +760,15 @@
   <metadata name="cmOverflowedMenuItems.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>168, 19</value>
   </metadata>
+  <data name="kryptonContextMenuItem8.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAACw4AAAsOAUC+4UEAAAAGYktHRAD/AP8A/6C9p5MAAACWSURBVDhPpZLBDoMwDEPL
+        QNou/AOHXXbZ///dFldxa6Ip0USkF1rjRGmhvV/PAUM152Ysxl20DtKHeP1Jq4hmdlYthQUAI+o+Y3jj
+        CwIDTfF5AmmO46FaRTSzs2opLKjYjc3gZxzHUlPG+kPrIM1xPFSriGZ2Vi2FBRH8urp/GLiHQ7TuUdO/
+        9IvEYo7joVrF9QbXorUvGb/dhLYy7wcAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="bSearchAnime.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH

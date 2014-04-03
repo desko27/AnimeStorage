@@ -60,8 +60,6 @@
             this.bLayoutNormal = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
             this.bLayoutBigList = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
             this.bLayoutBigListEpisodes = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
-            this.kryptonContextMenuSeparator3 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator();
-            this.kryptonContextMenuItem9 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
             this.menuConsole = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.bOverflowedMenuItems = new ComponentFactory.Krypton.Toolkit.KryptonDropButton();
             this.cmOverflowedMenuItems = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
@@ -74,6 +72,7 @@
             this.tlvAnime = new BrightIdeasSoftware.TreeListView();
             this.cName = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.cYear = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.cFansub = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.cRating = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.cJapanese = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.pAnimeNorth = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
@@ -94,7 +93,6 @@
             this.pStatusSeparator = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kbStatusSeparator = new ComponentFactory.Krypton.Toolkit.KryptonBorderEdge();
             this.pbStatus = new System.Windows.Forms.ProgressBar();
-            this.cFansub = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             ((System.ComponentModel.ISupportInitialize)(this.pMenu)).BeginInit();
             this.pMenu.SuspendLayout();
             this.flowLayoutMenu.SuspendLayout();
@@ -306,9 +304,7 @@
             this.kryptonContextMenuItems10.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.bLayoutNormal,
             this.bLayoutBigList,
-            this.bLayoutBigListEpisodes,
-            this.kryptonContextMenuSeparator3,
-            this.kryptonContextMenuItem9});
+            this.bLayoutBigListEpisodes});
             // 
             // bLayoutNormal
             // 
@@ -327,11 +323,6 @@
             this.bLayoutBigListEpisodes.Image = ((System.Drawing.Image)(resources.GetObject("bLayoutBigListEpisodes.Image")));
             this.bLayoutBigListEpisodes.Text = "Wide list + episodes";
             this.bLayoutBigListEpisodes.Click += new System.EventHandler(this.bLayoutBigListEpisodes_Click);
-            // 
-            // kryptonContextMenuItem9
-            // 
-            this.kryptonContextMenuItem9.Image = ((System.Drawing.Image)(resources.GetObject("kryptonContextMenuItem9.Image")));
-            this.kryptonContextMenuItem9.Text = "Set default...";
             // 
             // menuConsole
             // 
@@ -476,6 +467,12 @@
             this.cYear.AspectName = "YearAspect";
             this.cYear.CellPadding = null;
             this.cYear.Text = "Year";
+            // 
+            // cFansub
+            // 
+            this.cFansub.AspectName = "Fansub";
+            this.cFansub.CellPadding = null;
+            this.cFansub.Text = "Fansub";
             // 
             // cRating
             // 
@@ -624,12 +621,6 @@
             this.pbStatus.Size = new System.Drawing.Size(209, 21);
             this.pbStatus.TabIndex = 0;
             // 
-            // cFansub
-            // 
-            this.cFansub.AspectName = "Fansub";
-            this.cFansub.CellPadding = null;
-            this.cFansub.Text = "Fansub";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -642,6 +633,7 @@
             this.MinimumSize = new System.Drawing.Size(100, 100);
             this.Name = "MainForm";
             this.Text = "Anime Storage";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Resize += new System.EventHandler(this.MainForm_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.pMenu)).EndInit();
             this.pMenu.ResumeLayout(false);
@@ -677,8 +669,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonPanel pMenu;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutMenu;
         private ComponentFactory.Krypton.Toolkit.KryptonButton menuSettings;
-        private ComponentFactory.Krypton.Toolkit.KryptonSplitContainer splitContainerMain;
-        private ComponentFactory.Krypton.Toolkit.KryptonSplitContainer splitContainerRight;
         private ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup headerGroupAnime;
         private ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup headerGroupEpisodes;
         private ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup headerGroupProperties;
@@ -730,8 +720,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem bLayoutNormal;
         private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem bLayoutBigList;
         private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem bLayoutBigListEpisodes;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator kryptonContextMenuSeparator3;
-        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem kryptonContextMenuItem9;
         public ComponentFactory.Krypton.Toolkit.KryptonManager kryptonGlobals;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel pStatus;
         private ComponentFactory.Krypton.Toolkit.KryptonWrapLabel lStatus;
@@ -739,5 +727,7 @@
         private ComponentFactory.Krypton.Toolkit.KryptonBorderEdge kbStatusSeparator;
         private System.Windows.Forms.ProgressBar pbStatus;
         private BrightIdeasSoftware.OLVColumn cFansub;
+        public ComponentFactory.Krypton.Toolkit.KryptonSplitContainer splitContainerMain;
+        public ComponentFactory.Krypton.Toolkit.KryptonSplitContainer splitContainerRight;
     }
 }

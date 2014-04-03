@@ -20,5 +20,17 @@
     <Setting Name="StyleListSelectedBackColor" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">Black</Value>
     </Setting>
+    <Setting Name="LayoutHorizontal" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">50</Value>
+    </Setting>
+    <Setting Name="LayoutVertical" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">50</Value>
+    </Setting>
+    <Setting Name="WindowSize" Type="System.Drawing.Size" Scope="User">
+      <Value Profile="(Default)">800, 500</Value>
+    </Setting>
+    <Setting Name="WindowState" Type="System.Windows.Forms.FormWindowState" Scope="User">
+      <Value Profile="(Default)">Normal</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
