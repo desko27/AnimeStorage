@@ -40,6 +40,7 @@ namespace AnimeStorage
 
         public MainForm()
         {
+
             // settings object
             settings = new SettingsBox(this);
 
@@ -48,6 +49,11 @@ namespace AnimeStorage
 
             // default's form components
             InitializeComponent();
+
+#if !DEBUG
+            // hide debug interface elements
+            menuConsole.Hide();
+#endif
 
             // always-active console form
             console = new FormConsole(this);
@@ -78,6 +84,7 @@ namespace AnimeStorage
             // background image
             //tlvAnime.SetNativeBackgroundWatermark();
 
+#if DEBUG
             // test values
             animeList.Add(new AnimeClass("Hunter x Hunter", 2011, 8.22, "ハンターハンター"));
             animeList[0].Items.Add(new AnimeItem(animeList[0], "Epañol", "Backbeard", "D:\\Anime\\Hunter x Hunter (Backbeard)"));
@@ -89,6 +96,7 @@ namespace AnimeStorage
             tlvAnime.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             cRating.Width = 90;
             // ---
+#endif
 
             // load anime titles into memory from xml file
             // --------------------------------------------------
@@ -151,10 +159,11 @@ namespace AnimeStorage
                     if (name != "") animeTitlesAutocomplete.Add(name);
                     if (ename != "" && ename != name) animeTitlesAutocomplete.Add(ename);
 
-                    // debug loading
-                    Debug.WriteLine(String.Format("{0} - {1} : {2} : {3}", id, name, ename, jname));
+#if DEBUG
+                    // Debug.WriteLine(String.Format("{0} - {1} : {2} : {3}", id, name, ename, jname));
+#endif
                 }
-
+                
                 worker.ReportProgress((++i * 1000) / total);
             }
         }
