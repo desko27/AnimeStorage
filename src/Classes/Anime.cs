@@ -24,6 +24,7 @@ namespace AnimeStorage
         }
 
         public String YearAspect { get { return Year == -1 ? "" : Year.ToString(); } }
+        public String Fansub { get { return Items.Count == 1 ? Items.First().Fansub : (Items.Count == 0 ? "None" : String.Format("{0} fansubs", Items.Count)); } }
         
     }
 
@@ -41,7 +42,7 @@ namespace AnimeStorage
             this.Path = Path;
         }
 
-        public String Name { get { return Fansub; } }
+        public String Name { get { return ""; } }
         public String YearAspect { get { return ""/*Lang*/; } }
         public byte Rating { get { return 0; } }
         public String Japanese { get { return ""/*Path*/; } }

@@ -65,7 +65,7 @@ namespace AnimeStorage
             // anime list configs
             // --------------------------------------------------
             // treelistview expand getters
-            tlvAnime.CanExpandGetter = delegate(object x) { return x is AnimeClass ? (((AnimeClass)x).Items.Count > 0) : false; };
+            tlvAnime.CanExpandGetter = delegate(object x) { return x is AnimeClass ? (((AnimeClass)x).Items.Count > 1) : false; };
             tlvAnime.ChildrenGetter = delegate(object x) { return new ArrayList(((AnimeClass)x).Items); };
 
             // linepen

@@ -94,32 +94,26 @@
             this.pStatusSeparator = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kbStatusSeparator = new ComponentFactory.Krypton.Toolkit.KryptonBorderEdge();
             this.pbStatus = new System.Windows.Forms.ProgressBar();
+            this.cFansub = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             ((System.ComponentModel.ISupportInitialize)(this.pMenu)).BeginInit();
             this.pMenu.SuspendLayout();
             this.flowLayoutMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain.Panel1)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain.Panel2)).BeginInit();
             this.splitContainerMain.Panel2.SuspendLayout();
             this.splitContainerMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.headerGroupAnime)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.headerGroupAnime.Panel)).BeginInit();
             this.headerGroupAnime.Panel.SuspendLayout();
             this.headerGroupAnime.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tlvAnime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pAnimeNorth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerRight)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerRight.Panel1)).BeginInit();
             this.splitContainerRight.Panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerRight.Panel2)).BeginInit();
             this.splitContainerRight.Panel2.SuspendLayout();
             this.splitContainerRight.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.headerGroupEpisodes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.headerGroupEpisodes.Panel)).BeginInit();
             this.headerGroupEpisodes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.headerGroupProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.headerGroupProperties.Panel)).BeginInit();
             this.headerGroupProperties.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pStatus)).BeginInit();
             this.pStatus.SuspendLayout();
@@ -435,6 +429,7 @@
             // 
             this.tlvAnime.AllColumns.Add(this.cName);
             this.tlvAnime.AllColumns.Add(this.cYear);
+            this.tlvAnime.AllColumns.Add(this.cFansub);
             this.tlvAnime.AllColumns.Add(this.cRating);
             this.tlvAnime.AllColumns.Add(this.cJapanese);
             this.tlvAnime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
@@ -442,6 +437,7 @@
             this.tlvAnime.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.cName,
             this.cYear,
+            this.cFansub,
             this.cRating,
             this.cJapanese});
             this.tlvAnime.Cursor = System.Windows.Forms.Cursors.Default;
@@ -628,6 +624,12 @@
             this.pbStatus.Size = new System.Drawing.Size(209, 21);
             this.pbStatus.TabIndex = 0;
             // 
+            // cFansub
+            // 
+            this.cFansub.AspectName = "Fansub";
+            this.cFansub.CellPadding = null;
+            this.cFansub.Text = "Fansub";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -644,28 +646,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.pMenu)).EndInit();
             this.pMenu.ResumeLayout(false);
             this.flowLayoutMenu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain.Panel1)).EndInit();
             this.splitContainerMain.Panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain.Panel2)).EndInit();
             this.splitContainerMain.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).EndInit();
             this.splitContainerMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.headerGroupAnime.Panel)).EndInit();
             this.headerGroupAnime.Panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.headerGroupAnime)).EndInit();
             this.headerGroupAnime.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tlvAnime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pAnimeNorth)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerRight.Panel1)).EndInit();
             this.splitContainerRight.Panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerRight.Panel2)).EndInit();
             this.splitContainerRight.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerRight)).EndInit();
             this.splitContainerRight.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.headerGroupEpisodes.Panel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.headerGroupEpisodes)).EndInit();
             this.headerGroupEpisodes.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.headerGroupProperties.Panel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.headerGroupProperties)).EndInit();
             this.headerGroupProperties.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pStatus)).EndInit();
@@ -743,5 +738,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonPanel pStatusSeparator;
         private ComponentFactory.Krypton.Toolkit.KryptonBorderEdge kbStatusSeparator;
         private System.Windows.Forms.ProgressBar pbStatus;
+        private BrightIdeasSoftware.OLVColumn cFansub;
     }
 }
