@@ -12,19 +12,31 @@ namespace AnimeStorage
         public String Name, Japanese;
         public double Rating = 0;
         public int AniDBId, Year;
-        public Image AnimeIcon;
+        public Image Icon, Picture;
         public List<AnimeItem> Items = new List<AnimeItem>();
 
-        public AnimeClass(String Name, int Year, double Rating, String Japanese)
+        public AnimeClass(Image picture, String Name, int Year, double Rating, String Japanese)
         {
+            this.Picture = picture;
             this.Name = Name;
             this.Year = Year;
             this.Rating = Rating;
             this.Japanese = Japanese;
         }
 
+        public String EmptyString { get { return ""; } }
         public String YearAspect { get { return Year == -1 ? "" : Year.ToString(); } }
         public String Fansub { get { return Items.Count == 1 ? Items.First().Fansub : (Items.Count == 0 ? "None" : String.Format("{0} fansubs", Items.Count)); } }
+        public Image PictureAspect {
+            get {
+                if (Picture == null) return null;
+                int w = MainForm.PICTURE_WIDTH, h = MainForm.PICTURE_HEIGHT;
+                Image.GetThumbnailImageAbort myCallback = new Image.GetThumbnailImageAbort(ThumbnailCallback);
+                return Picture.GetThumbnailImage(w, h, myCallback, IntPtr.Zero);
+            }
+        }
+        public bool ThumbnailCallback()
+        { return false; }
         
     }
 
@@ -42,11 +54,12 @@ namespace AnimeStorage
             this.Path = Path;
         }
 
+        public String EmptyString { get { return ""; } }
         public String Name { get { return ""; } }
         public String YearAspect { get { return ""/*Lang*/; } }
         public byte Rating { get { return 0; } }
         public String Japanese { get { return ""/*Path*/; } }
-        public Image AnimeIcon { get { return LangIcon; } }
+        public Image Icon { get { return LangIcon; } }
     }
 
     /// <summary>

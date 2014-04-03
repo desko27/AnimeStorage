@@ -41,7 +41,7 @@ namespace AnimeStorage.Panels
         private void bAccept_Click(object sender, EventArgs e)
         {
             // prepare item
-            AnimeClass anime = new AnimeClass(tName.Text, -1, -1, "");
+            AnimeClass anime = new AnimeClass(null, tName.Text, -1, -1, "");
             anime.Items.Add(new AnimeItem(anime, "", cbFansub.SelectedItem.ToString(), ""));
 
             // add it to the main list

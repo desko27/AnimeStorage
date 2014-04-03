@@ -134,6 +134,10 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Tests.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Tests.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="ResourcesInterface.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ResourcesInterface.Designer.cs</LastGenOutput>
@@ -152,6 +156,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Tests.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Tests.resx</DependentUpon>
+    </Compile>
     <Compile Include="ResourcesInterface.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -164,6 +173,11 @@
     <Content Include="Files\anime-titles.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\OnePiece.jpg" />
+    <None Include="Resources\NarutoShippuden.jpg" />
+    <None Include="Resources\HunterHunter.jpg" />
+    <None Include="Resources\Densetsu.jpg" />
+    <None Include="Resources\CodeGeass.jpg" />
     <None Include="app.config" />
     <None Include="Resources\rating1.png" />
     <None Include="Resources\rating.png" />
