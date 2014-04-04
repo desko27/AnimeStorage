@@ -142,5 +142,29 @@ namespace AnimeStorage.Properties {
                 this["WindowState"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("64")]
+        public int AL_PictureWidth {
+            get {
+                return ((int)(this["AL_PictureWidth"]));
+            }
+            set {
+                this["AL_PictureWidth"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("64")]
+        public int AL_RowHeight {
+            get {
+                return ((int)(this["AL_RowHeight"]));
+            }
+            set {
+                this["AL_RowHeight"] = value;
+            }
+        }
     }
 }

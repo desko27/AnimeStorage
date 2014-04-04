@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Drawing;
 
 namespace AnimeStorage
@@ -9,15 +8,19 @@ namespace AnimeStorage
 
     public class AnimeClass
     {
+
+        private MainForm mainForm;
         public String Name, Japanese;
         public double Rating = 0;
         public int AniDBId, Year;
-        public Image Icon, Picture;
+        public Image Icon, Picture, ThumbnailPicture;
         public List<AnimeItem> Items = new List<AnimeItem>();
 
-        public AnimeClass(Image picture, String Name, int Year, double Rating, String Japanese)
+        public AnimeClass(MainForm mainForm, Image picture, String Name, int Year, double Rating, String Japanese)
         {
+            this.mainForm = mainForm;
             this.Picture = picture;
+            setThumbnailPicture();
             this.Name = Name;
             this.Year = Year;
             this.Rating = Rating;
@@ -27,16 +30,12 @@ namespace AnimeStorage
         public String EmptyString { get { return ""; } }
         public String YearAspect { get { return Year == -1 ? "" : Year.ToString(); } }
         public String Fansub { get { return Items.Count == 1 ? Items.First().Fansub : (Items.Count == 0 ? "None" : String.Format("{0} fansubs", Items.Count)); } }
-        public Image PictureAspect {
-            get {
-                if (Picture == null) return null;
-                int w = MainForm.PICTURE_WIDTH, h = MainForm.PICTURE_HEIGHT;
-                Image.GetThumbnailImageAbort myCallback = new Image.GetThumbnailImageAbort(ThumbnailCallback);
-                return Picture.GetThumbnailImage(w, h, myCallback, IntPtr.Zero);
-            }
+        public Image PictureAspect { get { return ThumbnailPicture == null ? null : ThumbnailPicture; } }
+
+        public void setThumbnailPicture() {
+            if (Picture == null) ThumbnailPicture = null;
+            else ThumbnailPicture = Utils.CreateSquareThumbnail(Picture, mainForm.cPicture.Width);
         }
-        public bool ThumbnailCallback()
-        { return false; }
         
     }
 

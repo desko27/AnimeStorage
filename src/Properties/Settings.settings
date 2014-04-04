@@ -32,5 +32,11 @@
     <Setting Name="WindowState" Type="System.Windows.Forms.FormWindowState" Scope="User">
       <Value Profile="(Default)">Normal</Value>
     </Setting>
+    <Setting Name="AL_PictureWidth" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">64</Value>
+    </Setting>
+    <Setting Name="AL_RowHeight" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">64</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

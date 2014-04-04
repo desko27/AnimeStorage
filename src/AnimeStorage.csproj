@@ -82,6 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\SettingsBox.cs" />
+    <Compile Include="Classes\Utils.cs" />
     <Compile Include="Forms\FormConsole.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -23,8 +23,7 @@ namespace AnimeStorage
         // ==================================================
 
         // define constants
-        public const int PICTURE_WIDTH = 64;
-        public const int PICTURE_HEIGHT = 64;
+        public const int MAX_PICTURE_WIDTH = 128;
 
         // global objects
         public FormConsole console;
@@ -80,9 +79,6 @@ namespace AnimeStorage
             tlvAnime.CanExpandGetter = delegate(object x) { return x is AnimeClass ? (((AnimeClass)x).Items.Count > 1) : false; };
             tlvAnime.ChildrenGetter = delegate(object x) { return new ArrayList(((AnimeClass)x).Items); };
 
-            // row height based on setting (it should consider anime pictures)
-            tlvAnime.RowHeight = PICTURE_HEIGHT;
-
             // linepen of child elements in tree (hidden by now)
             TreeListView.TreeRenderer renderer = new TreeListView.TreeRenderer();
             renderer.LinePen = new Pen(Color.Gray, 1);
@@ -101,18 +97,17 @@ namespace AnimeStorage
 
 #if DEBUG
             // test values
-            animeList.Add(new AnimeClass(Tests.HunterHunter, "Hunter x Hunter", 2011, 8.22, "ハンターハンター"));
+            animeList.Add(new AnimeClass(this, Tests.HunterHunter, "Hunter x Hunter", 2011, 8.22, "ハンターハンター"));
             animeList[0].Items.Add(new AnimeItem(animeList[0], "Epañol", "Backbeard", "D:\\Anime\\Hunter x Hunter (Backbeard)"));
-            animeList.Add(new AnimeClass(Tests.CodeGeass, "Code Geass", 2006, 9.56, "コードギアス"));
-            animeList.Add(new AnimeClass(Tests.OnePiece, "One Piece", 1999, 8.47, "ワンピース"));
-            animeList.Add(new AnimeClass(Tests.NarutoShippuden, "Naruto Shippuden", 2007, 5.71, "ナルト 疾風伝"));
-            animeList.Add(new AnimeClass(Tests.Densetsu, "Densetsu no Yuusha no Densetsu", 2010, 4.3, "伝説の勇者の伝説"));
+            animeList.Add(new AnimeClass(this, Tests.CodeGeass, "Code Geass", 2006, 9.56, "コードギアス"));
+            animeList.Add(new AnimeClass(this, Tests.OnePiece, "One Piece", 1999, 8.47, "ワンピース"));
+            animeList.Add(new AnimeClass(this, Tests.NarutoShippuden, "Naruto Shippuden", 2007, 5.71, "ナルト 疾風伝"));
+            animeList.Add(new AnimeClass(this, Tests.Densetsu, "Densetsu no Yuusha no Densetsu", 2010, 4.3, "伝説の勇者の伝説"));
             tlvAnime.SetObjects(animeList);
 #endif
 
             // dynamic columns width
             tlvAnime.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-            cPicture.Width = PICTURE_WIDTH;
             cRating.Width = 90;
 
             // ---
@@ -383,13 +378,31 @@ namespace AnimeStorage
         }
         // ---
 
+        // allow right picture column resizing in anime list
+        // --------------------------------------------------
+        private void pictureColumnConstraints(int columnIndex)
+        {
+            if (columnIndex == cPicture.Index)
+            {
+                if (cPicture.Width > MAX_PICTURE_WIDTH) tlvAnime.RowHeight = MAX_PICTURE_WIDTH;
+                else tlvAnime.RowHeight = cPicture.Width;
+
+                // resize anime thumbnail pictures
+                foreach (var item in animeList) item.setThumbnailPicture();
+            }
+        }
+        private void tlvAnime_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e) { pictureColumnConstraints(e.ColumnIndex); }
+        private void tlvAnime_ColumnWidthChanged(object sender, ColumnWidthChangedEventArgs e) { pictureColumnConstraints(e.ColumnIndex); }
+        private void tlvAnime_ColumnClick(object sender, ColumnClickEventArgs e) { pictureColumnConstraints(e.Column); }
+        // ---
+
             #endregion
 
         // ==================================================
             # region interface events -> anime list
         // ==================================================
 
-        public void AddTest() { addAnime(new AnimeClass(null, "Hey!", 2014, new Random().NextDouble()*10, "おい！")); }
+        public void AddTest() { addAnime(new AnimeClass(this, null, "Hey!", 2014, new Random().NextDouble() * 10, "おい！")); }
         private void animeHeaderButton_Click(object sender, EventArgs e)
         {
 
@@ -480,8 +493,13 @@ namespace AnimeStorage
             Properties.Settings.Default.LayoutVertical = (splitContainerRight.SplitterDistance * 100) / splitContainerRight.Height;
             Properties.Settings.Default.WindowSize = formSize;
             if (WindowState != FormWindowState.Minimized) Properties.Settings.Default.WindowState = WindowState;
+
+            // remember last state for anime list layout elements
+            pictureColumnConstraints(cPicture.Index);
+            Properties.Settings.Default.AL_PictureWidth = cPicture.Width;
+            Properties.Settings.Default.AL_RowHeight = tlvAnime.RowHeight;
             
-            // save them
+            // save them all
             Properties.Settings.Default.Save();
         }
 

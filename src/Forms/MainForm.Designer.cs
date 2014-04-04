@@ -53,18 +53,25 @@
             this.kryptonContextMenuItem7 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
             this.kryptonContextMenuSeparator2 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator();
             this.kryptonContextMenuItems8 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.kryptonContextMenuItem8 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
             this.menuLayout = new ComponentFactory.Krypton.Toolkit.KryptonDropButton();
             this.cmMenuLayout = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
             this.kryptonContextMenuItems10 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
+            this.bLayoutNormal = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.bLayoutBigList = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
+            this.bLayoutBigListEpisodes = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
             this.menuConsole = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.bOverflowedMenuItems = new ComponentFactory.Krypton.Toolkit.KryptonDropButton();
             this.cmOverflowedMenuItems = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
             this.kryptonContextMenuItems2 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItems();
             this.splitContainerMain = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
             this.headerGroupAnime = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
+            this.bSearchAnime = new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup();
+            this.bAddAnime = new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup();
             this.bAnimeMax = new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup();
             this.tlvAnime = new BrightIdeasSoftware.TreeListView();
             this.cName = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.cPicture = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.cYear = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.cFansub = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.cRating = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
@@ -87,13 +94,6 @@
             this.pStatusSeparator = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kbStatusSeparator = new ComponentFactory.Krypton.Toolkit.KryptonBorderEdge();
             this.pbStatus = new System.Windows.Forms.ProgressBar();
-            this.cPicture = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.bSearchAnime = new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup();
-            this.bAddAnime = new ComponentFactory.Krypton.Toolkit.ButtonSpecHeaderGroup();
-            this.kryptonContextMenuItem8 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
-            this.bLayoutNormal = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
-            this.bLayoutBigList = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
-            this.bLayoutBigListEpisodes = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pMenu)).BeginInit();
             this.pMenu.SuspendLayout();
             this.flowLayoutMenu.SuspendLayout();
@@ -277,6 +277,11 @@
             this.kryptonContextMenuItems8.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.kryptonContextMenuItem8});
             // 
+            // kryptonContextMenuItem8
+            // 
+            this.kryptonContextMenuItem8.Image = ((System.Drawing.Image)(resources.GetObject("kryptonContextMenuItem8.Image")));
+            this.kryptonContextMenuItem8.Text = "Full log";
+            // 
             // menuLayout
             // 
             this.menuLayout.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.BreadCrumb;
@@ -301,6 +306,24 @@
             this.bLayoutNormal,
             this.bLayoutBigList,
             this.bLayoutBigListEpisodes});
+            // 
+            // bLayoutNormal
+            // 
+            this.bLayoutNormal.Image = ((System.Drawing.Image)(resources.GetObject("bLayoutNormal.Image")));
+            this.bLayoutNormal.Text = "Normal";
+            this.bLayoutNormal.Click += new System.EventHandler(this.bLayoutNormal_Click);
+            // 
+            // bLayoutBigList
+            // 
+            this.bLayoutBigList.Image = ((System.Drawing.Image)(resources.GetObject("bLayoutBigList.Image")));
+            this.bLayoutBigList.Text = "Wide list";
+            this.bLayoutBigList.Click += new System.EventHandler(this.bLayoutBigList_Click);
+            // 
+            // bLayoutBigListEpisodes
+            // 
+            this.bLayoutBigListEpisodes.Image = ((System.Drawing.Image)(resources.GetObject("bLayoutBigListEpisodes.Image")));
+            this.bLayoutBigListEpisodes.Text = "Wide list + episodes";
+            this.bLayoutBigListEpisodes.Click += new System.EventHandler(this.bLayoutBigListEpisodes_Click);
             // 
             // menuConsole
             // 
@@ -370,6 +393,23 @@
             this.headerGroupAnime.ValuesPrimary.Image = ((System.Drawing.Image)(resources.GetObject("headerGroupAnime.ValuesPrimary.Image")));
             this.headerGroupAnime.ValuesSecondary.Heading = "Your full anime list";
             // 
+            // bSearchAnime
+            // 
+            this.bSearchAnime.Checked = ComponentFactory.Krypton.Toolkit.ButtonCheckState.Unchecked;
+            this.bSearchAnime.Image = ((System.Drawing.Image)(resources.GetObject("bSearchAnime.Image")));
+            this.bSearchAnime.Tag = "Search";
+            this.bSearchAnime.UniqueName = "38BB6C9257334CD40BBE19079FE09871";
+            this.bSearchAnime.Click += new System.EventHandler(this.animeHeaderButton_Click);
+            // 
+            // bAddAnime
+            // 
+            this.bAddAnime.Checked = ComponentFactory.Krypton.Toolkit.ButtonCheckState.Unchecked;
+            this.bAddAnime.Image = ((System.Drawing.Image)(resources.GetObject("bAddAnime.Image")));
+            this.bAddAnime.ImageTransparentColor = System.Drawing.Color.White;
+            this.bAddAnime.Tag = "Add";
+            this.bAddAnime.UniqueName = "9FBB2FEB71964C65C1AAB6AC5193EE1F";
+            this.bAddAnime.Click += new System.EventHandler(this.animeHeaderButton_Click);
+            // 
             // bAnimeMax
             // 
             this.bAnimeMax.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Form;
@@ -414,6 +454,9 @@
             this.tlvAnime.UseHotItem = true;
             this.tlvAnime.View = System.Windows.Forms.View.Details;
             this.tlvAnime.VirtualMode = true;
+            this.tlvAnime.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.tlvAnime_ColumnClick);
+            this.tlvAnime.ColumnWidthChanged += new System.Windows.Forms.ColumnWidthChangedEventHandler(this.tlvAnime_ColumnWidthChanged);
+            this.tlvAnime.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.tlvAnime_ColumnWidthChanging);
             // 
             // cName
             // 
@@ -424,6 +467,19 @@
             this.cName.ImageAspectName = "Icon";
             this.cName.Text = "Name";
             this.cName.Width = 141;
+            // 
+            // cPicture
+            // 
+            this.cPicture.AspectName = "EmptyString";
+            this.cPicture.CellPadding = null;
+            this.cPicture.DisplayIndex = 0;
+            this.cPicture.ImageAspectName = "PictureAspect";
+            this.cPicture.MaximumWidth = 256;
+            this.cPicture.MinimumWidth = 45;
+            this.cPicture.Searchable = false;
+            this.cPicture.Sortable = false;
+            this.cPicture.Text = "";
+            this.cPicture.Width = 128;
             // 
             // cYear
             // 
@@ -584,56 +640,6 @@
             this.pbStatus.Size = new System.Drawing.Size(209, 21);
             this.pbStatus.TabIndex = 0;
             // 
-            // cPicture
-            // 
-            this.cPicture.AspectName = "EmptyString";
-            this.cPicture.CellPadding = null;
-            this.cPicture.DisplayIndex = 0;
-            this.cPicture.ImageAspectName = "PictureAspect";
-            this.cPicture.Searchable = false;
-            this.cPicture.Sortable = false;
-            this.cPicture.Text = "Picture";
-            // 
-            // bSearchAnime
-            // 
-            this.bSearchAnime.Checked = ComponentFactory.Krypton.Toolkit.ButtonCheckState.Unchecked;
-            this.bSearchAnime.Image = ((System.Drawing.Image)(resources.GetObject("bSearchAnime.Image")));
-            this.bSearchAnime.Tag = "Search";
-            this.bSearchAnime.UniqueName = "38BB6C9257334CD40BBE19079FE09871";
-            this.bSearchAnime.Click += new System.EventHandler(this.animeHeaderButton_Click);
-            // 
-            // bAddAnime
-            // 
-            this.bAddAnime.Checked = ComponentFactory.Krypton.Toolkit.ButtonCheckState.Unchecked;
-            this.bAddAnime.Image = ((System.Drawing.Image)(resources.GetObject("bAddAnime.Image")));
-            this.bAddAnime.ImageTransparentColor = System.Drawing.Color.White;
-            this.bAddAnime.Tag = "Add";
-            this.bAddAnime.UniqueName = "9FBB2FEB71964C65C1AAB6AC5193EE1F";
-            this.bAddAnime.Click += new System.EventHandler(this.animeHeaderButton_Click);
-            // 
-            // kryptonContextMenuItem8
-            // 
-            this.kryptonContextMenuItem8.Image = ((System.Drawing.Image)(resources.GetObject("kryptonContextMenuItem8.Image")));
-            this.kryptonContextMenuItem8.Text = "Full log";
-            // 
-            // bLayoutNormal
-            // 
-            this.bLayoutNormal.Image = ((System.Drawing.Image)(resources.GetObject("bLayoutNormal.Image")));
-            this.bLayoutNormal.Text = "Normal";
-            this.bLayoutNormal.Click += new System.EventHandler(this.bLayoutNormal_Click);
-            // 
-            // bLayoutBigList
-            // 
-            this.bLayoutBigList.Image = ((System.Drawing.Image)(resources.GetObject("bLayoutBigList.Image")));
-            this.bLayoutBigList.Text = "Wide list";
-            this.bLayoutBigList.Click += new System.EventHandler(this.bLayoutBigList_Click);
-            // 
-            // bLayoutBigListEpisodes
-            // 
-            this.bLayoutBigListEpisodes.Image = ((System.Drawing.Image)(resources.GetObject("bLayoutBigListEpisodes.Image")));
-            this.bLayoutBigListEpisodes.Text = "Wide list + episodes";
-            this.bLayoutBigListEpisodes.Click += new System.EventHandler(this.bLayoutBigListEpisodes_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -742,6 +748,6 @@
         private BrightIdeasSoftware.OLVColumn cFansub;
         public ComponentFactory.Krypton.Toolkit.KryptonSplitContainer splitContainerMain;
         public ComponentFactory.Krypton.Toolkit.KryptonSplitContainer splitContainerRight;
-        private BrightIdeasSoftware.OLVColumn cPicture;
+        public BrightIdeasSoftware.OLVColumn cPicture;
     }
 }

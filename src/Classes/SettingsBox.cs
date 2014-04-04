@@ -108,6 +108,8 @@ namespace AnimeStorage
         public void Load_WindowState(System.Windows.Forms.FormWindowState value) { mainForm.WindowState = value; }
         public void Load_LayoutHorizontal(int value) { mainForm.splitContainerMain.SplitterDistance = (int)(mainForm.splitContainerMain.Width * ((float)value/100)); }
         public void Load_LayoutVertical(int value) { mainForm.splitContainerRight.SplitterDistance = (int)(mainForm.splitContainerRight.Height * ((float)value / 100)); }
+        public void Load_AL_PictureWidth(int value) { mainForm.cPicture.Width = value; }
+        public void Load_AL_RowHeight(int value) { mainForm.tlvAnime.RowHeight = value; }
         // ---
 
             #endregion
