@@ -38,8 +38,12 @@ namespace AnimeStorage
         BackgroundWorker bw = new BackgroundWorker();
         // ---
 
-        // interface groups
+        // interface control lists/groups
         private List<ButtonSpecHeaderGroup> animeHeaderButtons = new List<ButtonSpecHeaderGroup>();
+        // ---
+
+        // holding values
+        public Size formSize;
         // ---
 
         public MainForm()
@@ -65,6 +69,9 @@ namespace AnimeStorage
             // interface groups - add elements
             animeHeaderButtons.Add(bAddAnime);
             animeHeaderButtons.Add(bSearchAnime);
+
+            // holding form size for setting
+            MainForm_Resize(null, null);
 
             // anime list configs (mostly visuals)
             // --------------------------------------------------
@@ -319,10 +326,13 @@ namespace AnimeStorage
         }
         // ---
 
-        // make top menu buttons collapsible
+        // hold form size & make top menu buttons collapsible
         // --------------------------------------------------
         private void MainForm_Resize(object sender, EventArgs e)
         {
+            // hold form size
+            if (WindowState == FormWindowState.Normal) formSize = Size;
+
             // get all root items of `overflowed context menu`
             var menuItems = (KryptonContextMenuItems) cmOverflowedMenuItems.Items[0];
 
@@ -468,7 +478,7 @@ namespace AnimeStorage
             // remember last state for some elements
             Properties.Settings.Default.LayoutHorizontal = (splitContainerMain.SplitterDistance * 100) / splitContainerMain.Width;
             Properties.Settings.Default.LayoutVertical = (splitContainerRight.SplitterDistance * 100) / splitContainerRight.Height;
-            Properties.Settings.Default.WindowSize = Size;
+            Properties.Settings.Default.WindowSize = formSize;
             if (WindowState != FormWindowState.Minimized) Properties.Settings.Default.WindowState = WindowState;
             
             // save them
