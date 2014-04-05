@@ -40,12 +40,39 @@ namespace AnimeStorage.Panels
 
         private void bAccept_Click(object sender, EventArgs e)
         {
-            // prepare item
-            AnimeClass anime = new AnimeClass(mainForm, null, tName.Text, -1, -1, "");
-            anime.Items.Add(new AnimeItem(anime, "", cbFansub.SelectedItem.ToString(), ""));
+            int id = -1;
+            AnimeClass anime = null;
 
-            // add it to the main list
-            mainForm.addAnime(anime);
+            // get id from basic title searching
+            foreach (var title in mainForm.animeTitles) {
+                if (tName.Text == title.XJatName || tName.Text == title.EnglishName)
+                    id = title.Id;
+            }
+
+            // request data from api if checkbox is checked and id has been found
+            if (chkAniDB.Checked && id != -1)
+            {
+                var fApiQuery = new FWaitingApi(mainForm, id);
+                fApiQuery.StartPosition = FormStartPosition.CenterParent;
+                fApiQuery.ShowDialog();
+
+                if (fApiQuery.DialogResult == DialogResult.OK)
+                    anime = fApiQuery.anime;
+            }
+            
+            // default object otherwise
+            else { anime = new AnimeClass(mainForm, -1, null, tName.Text, -1, -1, ""); }
+
+            if (anime == null)
+                MessageBox.Show("Request ERROR!");
+            else
+            {
+                // add fansub data
+                anime.Items.Add(new AnimeItem(anime, "", cbFansub.SelectedItem.ToString(), ""));
+
+                // add it to the main list
+                mainForm.addAnime(anime);
+            }
 
             // close north panel
             bCancel_Click(sender, e);
@@ -90,6 +117,25 @@ namespace AnimeStorage.Panels
                 bAccept.Enabled = true;
             else
                 bAccept.Enabled = false;
+        }
+
+        private void tName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                string[] titles = new string[mainForm.animeTitlesAutocomplete.Count];
+                mainForm.animeTitlesAutocomplete.CopyTo(titles, 0);
+                foreach (var title in titles)
+                {
+                    if (title.ToLower() == tName.Text.ToLower())
+                    {
+                        tName.Text = title;
+                        tName.SelectionStart = tName.Text.Length;
+                        break;
+                    }
+                }
+
+            }
         }
 
             #endregion

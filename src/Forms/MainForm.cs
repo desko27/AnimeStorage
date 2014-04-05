@@ -23,7 +23,7 @@ namespace AnimeStorage
         // ==================================================
 
         // define constants
-        public const int MAX_PICTURE_WIDTH = 128;
+        public const int MAX_ROW_HEIGHT = 64;
 
         // global objects
         public FormConsole console;
@@ -97,19 +97,14 @@ namespace AnimeStorage
 
 #if DEBUG
             // test values
-            animeList.Add(new AnimeClass(this, Tests.HunterHunter, "Hunter x Hunter", 2011, 8.22, "ハンターハンター"));
+            animeList.Add(new AnimeClass(this, -1, Tests.HunterHunter, "Hunter x Hunter", 2011, 8.22, "ハンターハンター"));
             animeList[0].Items.Add(new AnimeItem(animeList[0], "Epañol", "Backbeard", "D:\\Anime\\Hunter x Hunter (Backbeard)"));
-            animeList.Add(new AnimeClass(this, Tests.CodeGeass, "Code Geass", 2006, 9.56, "コードギアス"));
-            animeList.Add(new AnimeClass(this, Tests.OnePiece, "One Piece", 1999, 8.47, "ワンピース"));
-            animeList.Add(new AnimeClass(this, Tests.NarutoShippuden, "Naruto Shippuden", 2007, 5.71, "ナルト 疾風伝"));
-            animeList.Add(new AnimeClass(this, Tests.Densetsu, "Densetsu no Yuusha no Densetsu", 2010, 4.3, "伝説の勇者の伝説"));
+            animeList.Add(new AnimeClass(this, -1, Tests.CodeGeass, "Code Geass", 2006, 9.56, "コードギアス"));
+            animeList.Add(new AnimeClass(this, -1, Tests.OnePiece, "One Piece", 1999, 8.47, "ワンピース"));
+            animeList.Add(new AnimeClass(this, -1, Tests.NarutoShippuden, "Naruto Shippuden", 2007, 5.71, "ナルト 疾風伝"));
+            animeList.Add(new AnimeClass(this, -1, Tests.Densetsu, "Densetsu no Yuusha no Densetsu", 2010, 4.3, "伝説の勇者の伝説"));
             tlvAnime.SetObjects(animeList);
 #endif
-
-            // dynamic columns width
-            tlvAnime.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-            cRating.Width = 90;
-
             // ---
 
             // load anime titles into memory from xml file
@@ -126,6 +121,12 @@ namespace AnimeStorage
             // finally, load settings
             settings.StartUp();
 
+            // dynamic columns width
+            int tmp = Properties.Settings.Default.AL_PictureWidth;
+            tlvAnime.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            cPicture.Width = tmp;
+            cRating.Width = 90;
+
         }
 
             #endregion
@@ -138,7 +139,7 @@ namespace AnimeStorage
         {
             BackgroundWorker worker = sender as BackgroundWorker;
 
-            XDocument doc = XDocument.Load("Files\\anime-titles.xml");
+            XDocument doc = XDocument.Load("Cache\\anime-titles.xml");
             var xmlAnime = (from p in doc.Descendants().Elements()
                             where p.Name.LocalName == "anime"
                             select p);
@@ -151,27 +152,27 @@ namespace AnimeStorage
                     break;
                 } else {
 
-                    int id = Convert.ToInt32(item.FirstAttribute.Value);
-                    String name = "", ename = "", jname = "";
+                    int id = Convert.ToInt32(item.Attribute("aid").Value);
+                    String xjatname = "", ename = "", jname = "";
                     foreach (var title in item.Elements())
                     {
                         foreach (var attr in title.Attributes())
                         {
-                            if ((title.FirstAttribute.Value == "official" || title.FirstAttribute.Value == "main") && attr.Name == XNamespace.Xml + "lang" && attr.Value == "x-jat")
-                                name = title.Value;
+                            if ((title.Attribute("type").Value == "official" || title.Attribute("type").Value == "main") && attr.Name == XNamespace.Xml + "lang" && attr.Value == "x-jat")
+                                xjatname = title.Value;
                             if (attr.Name == XNamespace.Xml + "lang" && attr.Value == "ja")
                                 jname = title.Value;
-                            if (title.FirstAttribute.Value == "official" && attr.Name == XNamespace.Xml + "lang" && attr.Value == "en")
+                            if (title.Attribute("type").Value == "official" && attr.Name == XNamespace.Xml + "lang" && attr.Value == "en")
                                 ename = title.Value;
                         }
                     }
 
                     // titles (+japanese) list
-                    animeTitles.Add(new AnimeTitle(id, name, ename, jname));
+                    animeTitles.Add(new AnimeTitle(id, xjatname, ename, jname));
 
                     // autocomplete object (en & x-jat)
-                    if (name != "") animeTitlesAutocomplete.Add(name);
-                    if (ename != "" && ename != name) animeTitlesAutocomplete.Add(ename);
+                    if (xjatname != "") animeTitlesAutocomplete.Add(xjatname);
+                    if (ename != "" && ename != xjatname) animeTitlesAutocomplete.Add(ename);
 
 #if DEBUG
                     // Debug.WriteLine(String.Format("{0} - {1} : {2} : {3}", id, name, ename, jname));
@@ -384,14 +385,14 @@ namespace AnimeStorage
         {
             if (columnIndex == cPicture.Index)
             {
-                if (cPicture.Width > MAX_PICTURE_WIDTH) tlvAnime.RowHeight = MAX_PICTURE_WIDTH;
+                if (cPicture.Width > MAX_ROW_HEIGHT) tlvAnime.RowHeight = MAX_ROW_HEIGHT;
                 else tlvAnime.RowHeight = cPicture.Width;
 
                 // resize anime thumbnail pictures
                 foreach (var item in animeList) item.setThumbnailPicture();
             }
         }
-        private void tlvAnime_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e) { pictureColumnConstraints(e.ColumnIndex); }
+        private void tlvAnime_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e) { /*pictureColumnConstraints(e.ColumnIndex);*/ }
         private void tlvAnime_ColumnWidthChanged(object sender, ColumnWidthChangedEventArgs e) { pictureColumnConstraints(e.ColumnIndex); }
         private void tlvAnime_ColumnClick(object sender, ColumnClickEventArgs e) { pictureColumnConstraints(e.Column); }
         // ---
@@ -402,7 +403,7 @@ namespace AnimeStorage
             # region interface events -> anime list
         // ==================================================
 
-        public void AddTest() { addAnime(new AnimeClass(this, null, "Hey!", 2014, new Random().NextDouble() * 10, "おい！")); }
+        public void AddTest() { addAnime(new AnimeClass(this, -1, null, "Hey!", 2014, new Random().NextDouble() * 10, "おい！")); }
         private void animeHeaderButton_Click(object sender, EventArgs e)
         {
 

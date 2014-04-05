@@ -474,8 +474,6 @@
             this.cPicture.CellPadding = null;
             this.cPicture.DisplayIndex = 0;
             this.cPicture.ImageAspectName = "PictureAspect";
-            this.cPicture.MaximumWidth = 256;
-            this.cPicture.MinimumWidth = 45;
             this.cPicture.Searchable = false;
             this.cPicture.Sortable = false;
             this.cPicture.Text = "";

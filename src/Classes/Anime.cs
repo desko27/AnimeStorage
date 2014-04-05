@@ -12,19 +12,22 @@ namespace AnimeStorage
         private MainForm mainForm;
         public String Name, Japanese;
         public double Rating = 0;
-        public int AniDBId, Year;
+        public int ID, Year;
         public Image Icon, Picture, ThumbnailPicture;
         public List<AnimeItem> Items = new List<AnimeItem>();
 
-        public AnimeClass(MainForm mainForm, Image picture, String Name, int Year, double Rating, String Japanese)
+        public AnimeClass(MainForm mainForm, int ID, Image Picture, String Name, int Year, double Rating, String Japanese)
         {
             this.mainForm = mainForm;
-            this.Picture = picture;
-            setThumbnailPicture();
+            this.ID = ID;
+            this.Picture = Picture;
             this.Name = Name;
             this.Year = Year;
             this.Rating = Rating;
             this.Japanese = Japanese;
+
+            // don't set thumbnail when object is used as data container
+            if (mainForm != null) setThumbnailPicture();
         }
 
         public String EmptyString { get { return ""; } }
@@ -67,12 +70,12 @@ namespace AnimeStorage
     public class AnimeTitle
     {
         public int Id;
-        public String Name, EnglishName, JapaneseName;
+        public String XJatName, EnglishName, JapaneseName;
 
-        public AnimeTitle(int Id, String Name, String EnglishName, String JapaneseName)
+        public AnimeTitle(int Id, String XJatName, String EnglishName, String JapaneseName)
         {
             this.Id = Id;
-            this.Name = Name;
+            this.XJatName = XJatName;
             this.EnglishName = EnglishName;
             this.JapaneseName = JapaneseName;
         }

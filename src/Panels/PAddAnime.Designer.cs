@@ -34,6 +34,7 @@
             this.flPanelFinal = new System.Windows.Forms.FlowLayoutPanel();
             this.bCancel = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.bAccept = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.chkAniDB = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
             this.lName = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.rowFansub = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.cbFansub = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
@@ -84,25 +85,27 @@
             this.tName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tName.Location = new System.Drawing.Point(67, 7);
             this.tName.Name = "tName";
-            this.tName.Size = new System.Drawing.Size(262, 23);
+            this.tName.Size = new System.Drawing.Size(182, 23);
             this.tName.StateCommon.Content.Padding = new System.Windows.Forms.Padding(3, 3, 3, 2);
             this.tName.TabIndex = 1;
             this.tName.TextChanged += new System.EventHandler(this.valuesValidation);
+            this.tName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tName_KeyDown);
             // 
             // flPanelFinal
             // 
             this.flPanelFinal.Controls.Add(this.bCancel);
             this.flPanelFinal.Controls.Add(this.bAccept);
+            this.flPanelFinal.Controls.Add(this.chkAniDB);
             this.flPanelFinal.Dock = System.Windows.Forms.DockStyle.Right;
             this.flPanelFinal.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flPanelFinal.Location = new System.Drawing.Point(329, 7);
+            this.flPanelFinal.Location = new System.Drawing.Point(249, 7);
             this.flPanelFinal.Name = "flPanelFinal";
-            this.flPanelFinal.Size = new System.Drawing.Size(69, 23);
+            this.flPanelFinal.Size = new System.Drawing.Size(149, 23);
             this.flPanelFinal.TabIndex = 2;
             // 
             // bCancel
             // 
-            this.bCancel.Location = new System.Drawing.Point(42, 0);
+            this.bCancel.Location = new System.Drawing.Point(122, 0);
             this.bCancel.Margin = new System.Windows.Forms.Padding(7, 0, 0, 0);
             this.bCancel.Name = "bCancel";
             this.bCancel.Size = new System.Drawing.Size(27, 23);
@@ -114,14 +117,28 @@
             // bAccept
             // 
             this.bAccept.Enabled = false;
-            this.bAccept.Location = new System.Drawing.Point(8, 0);
-            this.bAccept.Margin = new System.Windows.Forms.Padding(0);
+            this.bAccept.Location = new System.Drawing.Point(88, 0);
+            this.bAccept.Margin = new System.Windows.Forms.Padding(7, 0, 0, 0);
             this.bAccept.Name = "bAccept";
             this.bAccept.Size = new System.Drawing.Size(27, 23);
             this.bAccept.TabIndex = 0;
             this.bAccept.Values.Image = ((System.Drawing.Image)(resources.GetObject("bAccept.Values.Image")));
             this.bAccept.Values.Text = "";
             this.bAccept.Click += new System.EventHandler(this.bAccept_Click);
+            // 
+            // chkAniDB
+            // 
+            this.chkAniDB.Checked = true;
+            this.chkAniDB.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkAniDB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkAniDB.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalControl;
+            this.chkAniDB.Location = new System.Drawing.Point(10, 0);
+            this.chkAniDB.Margin = new System.Windows.Forms.Padding(0);
+            this.chkAniDB.Name = "chkAniDB";
+            this.chkAniDB.Size = new System.Drawing.Size(71, 24);
+            this.chkAniDB.TabIndex = 2;
+            this.chkAniDB.Values.Image = ((System.Drawing.Image)(resources.GetObject("chkAniDB.Values.Image")));
+            this.chkAniDB.Values.Text = "";
             // 
             // lName
             // 
@@ -306,6 +323,7 @@
             this.rowName.ResumeLayout(false);
             this.rowName.PerformLayout();
             this.flPanelFinal.ResumeLayout(false);
+            this.flPanelFinal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rowFansub)).EndInit();
             this.rowFansub.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cbFansub)).EndInit();
@@ -345,5 +363,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonCheckBox chkCreateFolder;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel lName;
         private ComponentFactory.Krypton.Toolkit.KryptonBorderEdge kBorder;
+        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox chkAniDB;
     }
 }
