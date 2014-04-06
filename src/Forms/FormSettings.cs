@@ -56,7 +56,7 @@ namespace AnimeStorage.Forms
             # region interface events -> layout control
         // ==================================================
 
-        // add the ability to move the window through the top panel
+        // add the ability to move the window through other controls
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HTCAPTION = 0x2;
         [DllImport("User32.dll")]

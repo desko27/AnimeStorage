@@ -97,12 +97,12 @@ namespace AnimeStorage
 
 #if DEBUG
             // test values
-            animeList.Add(new AnimeClass(this, -1, Tests.HunterHunter, "Hunter x Hunter", 2011, 8.22, "ハンターハンター"));
+            animeList.Add(new AnimeClass(this, -1, Tests.HunterHunter, "Hunter x Hunter", 2011, -1, 8.22, "ハンターハンター"));
             animeList[0].Items.Add(new AnimeItem(animeList[0], "Epañol", "Backbeard", "D:\\Anime\\Hunter x Hunter (Backbeard)"));
-            animeList.Add(new AnimeClass(this, -1, Tests.CodeGeass, "Code Geass", 2006, 9.56, "コードギアス"));
-            animeList.Add(new AnimeClass(this, -1, Tests.OnePiece, "One Piece", 1999, 8.47, "ワンピース"));
-            animeList.Add(new AnimeClass(this, -1, Tests.NarutoShippuden, "Naruto Shippuden", 2007, 5.71, "ナルト 疾風伝"));
-            animeList.Add(new AnimeClass(this, -1, Tests.Densetsu, "Densetsu no Yuusha no Densetsu", 2010, 4.3, "伝説の勇者の伝説"));
+            animeList.Add(new AnimeClass(this, -1, Tests.CodeGeass, "Code Geass", 2006, 25, 9.56, "コードギアス"));
+            animeList.Add(new AnimeClass(this, -1, Tests.OnePiece, "One Piece", 1999, -1, 8.47, "ワンピース"));
+            animeList.Add(new AnimeClass(this, -1, Tests.NarutoShippuden, "Naruto Shippuden", 2007, -1, 5.71, "ナルト 疾風伝"));
+            animeList.Add(new AnimeClass(this, -1, Tests.Densetsu, "Densetsu no Yuusha no Densetsu", 2010, 24, 4.3, "伝説の勇者の伝説"));
             tlvAnime.SetObjects(animeList);
 #endif
             // ---
@@ -114,8 +114,9 @@ namespace AnimeStorage
             bw.DoWork += new DoWorkEventHandler(bw_DoWork);
             bw.ProgressChanged += new ProgressChangedEventHandler(bw_ProgressChanged);
             bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bw_RunWorkerCompleted);
+            pbStatus.Style = ProgressBarStyle.Marquee;
             bw.RunWorkerAsync();
-            lStatus.Text = "Loading anime titles for autocompletion...";
+            lStatus.Text = "Loading anime titles...";
             // ---
 
             // finally, load settings
@@ -132,14 +133,16 @@ namespace AnimeStorage
             #endregion
 
         // ==================================================
-            # region thread -> load anime titles into memory from xml file
+            # region thread -> http check & load anime titles
         // ==================================================
 
         private void bw_DoWork(object sender, DoWorkEventArgs e)
         {
-            BackgroundWorker worker = sender as BackgroundWorker;
 
-            XDocument doc = XDocument.Load("Cache\\anime-titles.xml");
+            BackgroundWorker worker = sender as BackgroundWorker;
+            
+            // get xml file, http request if expired
+            XDocument doc = Utils.GetCachedXmlFile("Cache\\anime-titles.xml", 1, "http://anidb.net/api/anime-titles.xml.gz");
             var xmlAnime = (from p in doc.Descendants().Elements()
                             where p.Name.LocalName == "anime"
                             select p);
@@ -178,9 +181,11 @@ namespace AnimeStorage
                     // Debug.WriteLine(String.Format("{0} - {1} : {2} : {3}", id, name, ename, jname));
 #endif
                 }
-                
-                worker.ReportProgress((++i * 1000) / total);
+
+                i++;
+                //worker.ReportProgress((i * 1000) / total);
             }
+            // ---
         }
 
         private void bw_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -194,7 +199,11 @@ namespace AnimeStorage
             else if (!(e.Error == null))
             { lStatus.Text = ("Error: " + e.Error.Message); }
 
-            else { lStatus.Text = "Ready!"; pbStatus.Value = 0; }
+            else {
+                lStatus.Text = "Ready!";
+                pbStatus.Value = 0;
+                pbStatus.Style = ProgressBarStyle.Blocks;
+            }
         }
 
             #endregion
@@ -403,7 +412,7 @@ namespace AnimeStorage
             # region interface events -> anime list
         // ==================================================
 
-        public void AddTest() { addAnime(new AnimeClass(this, -1, null, "Hey!", 2014, new Random().NextDouble() * 10, "おい！")); }
+        public void AddTest() { addAnime(new AnimeClass(this, -1, null, "Hey!", 2014, 7, new Random().NextDouble() * 10, "おい！")); }
         private void animeHeaderButton_Click(object sender, EventArgs e)
         {
 

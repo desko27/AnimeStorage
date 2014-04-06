@@ -94,6 +94,7 @@
             this.pStatusSeparator = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kbStatusSeparator = new ComponentFactory.Krypton.Toolkit.KryptonBorderEdge();
             this.pbStatus = new System.Windows.Forms.ProgressBar();
+            this.cEpisodes = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             ((System.ComponentModel.ISupportInitialize)(this.pMenu)).BeginInit();
             this.pMenu.SuspendLayout();
             this.flowLayoutMenu.SuspendLayout();
@@ -421,18 +422,20 @@
             // 
             this.tlvAnime.AllColumns.Add(this.cName);
             this.tlvAnime.AllColumns.Add(this.cPicture);
+            this.tlvAnime.AllColumns.Add(this.cEpisodes);
             this.tlvAnime.AllColumns.Add(this.cYear);
-            this.tlvAnime.AllColumns.Add(this.cFansub);
             this.tlvAnime.AllColumns.Add(this.cRating);
+            this.tlvAnime.AllColumns.Add(this.cFansub);
             this.tlvAnime.AllColumns.Add(this.cJapanese);
             this.tlvAnime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.tlvAnime.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tlvAnime.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.cName,
             this.cPicture,
+            this.cEpisodes,
             this.cYear,
-            this.cFansub,
             this.cRating,
+            this.cFansub,
             this.cJapanese});
             this.tlvAnime.Cursor = System.Windows.Forms.Cursors.Default;
             this.tlvAnime.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -483,18 +486,21 @@
             // 
             this.cYear.AspectName = "YearAspect";
             this.cYear.CellPadding = null;
+            this.cYear.DisplayIndex = 3;
             this.cYear.Text = "Year";
             // 
             // cFansub
             // 
             this.cFansub.AspectName = "Fansub";
             this.cFansub.CellPadding = null;
+            this.cFansub.DisplayIndex = 4;
             this.cFansub.Text = "Fansub";
             // 
             // cRating
             // 
             this.cRating.AspectName = "Rating";
             this.cRating.CellPadding = null;
+            this.cRating.DisplayIndex = 5;
             this.cRating.Text = "Rating";
             this.cRating.Width = 90;
             // 
@@ -638,6 +644,13 @@
             this.pbStatus.Size = new System.Drawing.Size(209, 21);
             this.pbStatus.TabIndex = 0;
             // 
+            // cEpisodes
+            // 
+            this.cEpisodes.AspectName = "EpisodesAspect";
+            this.cEpisodes.CellPadding = null;
+            this.cEpisodes.DisplayIndex = 3;
+            this.cEpisodes.Text = "Episodes";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -744,8 +757,9 @@
         private ComponentFactory.Krypton.Toolkit.KryptonBorderEdge kbStatusSeparator;
         private System.Windows.Forms.ProgressBar pbStatus;
         private BrightIdeasSoftware.OLVColumn cFansub;
-        public ComponentFactory.Krypton.Toolkit.KryptonSplitContainer splitContainerMain;
         public ComponentFactory.Krypton.Toolkit.KryptonSplitContainer splitContainerRight;
         public BrightIdeasSoftware.OLVColumn cPicture;
+        private BrightIdeasSoftware.OLVColumn cEpisodes;
+        public ComponentFactory.Krypton.Toolkit.KryptonSplitContainer splitContainerMain;
     }
 }

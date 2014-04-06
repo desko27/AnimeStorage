@@ -61,7 +61,7 @@ namespace AnimeStorage.Panels
             }
             
             // default object otherwise
-            else { anime = new AnimeClass(mainForm, -1, null, tName.Text, -1, -1, ""); }
+            else { anime = new AnimeClass(mainForm, -1, null, tName.Text, -1, -1, -1, ""); }
 
             if (anime == null)
                 MessageBox.Show("Request ERROR!");

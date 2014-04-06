@@ -12,17 +12,18 @@ namespace AnimeStorage
         private MainForm mainForm;
         public String Name, Japanese;
         public double Rating = 0;
-        public int ID, Year;
+        public int ID, Year, Episodes;
         public Image Icon, Picture, ThumbnailPicture;
         public List<AnimeItem> Items = new List<AnimeItem>();
 
-        public AnimeClass(MainForm mainForm, int ID, Image Picture, String Name, int Year, double Rating, String Japanese)
+        public AnimeClass(MainForm mainForm, int ID, Image Picture, String Name, int Year, int Episodes, double Rating, String Japanese)
         {
             this.mainForm = mainForm;
             this.ID = ID;
             this.Picture = Picture;
             this.Name = Name;
             this.Year = Year;
+            this.Episodes = Episodes;
             this.Rating = Rating;
             this.Japanese = Japanese;
 
@@ -32,6 +33,7 @@ namespace AnimeStorage
 
         public String EmptyString { get { return ""; } }
         public String YearAspect { get { return Year == -1 ? "" : Year.ToString(); } }
+        public String EpisodesAspect { get { return Episodes == -1 ? "On Air" : Episodes.ToString() + " episodes"; } }
         public String Fansub { get { return Items.Count == 1 ? Items.First().Fansub : (Items.Count == 0 ? "None" : String.Format("{0} fansubs", Items.Count)); } }
         public Image PictureAspect { get { return ThumbnailPicture == null ? null : ThumbnailPicture; } }
 

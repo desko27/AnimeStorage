@@ -66,16 +66,17 @@
             this.pbLoading.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.pbLoading.TabIndex = 1;
             // 
-            // FApiQuery
+            // FWaitingApi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(177, 72);
+            this.ControlBox = false;
             this.Controls.Add(this.pMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FApiQuery";
+            this.Name = "FWaitingApi";
             this.ShowIcon = false;
             ((System.ComponentModel.ISupportInitialize)(this.pMain)).EndInit();
             this.pMain.ResumeLayout(false);
