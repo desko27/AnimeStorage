@@ -42,7 +42,7 @@
             this.pMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pMain.Location = new System.Drawing.Point(0, 0);
             this.pMain.Name = "pMain";
-            this.pMain.Size = new System.Drawing.Size(177, 72);
+            this.pMain.Size = new System.Drawing.Size(173, 68);
             this.pMain.TabIndex = 0;
             // 
             // lStatus
@@ -51,18 +51,19 @@
             this.lStatus.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lStatus.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
+            this.lStatus.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
             this.lStatus.Location = new System.Drawing.Point(0, 0);
             this.lStatus.Name = "lStatus";
-            this.lStatus.Size = new System.Drawing.Size(177, 49);
+            this.lStatus.Size = new System.Drawing.Size(173, 45);
             this.lStatus.Text = "...";
             this.lStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pbLoading
             // 
             this.pbLoading.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pbLoading.Location = new System.Drawing.Point(0, 49);
+            this.pbLoading.Location = new System.Drawing.Point(0, 45);
             this.pbLoading.Name = "pbLoading";
-            this.pbLoading.Size = new System.Drawing.Size(177, 23);
+            this.pbLoading.Size = new System.Drawing.Size(173, 23);
             this.pbLoading.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.pbLoading.TabIndex = 1;
             // 
@@ -70,7 +71,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(177, 72);
+            this.ClientSize = new System.Drawing.Size(173, 68);
             this.ControlBox = false;
             this.Controls.Add(this.pMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;

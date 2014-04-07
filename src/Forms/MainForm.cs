@@ -12,6 +12,7 @@ using BrightIdeasSoftware;
 using System.Collections;
 using System.Xml.Linq;
 using System.Diagnostics;
+using System.IO;
 
 namespace AnimeStorage
 {
@@ -47,6 +48,9 @@ namespace AnimeStorage
 
         public MainForm()
         {
+
+            // create cache directory if does not exist
+            if (!Directory.Exists("Cache")) Directory.CreateDirectory("Cache");
 
             // settings object
             settings = new SettingsBox(this);
