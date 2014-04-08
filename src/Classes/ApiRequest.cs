@@ -7,6 +7,7 @@ using System.Xml.Linq;
 using System.Net;
 using System.Diagnostics;
 using System.Drawing;
+using System.Text.RegularExpressions;
 
 namespace AnimeStorage
 {
@@ -59,8 +60,8 @@ namespace AnimeStorage
                                 {
                                     if ((title.Attribute("type").Value == "official" || title.Attribute("type").Value == "main") && attr.Name == XNamespace.Xml + "lang" && attr.Value == "x-jat")
                                         xjatname = title.Value;
-                                    if (attr.Name == XNamespace.Xml + "lang" && attr.Value == "ja")
-                                        jname = title.Value;
+                                    if ((title.Attribute("type").Value == "official" || title.Attribute("type").Value == "synonym") && attr.Name == XNamespace.Xml + "lang" && attr.Value == "ja")
+                                        if (Regex.IsMatch(title.Value, "[^\x00-\x80]+")) jname = title.Value; // must include japanese characters
                                     if (title.Attribute("type").Value == "official" && attr.Name == XNamespace.Xml + "lang" && attr.Value == "en")
                                         ename = title.Value;
                                 }
