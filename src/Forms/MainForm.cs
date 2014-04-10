@@ -31,7 +31,7 @@ namespace AnimeStorage
         public FormConsole console;
         public SettingsBox settings;
         public List<AnimeClass> animeList = new List<AnimeClass>();
-        public List<AnimeTitle> animeTitles = new List<AnimeTitle>();
+        public Dictionary<int, AnimeTitle> animeTitles = new Dictionary<int, AnimeTitle>();
         public AutoCompleteStringCollection animeTitlesAutocomplete = new AutoCompleteStringCollection();
         // ---
 
@@ -176,14 +176,14 @@ namespace AnimeStorage
                     }
 
                     // titles (+japanese) list
-                    animeTitles.Add(new AnimeTitle(id, xjatname, ename, jname));
+                    animeTitles.Add(id, new AnimeTitle(id, xjatname, ename, jname));
 
                     // autocomplete object (en & x-jat)
                     if (xjatname != "") animeTitlesAutocomplete.Add(xjatname);
                     if (ename != "" && ename != xjatname) animeTitlesAutocomplete.Add(ename);
 
 #if DEBUG
-                    // Debug.WriteLine(String.Format("{0} - {1} : {2} : {3}", id, name, ename, jname));
+                    // Debug.WriteLine(String.Format("{0} - {1} : {2} : {3}", id, xjatname, ename, jname));
 #endif
                 }
 
@@ -442,6 +442,7 @@ namespace AnimeStorage
                         if (bw.IsBusy) {
                             button.Checked = ButtonCheckState.Unchecked;
                             pAnimeNorth.Hide();
+                            MessageBox.Show("Sorry, anime titles are still loading!", "Please wait", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             return;
                         }
                         else

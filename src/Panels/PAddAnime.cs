@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
+using System.Diagnostics;
 
 namespace AnimeStorage.Panels
 {
@@ -45,19 +46,36 @@ namespace AnimeStorage.Panels
 
             // get id from basic title searching
             foreach (var title in mainForm.animeTitles) {
-                if (tName.Text == title.XJatName || tName.Text == title.EnglishName)
-                    id = title.Id;
+                if (tName.Text == title.Value.XJatName || tName.Text == title.Value.EnglishName)
+                    id = title.Key;
             }
 
-            // request data from api if checkbox is checked and id has been found
-            if (chkAniDB.Checked && id != -1)
+            // request data from api if checkbox is checked
+            if (chkAniDB.Checked)
             {
-                var fApiQuery = new FWaitingApi(mainForm, id);
-                fApiQuery.StartPosition = FormStartPosition.CenterParent;
-                fApiQuery.ShowDialog();
+                // and if an id has been found
+                if (id != -1)
+                {
+                    var fApiQuery = new FWaitingApi(mainForm, id);
+                    fApiQuery.StartPosition = FormStartPosition.CenterParent;
+                    fApiQuery.ShowDialog();
 
-                if (fApiQuery.DialogResult == DialogResult.OK)
-                    anime = fApiQuery.anime;
+                    if (fApiQuery.DialogResult == DialogResult.OK)
+                        anime = fApiQuery.anime;
+                }
+                // id not directly found, look for similar titles and show them
+                else
+                {
+                    // make `similar titles` list
+                    // tuple :  id,  title, dist
+                    List<Tuple<int, string, int>> similars = Utils.GetSimilarTitles(tName.Text, mainForm.animeTitles, 10);
+
+                    // test msgbox
+                    String test = "";
+                    foreach (var similar in similars) test += similar.Item2 + " (" + similar.Item3 + "), ";
+                    MessageBox.Show(test);
+                    // ---
+                }
             }
             
             // default object otherwise
