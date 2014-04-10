@@ -105,6 +105,13 @@ namespace AnimeStorage.Panels
             }
         }
 
+        private void chkAniDB_CheckedChanged(object sender, EventArgs e)
+        {
+            // don't use title autocompletion if AniDB support is unchecked
+            if (!chkAniDB.Checked) tName.AutoCompleteMode = AutoCompleteMode.None;
+            else tName.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+        }
+
             #endregion
 
         // ==================================================

@@ -139,6 +139,7 @@
             this.chkAniDB.TabIndex = 2;
             this.chkAniDB.Values.Image = ((System.Drawing.Image)(resources.GetObject("chkAniDB.Values.Image")));
             this.chkAniDB.Values.Text = "";
+            this.chkAniDB.CheckedChanged += new System.EventHandler(this.chkAniDB_CheckedChanged);
             // 
             // lName
             // 
