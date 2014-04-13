@@ -249,7 +249,7 @@ namespace AnimeStorage
             {
 
                 case "menuSettings":
-                    KryptonForm fSettings = new Forms.FormSettings(this);
+                    FSettings fSettings = new FSettings(this);
                     fSettings.StartPosition = FormStartPosition.CenterParent;
                     fSettings.ShowDialog();
                     break;

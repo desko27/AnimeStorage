@@ -36,6 +36,22 @@ namespace AnimeStorage.Panels
             #endregion
 
         // ==================================================
+            # region functions
+        // ==================================================
+
+        private void QueryToAPI(int id, ref AnimeClass anime)
+        {
+            var fApiQuery = new FWaitingApi(mainForm, id);
+            fApiQuery.StartPosition = FormStartPosition.CenterParent;
+            fApiQuery.ShowDialog();
+
+            if (fApiQuery.DialogResult == DialogResult.OK)
+                anime = fApiQuery.anime;
+        }
+
+            #endregion
+
+        // ==================================================
             # region interface
         // ==================================================
 
@@ -54,15 +70,8 @@ namespace AnimeStorage.Panels
             if (chkAniDB.Checked)
             {
                 // and if an id has been found
-                if (id != -1)
-                {
-                    var fApiQuery = new FWaitingApi(mainForm, id);
-                    fApiQuery.StartPosition = FormStartPosition.CenterParent;
-                    fApiQuery.ShowDialog();
-
-                    if (fApiQuery.DialogResult == DialogResult.OK)
-                        anime = fApiQuery.anime;
-                }
+                if (id != -1) QueryToAPI(id, ref anime);
+                
                 // id not directly found, look for similar titles and show them
                 else
                 {
@@ -70,11 +79,16 @@ namespace AnimeStorage.Panels
                     // tuple :  id,  title, dist
                     List<Tuple<int, string, int>> similars = Utils.GetSimilarTitles(tName.Text, mainForm.animeTitles, 10);
 
-                    // test msgbox
-                    String test = "";
-                    foreach (var similar in similars) test += similar.Item2 + " (" + similar.Item3 + "), ";
-                    MessageBox.Show(test);
-                    // ---
+                    // open dialog
+                    FTitleSuggestions fTitleSuggestions = new FTitleSuggestions(tName.Text, similars);
+                    fTitleSuggestions.StartPosition = FormStartPosition.CenterParent;
+                    fTitleSuggestions.ShowDialog();
+
+                    // get results
+                    if (fTitleSuggestions.DialogResult == DialogResult.OK)
+                        QueryToAPI(fTitleSuggestions.selectedID, ref anime);
+                    else
+                        return;
                 }
             }
             

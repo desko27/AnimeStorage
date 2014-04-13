@@ -84,23 +84,29 @@
     <Compile Include="Classes\ApiRequest.cs" />
     <Compile Include="Classes\SettingsBox.cs" />
     <Compile Include="Classes\Utils.cs" />
+    <Compile Include="Forms\FTitleSuggestions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FTitleSuggestions.Designer.cs">
+      <DependentUpon>FTitleSuggestions.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FWaitingApi.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FWaitingApi.Designer.cs">
       <DependentUpon>FWaitingApi.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormConsole.cs">
+    <Compile Include="Forms\FConsole.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormConsole.Designer.cs">
-      <DependentUpon>FormConsole.cs</DependentUpon>
+    <Compile Include="Forms\FConsole.Designer.cs">
+      <DependentUpon>FConsole.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormSettings.cs">
+    <Compile Include="Forms\FSettings.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormSettings.Designer.cs">
-      <DependentUpon>FormSettings.cs</DependentUpon>
+    <Compile Include="Forms\FSettings.Designer.cs">
+      <DependentUpon>FSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
@@ -122,14 +128,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\FTitleSuggestions.resx">
+      <DependentUpon>FTitleSuggestions.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FWaitingApi.resx">
       <DependentUpon>FWaitingApi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormConsole.resx">
-      <DependentUpon>FormConsole.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FConsole.resx">
+      <DependentUpon>FConsole.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormSettings.resx">
-      <DependentUpon>FormSettings.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FSettings.resx">
+      <DependentUpon>FSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

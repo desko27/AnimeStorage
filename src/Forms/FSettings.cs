@@ -9,9 +9,9 @@ using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using System.Runtime.InteropServices;
 
-namespace AnimeStorage.Forms
+namespace AnimeStorage
 {
-    public partial class FormSettings : KryptonForm
+    public partial class FSettings : KryptonForm
     {
 
         // ==================================================
@@ -21,7 +21,7 @@ namespace AnimeStorage.Forms
         MainForm mainForm;
         SettingsBox settings;
 
-        public FormSettings(MainForm mainForm)
+        public FSettings(MainForm mainForm)
         {
             InitializeComponent();
             this.mainForm = mainForm;

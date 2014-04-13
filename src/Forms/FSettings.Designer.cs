@@ -1,6 +1,6 @@
-﻿namespace AnimeStorage.Forms
+﻿namespace AnimeStorage
 {
-    partial class FormSettings
+    partial class FSettings
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSettings));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FSettings));
             this.gbStyles = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.lTheme = new ComponentFactory.Krypton.Toolkit.KryptonWrapLabel();
             this.cbTheme = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
