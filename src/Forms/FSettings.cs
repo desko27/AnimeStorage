@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AnimeStorage
 {
-    public partial class FSettings : KryptonForm
+    public partial class FSettings : KryptonMovingForm
     {
 
         // ==================================================
@@ -37,6 +37,7 @@ namespace AnimeStorage
             // ---
 
             // propagate 'move window' and other common properties
+            pWrapper.MouseDown += moveWindow;
             foreach (Control item in pWrapper.Controls) {
                 if (item is KryptonGroupBox) {
                     item.MouseDown += moveWindow;
@@ -47,28 +48,6 @@ namespace AnimeStorage
                     foreach (Control subitem in panel.Controls)
                         if (subitem is KryptonLabel || subitem is KryptonWrapLabel) subitem.MouseDown += moveWindow;
                 }
-            }
-        }
-
-            #endregion
-
-        // ==================================================
-            # region interface events -> layout control
-        // ==================================================
-
-        // add the ability to move the window through other controls
-        public const int WM_NCLBUTTONDOWN = 0xA1;
-        public const int HTCAPTION = 0x2;
-        [DllImport("User32.dll")]
-        public static extern bool ReleaseCapture();
-        [DllImport("User32.dll")]
-        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-        private void moveWindow(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
             }
         }
 

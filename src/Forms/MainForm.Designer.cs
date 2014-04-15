@@ -146,7 +146,6 @@
             this.flowLayoutMenu.Name = "flowLayoutMenu";
             this.flowLayoutMenu.Size = new System.Drawing.Size(772, 47);
             this.flowLayoutMenu.TabIndex = 1;
-            this.flowLayoutMenu.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moveWindow);
             // 
             // menuStoreNow
             // 
@@ -614,7 +613,6 @@
             this.lStatus.Size = new System.Drawing.Size(567, 21);
             this.lStatus.Text = "Status Text";
             this.lStatus.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lStatus.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moveWindow);
             // 
             // pStatusSeparator
             // 

@@ -17,7 +17,7 @@ using System.Text.RegularExpressions;
 
 namespace AnimeStorage
 {
-    public partial class MainForm : KryptonForm
+    public partial class MainForm : KryptonMovingForm
     {
 
         // ==================================================
@@ -61,6 +61,10 @@ namespace AnimeStorage
 
             // default's form components
             InitializeComponent();
+
+            // propagate 'move window'
+            flowLayoutMenu.MouseDown += moveWindow;
+            lStatus.MouseDown += moveWindow;
 
 #if !DEBUG
             // hide debug interface elements
@@ -266,22 +270,6 @@ namespace AnimeStorage
         // ==================================================
             # region interface events -> layout control
         // ==================================================
-
-        // add the ability to move the window through the top panel
-        public const int WM_NCLBUTTONDOWN = 0xA1;
-        public const int HTCAPTION = 0x2;
-        [DllImport("User32.dll")]
-        public static extern bool ReleaseCapture();
-        [DllImport("User32.dll")]
-        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-        private void moveWindow(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
-            }
-        }
 
         // double-click separators to return the dual-panel layout to its default `50% each one`
         private void splitContainerMain_DoubleClick(object sender, EventArgs e) { splitContainerMain.SplitterDistance = splitContainerMain.Width / 2; }

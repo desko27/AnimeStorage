@@ -10,7 +10,7 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace AnimeStorage
 {
-    public partial class FTitleSuggestions : KryptonForm
+    public partial class FTitleSuggestions : KryptonMovingForm
     {
 
         // ==================================================
@@ -24,19 +24,21 @@ namespace AnimeStorage
         {
             InitializeComponent();
 
+            // propagate 'move window'
+            pWrapper.MouseDown += moveWindow;
+            foreach (Control item in pWrapper.Controls)
+                if (item is KryptonPanel || item is KryptonWrapLabel || item is FlowLayoutPanel)
+                    item.MouseDown += moveWindow;
+
             // load incoming data
             this.similars = similars;
             this.Text = String.Format(this.Text, original);
 
-            // set up form elements
-            foreach (var similar in similars)
-                lbTitles.Items.Add(similar.Item2);
+            // set up list of titles
+            foreach (var similar in similars) lbTitles.Items.Add(similar.Item2);
+            if (lbTitles.Items.Count > 0) lbTitles.SelectedIndex = 0;
 
-            // select the first one
-            if (lbTitles.Items.Count > 0)
-                lbTitles.SelectedIndex = 0;
-
-            // custom events
+            // intuitive interface events
             lbTitles.ListBox.DoubleClick += bAccept_Click;
         }
 

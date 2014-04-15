@@ -238,7 +238,6 @@
             this.pWrapper.StateCommon.Image = ((System.Drawing.Image)(resources.GetObject("pWrapper.StateCommon.Image")));
             this.pWrapper.StateCommon.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.TopLeft;
             this.pWrapper.TabIndex = 1;
-            this.pWrapper.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moveWindow);
             // 
             // gbGeneral
             // 
