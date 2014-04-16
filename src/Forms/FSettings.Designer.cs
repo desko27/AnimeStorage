@@ -55,14 +55,12 @@
             this.kryptonWrapLabel5 = new ComponentFactory.Krypton.Toolkit.KryptonWrapLabel();
             this.kryptonColorButton3 = new ComponentFactory.Krypton.Toolkit.KryptonColorButton();
             ((System.ComponentModel.ISupportInitialize)(this.gbStyles)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gbStyles.Panel)).BeginInit();
             this.gbStyles.Panel.SuspendLayout();
             this.gbStyles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbTheme)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pWrapper)).BeginInit();
             this.pWrapper.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbGeneral)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gbGeneral.Panel)).BeginInit();
             this.gbGeneral.Panel.SuspendLayout();
             this.gbGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbLanguage)).BeginInit();
@@ -259,7 +257,6 @@
             this.lLanguage.AutoSize = false;
             this.lLanguage.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lLanguage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
-            this.lLanguage.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.GroupBoxCaption;
             this.lLanguage.Location = new System.Drawing.Point(12, 8);
             this.lLanguage.Name = "lLanguage";
             this.lLanguage.Size = new System.Drawing.Size(74, 21);
@@ -404,7 +401,7 @@
             this.kryptonColorButton3.Values.Text = "";
             this.kryptonColorButton3.VisibleNoColor = false;
             // 
-            // FormSettings
+            // FSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -413,19 +410,17 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FormSettings";
+            this.Name = "FSettings";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Settings";
-            ((System.ComponentModel.ISupportInitialize)(this.gbStyles.Panel)).EndInit();
             this.gbStyles.Panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gbStyles)).EndInit();
             this.gbStyles.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cbTheme)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pWrapper)).EndInit();
             this.pWrapper.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gbGeneral.Panel)).EndInit();
             this.gbGeneral.Panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gbGeneral)).EndInit();
             this.gbGeneral.ResumeLayout(false);

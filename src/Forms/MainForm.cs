@@ -17,7 +17,7 @@ using System.Text.RegularExpressions;
 
 namespace AnimeStorage
 {
-    public partial class MainForm : KryptonMovingForm
+    public partial class MainForm : KryptonDraggableForm
     {
 
         // ==================================================
@@ -61,6 +61,7 @@ namespace AnimeStorage
 
             // default's form components
             InitializeComponent();
+            InitializeCustomStyles();
 
             // propagate 'move window'
             flowLayoutMenu.MouseDown += moveWindow;

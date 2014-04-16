@@ -72,9 +72,10 @@
             this.tlvAnime = new BrightIdeasSoftware.TreeListView();
             this.cName = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.cPicture = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.cEpisodes = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.cYear = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.cFansub = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.cRating = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.cFansub = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.cJapanese = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.pAnimeNorth = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.splitContainerRight = new ComponentFactory.Krypton.Toolkit.KryptonSplitContainer();
@@ -94,7 +95,6 @@
             this.pStatusSeparator = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kbStatusSeparator = new ComponentFactory.Krypton.Toolkit.KryptonBorderEdge();
             this.pbStatus = new System.Windows.Forms.ProgressBar();
-            this.cEpisodes = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             ((System.ComponentModel.ISupportInitialize)(this.pMenu)).BeginInit();
             this.pMenu.SuspendLayout();
             this.flowLayoutMenu.SuspendLayout();
@@ -464,7 +464,6 @@
             // 
             this.cName.AspectName = "Name";
             this.cName.CellPadding = null;
-            this.cName.DisplayIndex = 1;
             this.cName.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.cName.ImageAspectName = "Icon";
             this.cName.Text = "Name";
@@ -474,34 +473,36 @@
             // 
             this.cPicture.AspectName = "EmptyString";
             this.cPicture.CellPadding = null;
-            this.cPicture.DisplayIndex = 0;
             this.cPicture.ImageAspectName = "PictureAspect";
             this.cPicture.Searchable = false;
             this.cPicture.Sortable = false;
             this.cPicture.Text = "";
             this.cPicture.Width = 128;
             // 
+            // cEpisodes
+            // 
+            this.cEpisodes.AspectName = "EpisodesAspect";
+            this.cEpisodes.CellPadding = null;
+            this.cEpisodes.Text = "Episodes";
+            // 
             // cYear
             // 
             this.cYear.AspectName = "YearAspect";
             this.cYear.CellPadding = null;
-            this.cYear.DisplayIndex = 3;
             this.cYear.Text = "Year";
-            // 
-            // cFansub
-            // 
-            this.cFansub.AspectName = "Fansub";
-            this.cFansub.CellPadding = null;
-            this.cFansub.DisplayIndex = 4;
-            this.cFansub.Text = "Fansub";
             // 
             // cRating
             // 
             this.cRating.AspectName = "Rating";
             this.cRating.CellPadding = null;
-            this.cRating.DisplayIndex = 5;
             this.cRating.Text = "Rating";
             this.cRating.Width = 90;
+            // 
+            // cFansub
+            // 
+            this.cFansub.AspectName = "Fansub";
+            this.cFansub.CellPadding = null;
+            this.cFansub.Text = "Fansub";
             // 
             // cJapanese
             // 
@@ -607,7 +608,6 @@
             this.lStatus.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lStatus.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
-            this.lStatus.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
             this.lStatus.Location = new System.Drawing.Point(0, 5);
             this.lStatus.Name = "lStatus";
             this.lStatus.Size = new System.Drawing.Size(567, 21);
@@ -641,13 +641,6 @@
             this.pbStatus.Name = "pbStatus";
             this.pbStatus.Size = new System.Drawing.Size(209, 21);
             this.pbStatus.TabIndex = 0;
-            // 
-            // cEpisodes
-            // 
-            this.cEpisodes.AspectName = "EpisodesAspect";
-            this.cEpisodes.CellPadding = null;
-            this.cEpisodes.DisplayIndex = 3;
-            this.cEpisodes.Text = "Episodes";
             // 
             // MainForm
             // 

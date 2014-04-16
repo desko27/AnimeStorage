@@ -10,7 +10,7 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace AnimeStorage
 {
-    public partial class FTitleSuggestions : KryptonMovingForm
+    public partial class FTitleSuggestions : KryptonDraggableForm
     {
 
         // ==================================================
@@ -23,12 +23,8 @@ namespace AnimeStorage
         public FTitleSuggestions(string original, List<Tuple<int, string, int>> similars)
         {
             InitializeComponent();
-
-            // propagate 'move window'
-            pWrapper.MouseDown += moveWindow;
-            foreach (Control item in pWrapper.Controls)
-                if (item is KryptonPanel || item is KryptonWrapLabel || item is FlowLayoutPanel)
-                    item.MouseDown += moveWindow;
+            InitializeDragEvents();
+            InitializeCustomStyles();
 
             // load incoming data
             this.similars = similars;

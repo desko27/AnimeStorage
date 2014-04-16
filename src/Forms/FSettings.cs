@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AnimeStorage
 {
-    public partial class FSettings : KryptonMovingForm
+    public partial class FSettings : KryptonDraggableForm
     {
 
         // ==================================================
@@ -24,6 +24,9 @@ namespace AnimeStorage
         public FSettings(MainForm mainForm)
         {
             InitializeComponent();
+            InitializeDragEvents();
+            InitializeCustomStyles();
+
             this.mainForm = mainForm;
             settings = mainForm.settings;
 
@@ -35,20 +38,6 @@ namespace AnimeStorage
             cSelectedFore.SelectedColor = settings.GetSetting("StyleListSelectedForeColor");
             cSelectedBack.SelectedColor = settings.GetSetting("StyleListSelectedBackColor");
             // ---
-
-            // propagate 'move window' and other common properties
-            pWrapper.MouseDown += moveWindow;
-            foreach (Control item in pWrapper.Controls) {
-                if (item is KryptonGroupBox) {
-                    item.MouseDown += moveWindow;
-                    ((KryptonGroupBox)item).StateCommon.Back.Color1 = Color.Transparent;
-                    var panel = ((KryptonGroupBox)item).Panel;
-                    panel.MouseDown += moveWindow;
-
-                    foreach (Control subitem in panel.Controls)
-                        if (subitem is KryptonLabel || subitem is KryptonWrapLabel) subitem.MouseDown += moveWindow;
-                }
-            }
         }
 
             #endregion

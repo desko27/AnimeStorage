@@ -12,7 +12,7 @@ using System.Runtime.InteropServices;
 
 namespace AnimeStorage
 {
-    public partial class FWaitingApi : KryptonMovingForm
+    public partial class FWaitingApi : KryptonDraggableForm
     {
 
         // ==================================================
@@ -29,10 +29,8 @@ namespace AnimeStorage
         public FWaitingApi(MainForm mainForm, int id)
         {
             InitializeComponent();
-
-            // propagate 'move window'
-            pMain.MouseDown += moveWindow;
-            foreach (Control item in pMain.Controls) item.MouseDown += moveWindow;
+            InitializeDragEvents(true);
+            InitializeCustomStyles();
 
             // load incoming data
             this.mainForm = mainForm;
