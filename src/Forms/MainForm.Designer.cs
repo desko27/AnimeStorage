@@ -464,6 +464,7 @@
             // 
             this.cName.AspectName = "Name";
             this.cName.CellPadding = null;
+            this.cName.DisplayIndex = 1;
             this.cName.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.cName.ImageAspectName = "Icon";
             this.cName.Text = "Name";
@@ -473,6 +474,7 @@
             // 
             this.cPicture.AspectName = "EmptyString";
             this.cPicture.CellPadding = null;
+            this.cPicture.DisplayIndex = 0;
             this.cPicture.ImageAspectName = "PictureAspect";
             this.cPicture.Searchable = false;
             this.cPicture.Sortable = false;
