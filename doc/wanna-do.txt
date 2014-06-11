@@ -1,1 +1,2 @@
 * Try to apply patches when downloaded ones are found.
+* Delete emtpy folders only when anime has been moved from them.
