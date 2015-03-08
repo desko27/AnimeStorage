@@ -1,3 +1,5 @@
+[![Project Status](https://stillmaintained.com/desko27/AnimeStorage.png)](https://stillmaintained.com/desko27/AnimeStorage)
+
 AnimeStorage
 ============
 
