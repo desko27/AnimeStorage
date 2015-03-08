@@ -1,12 +1,12 @@
+# AnimeStorage
+
 [![Project Status](http://s13.postimg.org/ktu33ur2r/Anime_Storage.png)](https://stillmaintained.com/desko27/AnimeStorage)
 
-AnimeStorage
-============
+```
+Still in progress... Alpha should be available in a few months.
+```
 
-	Still in progress... Alpha should be available in a few months.
-
-Who is this app for?
----------------------
+## Who is this app for?
 
  * Do you download tons of Anime and are obsessed with keeping them all well organized into your drives?
  * Are you tired of manually renaming and moving your recent downloaded anime just to fit your folders structure?
@@ -16,7 +16,8 @@ Who is this app for?
 
 If you answered yes to at least one of those questions, then this app is for you.
 
-What does the app do?
----------------------
+## What does the app do?
 
-	Still in progress.
+```
+Still in progress.
+```
