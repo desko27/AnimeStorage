@@ -1,6 +1,4 @@
-# AnimeStorage
-
-[![Project Status](https://img.shields.io/badge/status-abandoned-red.svg)](https://stillmaintained.com/desko27/AnimeStorage)
+# AnimeStorage [![Project Status](https://img.shields.io/badge/status-abandoned-red.svg)](https://stillmaintained.com/desko27/AnimeStorage)
 
 ```
 Still in progress... Alpha should be available in a few months.
